@@ -7,3 +7,4 @@ const AuthPage = () => {
 }
 
 export {AuthPage}
+

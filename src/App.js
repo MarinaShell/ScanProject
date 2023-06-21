@@ -20,8 +20,8 @@ function App() {
         <Route path='result' element={<ResultPage />} />
       </Routes>
       
-      <Footer />
-    </div>
+      <Footer />   
+     </div>
   );
 }
 
