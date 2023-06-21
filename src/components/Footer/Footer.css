@@ -1,0 +1,30 @@
+@font-face {
+    font-family: 'Inter';
+    src: url('Inter-Regular.otf')
+}
+
+footer {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    height: 137px;
+    width: 100%;
+    background: #029491;
+}
+
+.Logo {
+    position: absolute;
+    width: 141px;
+    height: 141px;
+    left: 60px;
+    top: -2px;
+}
+
+.foot_text {
+    font-family: 'Inter';
+    text-align: right;
+    margin-right: 45px;
+    color: white;
+    margin-top: 25px;
+    font-size: 14px;
+}
