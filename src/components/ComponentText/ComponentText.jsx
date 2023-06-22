@@ -5,7 +5,7 @@ export const ComponentText = (props) => {
     let { children, ...others } = props
      return (
     <div>
-        <p {...others} style={{ fontSize: 20 }} > 
+        <p {...others} sizeText={props.sizeText} > 
             {children}
         </p>
      </div>)
