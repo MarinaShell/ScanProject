@@ -5,7 +5,6 @@ import { theme } from '../../../theme/Buttons/Buttons'
 
 const CustomButton = (props) => {
     let { children, ...others } = props;
-    console.log(props)
     return (
         <ThemeProvider theme={theme}>
             <Button {...others} variant={props.variant}>{children}</Button>

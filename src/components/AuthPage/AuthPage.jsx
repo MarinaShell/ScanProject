@@ -7,4 +7,3 @@ const AuthPage = () => {
 }
 
 export {AuthPage}
-

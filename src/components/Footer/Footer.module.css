@@ -3,6 +3,13 @@
     src: url('../../fonts/inter/Inter-Regular.ttf');
 }
 
+.footer {
+    position: sticky;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
 .footerContent {
     display: flex;
     justify-content: space-between;
@@ -20,8 +27,8 @@
     font-size: 14px;
     color: #ffffff;
     text-align: right;
-    line-height: 0;
-    margin: 10px 0;
+    line-height: 0.2;
+    margin: 8px 0;
 }
 
 .footerText p:last-child {

@@ -12,7 +12,7 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-      <CustomButton variant='main'>Button</CustomButton>
+      <CustomButton variant='blue' >Читать в источнике</CustomButton>
       <Routes>
         <Route path='/' element={<MainPage />} />
         <Route path='login' element={<AuthPage />} />
@@ -20,8 +20,8 @@ function App() {
         <Route path='result' element={<ResultPage />} />
       </Routes>
       
-      <Footer />   
-     </div>
+      <Footer />
+    </div>
   );
 }
 

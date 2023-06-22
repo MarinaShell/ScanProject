@@ -45,7 +45,6 @@ const NavBar = (props) => {
 
     const drawerWidth = '100%';
 
-
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -58,7 +57,6 @@ const NavBar = (props) => {
             {/* <Typography variant="h6" sx={{ my: 2 }}>
                 MUI
             </Typography> */}
-
             <Divider />
             <List>
                 {Menu.map((item) => (
@@ -151,7 +149,8 @@ const NavBar = (props) => {
                 </Container>
             </AppBar>
             <Box>
-                <Drawer                  
+                <Drawer
+                    
                     container={container}
                     variant="temporary"
                     open={mobileOpen}
