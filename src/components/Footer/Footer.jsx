@@ -9,8 +9,12 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 const Footer = () => {
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.up("sm"));
+
     return (
-        <div style={{ backgroundColor: Colors.colorAqua }} className={styles.footer}>
+        <div
+            style={{ backgroundColor: Colors.colorAqua }}
+            className={styles.footer}
+        >
             <CustomContainer>
                 <div className={styles.footerContent}>
                     {matches ? (
