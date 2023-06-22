@@ -5,7 +5,11 @@ export const ComponentText = (props) => {
     let { children, ...others } = props
      return (
     <div>
-        <p {...others} sizeText={props.sizeText} > 
+        <p {...others} style={{
+           fontFamily: "Inter",
+           fontWeight: 400,
+           lineHeight: "1px",
+           textTransform: "none"}} > 
             {children}
         </p>
      </div>)
