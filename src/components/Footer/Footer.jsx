@@ -14,9 +14,7 @@ const Footer = () => {
         Copyright, 2022
       </p>
     </footer>
-
   )
 }
 
-
-export { Footer };
+export default Footer

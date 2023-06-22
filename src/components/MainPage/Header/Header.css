@@ -1,0 +1,11 @@
+.header {
+    display: flex;
+}
+
+.image {
+    float: right;
+}
+
+.size60 {
+    float: left;
+}
