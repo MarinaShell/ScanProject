@@ -1,8 +1,9 @@
 import { fontSize } from '@mui/system'
-import React from 'react'
+import React from 'react';
 
-export const ComponentText = () => {
+
+export const ComponentText = (props) => {
 	return (<div>
-		<p style={{ fontSize: 20 }} > {props.textName}</p>
+		<p  > {props.textName}</p>
 	</div>)
 }
