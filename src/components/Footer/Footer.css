@@ -28,3 +28,22 @@ footer {
     margin-top: 25px;
     font-size: 14px;
 }
+
+@media screen and (max-width: 600px) {
+    footer {
+        height: 100px;
+    }
+
+    .Logo {
+        width: 111px;
+        height: 111px;
+        left: 18px;
+        top: -12px;
+    }
+
+    .foot_text {
+        margin-right: 25px;
+        margin-top: 15px;
+        font-size: 11px;
+    }
+}
