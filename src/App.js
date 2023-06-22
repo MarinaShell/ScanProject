@@ -1,15 +1,26 @@
 import './App.css';
 import { NavBar } from './components/NavBar/NavBar';
-import { ComponentButton } from './components/ComponentButton/ComponentButton';
+import { Route, Routes } from 'react-router-dom';
+import { MainPage } from './components/MainPage/MainPage';
+import { AuthPage } from './components/AuthPage/AuthPage';
+import { SearchPage } from './components/SearchPage/SearchPage';
+import { ResultPage } from './components/ResultPage/ResultPage';
+import { Footer } from './components/Footer/Footer';
+import { CustomButton } from './components/CustomComponents/CustomButton/CustomButton';
 
 function App() {
   return (
     <div className="App">
       <NavBar />
-    
-      // Здесь мы вызвали кнопку и то что передается "Я кнопка" это по сути как дитя children
-      <ComponentButton variant='contained'>Я Кнопка </ComponentButton>
-    
+      <CustomButton variant='blue' >Читать в источнике</CustomButton>
+      <Routes>
+        <Route path='/' element={<MainPage />} />
+        <Route path='login' element={<AuthPage />} />
+        <Route path='search' element={<SearchPage />} />
+        <Route path='result' element={<ResultPage />} />
+      </Routes>
+      
+      <Footer />
     </div>
   );
 }
