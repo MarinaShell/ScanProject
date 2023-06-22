@@ -5,7 +5,7 @@ export const ComponentHeader = (props) => {
     let { children, ...others } = props
      return (
     <div>
-        <p {...others} style={{ fontSize: 60 }} > 
+        <p {...others} size={props.size} > 
             {children}
         </p>
      </div>)
