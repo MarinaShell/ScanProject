@@ -10,8 +10,8 @@ function App() {
     <div className="App">
 		
       <NavBar/>
-		<ComponentHeader/>
-      <ComponentText/>
+	<ComponentHeader headerTextName="Cервис по поиску публикаций о компании по его ИНН"/>
+      <ComponentText textName="Комплексный анализ публикаций, получение данных в формате PDF на электронную почту."/>
       <ComponentButton variant='contained'>Я Кнопка </ComponentButton>
     
     </div>
