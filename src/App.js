@@ -1,7 +1,6 @@
 import './App.css';
 import { NavBar } from './components/NavBar/NavBar';
 import { ComponentButton } from './components/ComponentButton/ComponentButton';
-import Footer from './components/Footer/Footer.jsx';
 import { Route, Routes } from 'react-router-dom';
 import { MainPage } from './components/MainPage/MainPage';
 import { AuthPage } from './components/AuthPage/AuthPage';
@@ -15,7 +14,7 @@ function App() {
     <div className="App">
       <NavBar />
 
-      <CustomButton variant='blue' >Читать в источнике</CustomButton>
+      {/*<CustomButton variant='blue' >Читать в источнике</CustomButton>*/}
       <Routes>
         <Route path='/' element={<MainPage />} />
         <Route path='login' element={<AuthPage />} />
