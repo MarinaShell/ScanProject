@@ -1,6 +1,4 @@
 import './App.css';
-import './components/ComponentText/ComponentText.css';
-import './components/ComponentHeader/ComponentHeader.css';
 import { NavBar } from './components/NavBar/NavBar';
 import { ComponentButton } from './components/ComponentButton/ComponentButton';
 import { ComponentText } from './components/ComponentText/ComponentText';
@@ -12,13 +10,8 @@ function App() {
     <div className="App">	
       <NavBar/>
 
-		<div className='size60'>
-		<ComponentHeader headerTextName="Cервис по поиску публикаций о компании по его ИНН"/>
-		</div>
-
-		<div className="size20 colorWhite background">
-      <ComponentText  textName="Комплексный анализ публикаций, получение данных в формате PDF на электронную почту."/>
-		</div>
+      <ComponentHeader style={{fontSize:"60px"}} headerTextName="Cервис по поиску публикаций о компании по его ИНН"/>	
+      <ComponentText style={{fontSize:"20px"}} textName="Комплексный анализ публикаций, получение данных в формате PDF на электронную почту."/>
 
       <ComponentButton variant='contained'>Я Кнопка </ComponentButton>
     </div>
