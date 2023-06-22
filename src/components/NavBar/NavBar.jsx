@@ -43,7 +43,7 @@ const NavBar = (props) => {
     //     }
     // });
 
-    const drawerWidth = 240;
+    const drawerWidth = '100%';
 
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -54,9 +54,9 @@ const NavBar = (props) => {
 
     const drawer = (
         <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-            <Typography variant="h6" sx={{ my: 2 }}>
+            {/* <Typography variant="h6" sx={{ my: 2 }}>
                 MUI
-            </Typography>
+            </Typography> */}
             <Divider />
             <List>
                 {Menu.map((item) => (
@@ -150,6 +150,7 @@ const NavBar = (props) => {
             </AppBar>
             <Box>
                 <Drawer
+                    
                     container={container}
                     variant="temporary"
                     open={mobileOpen}
@@ -157,6 +158,7 @@ const NavBar = (props) => {
                     ModalProps={{
                         keepMounted: true, // Better open performance on mobile.
                     }}
+
                     sx={{
                         display: { md: "block", lg: "none" },
                         "& .MuiDrawer-paper": {

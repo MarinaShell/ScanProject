@@ -14,8 +14,9 @@ const Footer = () => {
         Copyright, 2022
       </p>
     </footer>
-import React from 'react'
+
   )
 }
 
-export default Footer
+
+export { Footer };
