@@ -5,7 +5,11 @@ export const ComponentHeader = (props) => {
     let { children, ...others } = props
      return (
     <div>
-        <p {...others} variant={props.variant} > 
+        <p {...others} style={{
+           fontFamily: "Inter",
+           fontWeight: 400,
+           lineHeight: "1px",
+           textTransform: "none"
             {children}
         </p>
      </div>)
