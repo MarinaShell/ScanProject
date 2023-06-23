@@ -10,14 +10,15 @@ import { AuthPage } from './components/AuthPage/AuthPage';
 import { SearchPage } from './components/SearchPage/SearchPage';
 import { ResultPage } from './components/ResultPage/ResultPage';
 import { Footer } from './components/Footer/Footer';
-import { CustomButton } from './components/CustomComponents/CustomButton/CustomButton';
 
 function App() {
   return (
     <div className="App">
       <NavBar />
+
       <Header />
       {/*<CustomButton variant='blue' >Читать в источнике</CustomButton>*/}
+
       <Routes>
         <Route path='/' element={<MainPage />} />
         <Route path='login' element={<AuthPage />} />

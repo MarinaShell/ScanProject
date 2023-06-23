@@ -1,22 +1,40 @@
-import React from 'react';
-import './Footer.css'
-import logo from './logo2.svg'
+import React from "react";
+import { CustomContainer } from "../CustomComponents/CustomContainer/CustomContainer";
+import BottomLogo from "../../media/BottomLogo.svg";
+import styles from "./Footer.module.css";
+import { Colors } from "../../theme/Colors/Colors";
+import { useTheme } from "@mui/material";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 const Footer = () => {
-  return (
-    <footer>
-      <img src={logo} class="Logo" />
-      <p class="foot_text">
-        г. Москва, Цветной б-р, 40<br />
-        +7 495 711 21 11<br />
-        info@skan.ru<br />
-        <br />
-        Copyright, 2022
-      </p>
-    </footer>
-  )
-}
+    const theme = useTheme();
+    const matches = useMediaQuery(theme.breakpoints.up("sm"));
 
-export default Footer
+    return (
+        <div
+            style={{ backgroundColor: Colors.colorAqua }}
+            className={styles.footer}
+        >
+            <CustomContainer>
+                <div className={styles.footerContent}>
+                    {matches ? (
+                        <img src={BottomLogo} alt="logo" />
+                    ) : (
+                        <div className={styles.footerImage}>
+                            <img src={BottomLogo} alt="logo" />
+                        </div>
+                    )}
 
+                    <div className={styles.footerText}>
+                        <p>г. Москва, Цветной б-р, 40 </p>
+                        <p>+7 495 771 21 11 </p>
+                        <p>info@skan.ru</p>
+                        <p className={styles.copyright}>Copyright. 2022</p>
+                    </div>
+                </div>
+            </CustomContainer>
+        </div>
+    );
+};
 
+export { Footer };
