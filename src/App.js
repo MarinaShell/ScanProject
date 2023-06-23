@@ -1,4 +1,5 @@
 import './App.css';
+import { fontSize } from '@mui/system'
 import { NavBar } from './components/NavBar/NavBar';
 import Header from './components/MainPage/Header/Header';
 import Footer from './components/Footer/Footer.jsx';
@@ -10,15 +11,31 @@ import { AuthPage } from './components/AuthPage/AuthPage';
 import { SearchPage } from './components/SearchPage/SearchPage';
 import { ResultPage } from './components/ResultPage/ResultPage';
 import { Footer } from './components/Footer/Footer';
+import  ComponentText  from './components/ComponentText/ComponentText';
+import  ComponentHeader  from './components/ComponentHeader/ComponentHeader';
+import  ComponentMainPageMedia  from './components/ComponentMainPageMedia/ComponentMainPageMedia';
+import ComponentAuthMedia from './components/ComponentAuthMedia/ComponentAuthMedia';
 
+
+import MyImage from './images/Group14.svg';
+
+import { CustomButton } from './components/CustomComponents/CustomButton/CustomButton';
+
+function App() {
+  return (
+    <div className="App">	
+	 	<ComponentAuthMedia />
+      <NavBar />
+      <ComponentHeader style={{fontSize:"60px"}}> Cервис по поиску публикаций о компании по его ИНН
+</ComponentHeader>
+    <ComponentText  style={{fontSize:"20px"}}></ComponentText>Комплексный анализ публикаций, получение данных в формате PDF на электронную почту.<ComponentText/>
+		<ComponentMainPageMedia />
+		
 function App() {
   return (
     <div className="App">
       <NavBar />
-
       <Header />
-      {/*<CustomButton variant='blue' >Читать в источнике</CustomButton>*/}
-
       <Routes>
         <Route path='/' element={<MainPage />} />
         <Route path='login' element={<AuthPage />} />

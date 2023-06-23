@@ -1,8 +1,19 @@
 import { fontSize } from '@mui/system'
-import React from 'react';
+import React from 'react'
 
-export const ComponentText = (props) => {
-	return (<div>
-		<p  > {props.textName}</p>
-	</div>)
+const ComponentText = (props) => {
+	let { children, ...others } = props
+	return (
+		<div>
+			<h1 {...others} style={{
+				fontFamily: "Inter",
+				fontWeight: 400,
+				lineHeight: "1px",
+				textTransform: "none"
+			}} >
+				{children}
+			</h1>
+		</div>)
 }
+export default ComponentText;
+

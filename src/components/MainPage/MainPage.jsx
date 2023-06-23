@@ -13,3 +13,4 @@ const MainPage = () => {
 };
 
 export { MainPage };
+

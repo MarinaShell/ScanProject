@@ -1,4 +1,3 @@
-import React from "react";
 import { Container, useTheme } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
@@ -13,6 +12,7 @@ const CustomContainer = (props) => {
             {...others}
             maxWidth='false'
             style={responsive}
+
         >
             {children}
         </Container>
