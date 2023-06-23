@@ -1,0 +1,50 @@
+@font-face {
+    font-family: 'Inter';
+    src: url('../../../fonts/inter/Inter-Regular.ttf')
+}
+
+.form {
+    width: 429px;
+    height: 523px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #C7C7C7;
+    box-shadow: 2px 2px 15px 0px #C7C7C7;
+    border-radius: 10px;
+}
+
+.form_auth_text {
+    text-align: left;
+    margin-left: 30px;
+    font-family: 'Inter';
+    font-size: 16px;
+    color: #949494;
+}
+
+button {
+    border: none;
+    outline: none;
+    background-color: white;
+    cursor: pointer;
+}
+
+.return_passw {
+    font-family: 'Inter';
+    font-size: 16px;
+    color: #5970FF;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+input {
+    width: 85%;
+    border-style: solid;
+    border-color: #C7C7C7;
+    border-radius: 5px;
+    border-width: 1px;
+}
+
+.logos {
+    float: left;
+    margin-left: 25px;
+}
