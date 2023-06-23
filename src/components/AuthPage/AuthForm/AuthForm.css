@@ -11,6 +11,7 @@
     border-color: #C7C7C7;
     box-shadow: 2px 2px 15px 0px #C7C7C7;
     border-radius: 10px;
+    margin: 100px;
 }
 
 .form_auth_text {
@@ -47,4 +48,45 @@ input {
 .logos {
     float: left;
     margin-left: 25px;
+}
+
+.head {
+    font-family: 'Inter';
+    font-size: 16px;
+    display: grid;
+    grid-template-columns: 151px 213px;
+    margin-top: 15px;
+    margin-bottom: 50px;
+    cursor: pointer;
+}
+
+.el-1 {
+    color:#029491;
+}
+
+.el-2 {
+    color: #949494;
+    text-align: right;
+}
+
+.line {
+    margin-top: 10px;
+}
+
+.line-1 {
+    width: 140px;
+    margin-left: 10px;
+    border-top: 3px solid #029491;
+}
+
+.line-2 {
+    width: 213px;
+    border-top: 3px solid #949494;
+    margin-left: 20px;
+}
+
+.lck {
+    float: left;
+    left: 0;
+    top: 0;
 }
