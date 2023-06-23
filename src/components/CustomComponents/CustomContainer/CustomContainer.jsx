@@ -1,17 +1,17 @@
-import React from "react";
-import { Container } from "@mui/material";
+import { Container, useTheme } from "@mui/material";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 const CustomContainer = (props) => {
+    const theme = useTheme();
+    const matches = useMediaQuery(theme.breakpoints.down('md'));
     let { children, ...others } = props;
 
+    const responsive =  matches ? {padding: "20px 14px"} : {padding: "20px 60px"}
     return (
         <Container
             {...others}
-            // sx={{
-            //     marginLeft: '18px',
-            //     marginRight: '18px'
-            // }} 
             maxWidth='false'
+            style={responsive}
 
         >
             {children}

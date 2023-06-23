@@ -9,6 +9,12 @@ const theme = createTheme({
                     "&.Mui-disabled": {
                         backgroundColor: "rgba(89, 112, 255, 0.5)",
                         color: Colors.colorWhite,
+                        fontFamily: "Inter, sans",
+                        fontWeight: 400,
+                        fontSize: "20px",
+                        lineHeight: "24px",
+                        textTransform: "none",
+                        letterSpacing: "1px",
                     }
                 }
             },
@@ -29,7 +35,7 @@ const theme = createTheme({
                         
                         "&:hover": {
                             backgroundColor: Colors.colorBlue,
-                            boxShadow: "0px 0px 20px 0px rgba(0, 0, 0, 0.2)",
+                            boxShadow: "0px 8px 15px rgba(0, 0, 0, 0.1)",
                         },
                     },
                 },
@@ -46,7 +52,7 @@ const theme = createTheme({
                         letterSpacing: "1px",
                         "&:hover": {
                             backgroundColor: "#D2D2D2",
-                            boxShadow: "0px 0px 20px 0px rgba(0, 0, 0, 0.2)",
+                            boxShadow: "0px 8px 15px rgba(0, 0, 0, 0.1)",
                         },
                     },
                 },
@@ -63,7 +69,7 @@ const theme = createTheme({
                         letterSpacing: "1px",
                         "&:hover": {
                             backgroundColor: Colors.colorLightBlue,
-                            boxShadow: "0px 0px 20px 0px rgba(0, 0, 0, 0.2)",
+                            boxShadow: "0px 8px 15px rgba(0, 0, 0, 0.1)",
                         },
                     },
                 },
