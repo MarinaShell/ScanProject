@@ -8,4 +8,4 @@ function ComponentImage(props){
     )
 }
 
-export default ComponentImage;
+export {ComponentImage};

@@ -8,6 +8,7 @@ import { SearchPage } from './components/SearchPage/SearchPage';
 import { ResultPage } from './components/ResultPage/ResultPage';
 import { Footer } from './components/Footer/Footer';
 import { CustomButton } from './components/CustomComponents/CustomButton/CustomButton';
+import { SearchResultHeader } from './components/SearchResultHeader/SearchResultHeader';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path='result' element={<ResultPage />} />
       </Routes>
 
+      <SearchResultHeader />
       <Footer />
     </div>
   );
