@@ -163,3 +163,4 @@ const NavBar = () => {
   }
 
 export { NavBar };
+

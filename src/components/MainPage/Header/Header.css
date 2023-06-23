@@ -1,0 +1,52 @@
+.header {
+    display: flex;
+}
+
+.image {
+    float: right;
+    width: 100%;
+    height: auto;
+    max-width: 1200px;
+}
+
+.size60 {
+    float: left;
+    text-align: left;
+    margin-left: 50px;
+}
+
+#text {
+    text-align: left;
+    margin-left: 50px;
+    margin-bottom: 100px;
+}
+
+.button {
+    float: left;
+    margin-left: 50px;
+}
+
+@media screen and (max-width: 1000px) {
+    .header {
+        flex-direction: column;
+    }
+    
+    .size60 {
+        font-size: 26px;
+        margin-left: 25px;
+    }
+
+    #text {
+        margin-left: 25px;
+        margin-bottom: 50px;
+    }
+
+    .button {
+        margin-left: 25px;
+    }
+
+    .image {
+        position: relative;
+        background-position: 50% 100%;
+    }
+}
