@@ -7,5 +7,4 @@ function ComponentImage(props){
     </div>
     )
 }
-
 export default ComponentImage;

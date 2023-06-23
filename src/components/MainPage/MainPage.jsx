@@ -1,9 +1,20 @@
-import React from 'react'
+import React from "react";
+import { CustomContainer } from "../CustomComponents/CustomContainer/CustomContainer";
+import { CustomCard } from "../CustomComponents/CustomCard/CustomCard";
+
 
 const MainPage = () => {
-  return (
-    <div>MainPage</div>
-  )
-}
+    return (
+        <CustomContainer>
+          <CustomCard>
+            
+            <p style={{ wordWrap: "break-word" }}>
+                
+         </p>
+         
+         </CustomCard>
+        </CustomContainer>
+    );
+};
 
-export default MainPage
+export { MainPage };
