@@ -10,6 +10,10 @@ footer {
     height: 137px;
     width: 100%;
     background: #029491;
+
+.foot {
+    display: flex;
+    flex-direction: column;
 }
 
 .Logo {
@@ -47,3 +51,4 @@ footer {
         font-size: 11px;
     }
 }
+

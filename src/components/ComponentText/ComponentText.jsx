@@ -16,3 +16,4 @@ const ComponentText = (props) => {
 		</div>)
 }
 export default ComponentText;
+
