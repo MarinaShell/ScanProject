@@ -1,5 +1,5 @@
 .header {
-    display: flex;
+    display: flex; 
 }
 
 .image {
@@ -13,6 +13,7 @@
     float: left;
     text-align: left;
     margin-left: 50px;
+    font-size: 26px;
 }
 
 #text {

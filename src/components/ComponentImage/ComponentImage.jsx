@@ -1,6 +1,6 @@
 import * as React from "react";
 
-function ComponentImage(props){
+const ComponentImage = (props) => {
     return (
     <div>
         <img src = {props.source} width={props.width} height={props.height}/>
@@ -8,4 +8,4 @@ function ComponentImage(props){
     )
 }
 
-export {ComponentImage};
+export default ComponentImage;
