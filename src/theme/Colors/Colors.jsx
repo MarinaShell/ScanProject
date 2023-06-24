@@ -4,7 +4,8 @@ const Colors = {
     colorWhite: '#ffffff',
     colorYellow: '#FFB64F',
     colorLightBlue: '#7CE3E1',
-    colorBlue: '#5970FF'
+    colorBlue: '#5970FF',
+    colorGray: '#D2D2D2'
 }
 
 export { Colors }
