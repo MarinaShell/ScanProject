@@ -20,13 +20,13 @@ const SearchForm = () => {
                     <input type="number" required="required" placeholder="от 1 до 1000" />
                 </div>
                 <div className='part_form2'>
-                    <div className='checkbox1'><input type="checkbox" /><label><p>Признак максимальной полноты</p></label></div><br />
-                    <div className='checkbox2'><label><input type="checkbox" />Упоминания в бизнес-контенте</label></div><br />
-                    <div className='checkbox3'><label><input type="checkbox" />Главная роль в публикации</label></div><br />
-                    <div className='checkbox4'><label><input type="checkbox" />Публикации только с риск-факторами</label></div><br />
-                    <div className='checkbox5'><label><input type="checkbox" />Включать технические новости рынков</label></div><br />
-                    <div className='checkbox6'><label><input type="checkbox" />Включать анонсы и календари</label></div><br />
-                    <div className='checkbox7'><label><input type="checkbox" />Включать сводки новостей</label></div><br />
+                    <div className='checkbox'><input type="checkbox" /><label>Признак максимальной полноты</label></div><br />
+                    <div className='checkbox'><label><input type="checkbox" />Упоминания в бизнес-контенте</label></div><br />
+                    <div className='checkbox'><label><input type="checkbox" />Главная роль в публикации</label></div><br />
+                    <div className='checkbox'><label><input type="checkbox" />Публикации только с риск-факторами</label></div><br />
+                    <div className='checkbox'><label><input type="checkbox" />Включать технические новости рынков</label></div><br />
+                    <div className='checkbox'><label><input type="checkbox" />Включать анонсы и календари</label></div><br />
+                    <div className='checkbox'><label><input type="checkbox" />Включать сводки новостей</label></div><br />
                 </div>
                 <div className='part_form3'>
                     <p>Диапазон поиска*</p>

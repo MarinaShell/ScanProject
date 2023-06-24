@@ -23,10 +23,10 @@ input {
 }
 
 form {
-    display: flex;
-    flex-wrap: wrap;
-    text-align: left;
-}
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 872px;
+  }
 
 .part_form1 {
     margin-left: 20px;
@@ -39,8 +39,4 @@ form {
 
 .part_form3 {
     margin-left: 20px;
-}
-
-.checkbox1 {
-    flex-direction: row;
 }
