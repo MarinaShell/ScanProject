@@ -3,38 +3,43 @@ import { CustomCard } from "../../CustomComponents/CustomCard/CustomCard";
 import RightArrow from "../../../media/RightArrow.svg";
 import LeftArrow from "../../../media/LeftArrow.svg";
 import AliceCarousel from "react-alice-carousel";
+import clock from "../../../media/Clock.svg";
+import search from "../../../media/search.svg";
+import armor from "../../../media/armor.svg";
 import "react-alice-carousel/lib/alice-carousel.css";
+import ComponentText from "../../CustomComponents/ComponentText/ComponentText";
+import ComponentHeader from "../../CustomComponents/ComponentHeader/ComponentHeader";
 
 const OurGoals = () => {
     const items = [
-        <CustomCard>
-            <div>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo
-                architecto odio accusamus voluptatibus unde eum ad, culpa
-                temporibus aliquid, quas similique pariatur quasi inventore
-                expedita? Ratione doloremque quasi aperiam illo.
+        <CustomCard style={{ minHeight: "225px", margin: "10px 30px" }}>
+            <div style={{ textAlign: "left" }}>
+                <img src={clock} alt="clock" />
+                <ComponentText style={{ fontSize: "18px", marginTop: "20px" }}>
+                    Высокая и оперативная скорость обработки заявки
+                </ComponentText>
             </div>
         </CustomCard>,
 
-        <CustomCard>
-            <div>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo
-                architecto odio accusamus voluptatibus unde eum ad, culpa
-                temporibus aliquid, quas similique pariatur quasi inventore
-                expedita? Ratione doloremque quasi aperiam illo.
+        <CustomCard style={{ minHeight: "225px", margin: "10px 30px" }}>
+            <div style={{ textAlign: "left" }}>
+                <img src={search} alt="search" />
+                <ComponentText style={{ fontSize: "18px", marginTop: "20px" }}>
+                    Огромная комплексная база данных, обеспечивающая объективный
+                    ответ на запрос
+                </ComponentText>
             </div>
         </CustomCard>,
 
-        <CustomCard>
-            <div>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo
-                architecto odio accusamus voluptatibus unde eum ad, culpa
-                temporibus aliquid, quas similique pariatur quasi inventore
-                expedita? Ratione doloremque quasi aperiam illo.
+        <CustomCard style={{ minHeight: "225px", margin: "10px 30px" }}>
+            <div style={{ textAlign: "left" }}>
+                <img src={armor} alt="watch" />
+                <ComponentText style={{ fontSize: "18px", marginTop: "20px" }}>
+                    Защита конфеденциальных сведений, не подлежащих разглашению
+                    по федеральному законодательству
+                </ComponentText>
             </div>
         </CustomCard>,
-
-        
     ];
     const responsive = {
         0: { items: 1 },
@@ -42,9 +47,9 @@ const OurGoals = () => {
         1024: { items: 3, itemsFit: "contain" },
     };
 
-    
     return (
         <div style={{ position: "relative" }}>
+            <ComponentHeader style={{textAlign: "left", marginBottom: "50px", marginLeft: "30px"}}>Почему именно мы</ComponentHeader>
             <AliceCarousel
                 autoWidth={false}
                 items={items}
@@ -54,7 +59,6 @@ const OurGoals = () => {
                 renderPrevButton={() => {
                     return (
                         <div
-                            
                             style={{
                                 position: "absolute",
                                 left: "-10px",
@@ -69,7 +73,6 @@ const OurGoals = () => {
                 renderNextButton={() => {
                     return (
                         <div
-                            
                             style={{
                                 position: "absolute",
                                 right: "-10px",
