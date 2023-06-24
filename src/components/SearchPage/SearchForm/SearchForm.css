@@ -1,0 +1,46 @@
+@font-face {
+    font-family: 'Inter';
+    src: url('../../../fonts/inter/Inter-Regular.ttf')
+}
+
+.form {
+    width: 872px;
+    height: 543px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #C7C7C7;
+    box-shadow: 2px 2px 15px 0px #C7C7C7;
+    border-radius: 10px;
+    font-size: 18px;
+    font-family: 'Inter';
+}
+
+input {
+    border-style: solid;
+    border-color: #C7C7C7;
+    border-radius: 5px;
+    border-width: 1px;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: left;
+}
+
+.part_form1 {
+    margin-left: 20px;
+}
+
+.part_form2 {
+    margin-left: auto;
+    flex-wrap: nowrap;
+}
+
+.part_form3 {
+    margin-left: 20px;
+}
+
+.checkbox1 {
+    flex-direction: row;
+}
