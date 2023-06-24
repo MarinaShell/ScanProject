@@ -1,6 +1,6 @@
 import React from 'react'
 import { CustomButton } from '../../ComponentButton/ComponentButton'
-import ComponentHeader from '../../ComponentHeader/ComponentHeader'
+import ComponentHeaderText from '../../ComponentHeaderText/ComponentHeaderText'
 import ComponentText from '../../ComponentText/ComponentText'
 import ComponentImage from '../../ComponentImage/ComponentImage'
 import main_up from './main_up.svg'
@@ -10,7 +10,7 @@ const Header = () => {
   return (<div className='header'>
     <div>
       <div className='size60'>
-        <ComponentHeader>Сервис по поиску публикаций о компании по его ИНН</ComponentHeader>
+        <ComponentHeaderText>Сервис по поиску публикаций о компании по его ИНН</ComponentHeaderText>
       </div>
       <div className='size20' id='text'>
         <ComponentText>

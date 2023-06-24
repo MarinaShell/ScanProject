@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ComponentHeader = (props) => {
+const ComponentHeaderText = (props) => {
 	let { children, ...others } = props
 	return (
 		<div>
@@ -15,5 +15,5 @@ const ComponentHeader = (props) => {
 			</h1>
 		</div>)
 }
-export default ComponentHeader;
+export default ComponentHeaderText;
 

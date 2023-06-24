@@ -2,7 +2,7 @@ import React from 'react'
 import { CustomContainer } from "../CustomComponents/CustomContainer/CustomContainer";
 import { ComponentImage } from "../../components/ComponentImage/ComponentImage";
 import { ComponentText } from "../../components/ComponentText/ComponentText";
-import { ComponentHeader } from "../../components/ComponentHeader/ComponentHeader";
+import { ComponentHeader } from "../ComponentHeaderText/ComponentHeaderText";
 
 
 const SearchResultHeader = () => {
