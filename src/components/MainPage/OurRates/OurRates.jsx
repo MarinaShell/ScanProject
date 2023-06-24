@@ -2,6 +2,7 @@ import React from "react";
 import { CustomContainer } from "../../CustomComponents/CustomContainer/CustomContainer";
 import ComponentOurRates from "./ComponentOurRates/ComponentOurRates";
 import './OurRates.css'
+import {Colors} from '../../../theme/Colors/Colors'
 
 const OurRates = () => {
     return (
@@ -14,7 +15,13 @@ const OurRates = () => {
                     priceOld = "1200"
                     priceIn = "или 150Р/мес. при рассрочке 24 мес."
                     list = ""
-                    button = "Перейти в личный кабинет"          
+                    button = "Перейти в личный кабинет"  
+                    color = {Colors.colorYellow} 
+                    colorText = {Colors.colorBlack}
+                    style ={{border:"2px",
+                            borderStyle:"solid",
+                            boxShadow:"none",
+                            borderColor: Colors.colorYellow }}       
                 />
                 <ComponentOurRates 
                     header = "Pro"
@@ -23,6 +30,8 @@ const OurRates = () => {
                     priceOld = "2600"
                     priceIn = "или 279Р/мес. при рассрочке 24 мес."
                     list = ""
+                    color = {Colors.colorLightBlue}
+                    colorText = {Colors.colorBlack} 
                     button = "Подробнее"    
                 />      
                 <ComponentOurRates 
@@ -32,6 +41,8 @@ const OurRates = () => {
                     priceOld = "3700"
                     priceIn = " "
                     list = ""
+                    color = {Colors.colorBlack}
+                    colorText = {Colors.colorWhite}  
                     button = "Подробнее"   
                 />            
             </div>

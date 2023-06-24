@@ -4,7 +4,7 @@ import goog from './Goog.svg';
 import face from './face.svg';
 import yand from './Yand.svg';
 import lock from './auth_lock.svg';
-import { CustomButton } from '../../ComponentButton/ComponentButton';
+import { CustomButton } from '../../CustomButton/CustomButton';
 import ComponentImage from '../../ComponentImage/ComponentImage';
 
 const AuthForm = () => {

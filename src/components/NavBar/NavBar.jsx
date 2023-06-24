@@ -1,166 +1,268 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
-import { Image } from '@mui/icons-material';
+import * as React from "react";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import CssBaseline from "@mui/material/CssBaseline";
+import Divider from "@mui/material/Divider";
+import Drawer from "@mui/material/Drawer";
+import IconButton from "@mui/material/IconButton";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemText from "@mui/material/ListItemText";
+import Toolbar from "@mui/material/Toolbar";
+import Button from "@mui/material/Button";
+import TopLogo from "../../media/TopLogo.svg";
+import BottomLogo from "../../media/BottomLogo.svg";
+import Close from "../../media/Close.svg";
+import { Colors } from "../../theme/Colors/Colors";
+import { Avatar } from "@mui/material";
+import menuIcon from "../../media/menuIcon.svg";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material";
+import { CustomButton } from "../CustomComponents/CustomButton/CustomButton";
+import ComponentText from "../CustomComponents/ComponentText/ComponentText";
 
-const pages = ['Products', 'Pricing', 'Blog'];
+const navItems = ["Главная", "Тарифы", "FAQ"];
+const drawerWidth = "100%";
 
+const NavBar = (props) => {
+    const theme = useTheme();
+    const matches = useMediaQuery(theme.breakpoints.down("lg"));
+    const { window } = props;
+    const [mobileOpen, setMobileOpen] = React.useState(false);
 
-const NavBar = () => {
-    const [anchorElNav, setAnchorElNav] = React.useState(null);
-    const [anchorElUser, setAnchorElUser] = React.useState(null);
-  
-    const handleOpenNavMenu = (event) => {
-      setAnchorElNav(event.currentTarget);
+    const handleDrawerToggle = () => {
+        setMobileOpen((prevState) => !prevState);
     };
-    const handleOpenUserMenu = (event) => {
-      setAnchorElUser(event.currentTarget);
-    };
-  
-    const handleCloseNavMenu = () => {
-      setAnchorElNav(null);
-    };
-  
-    const handleCloseUserMenu = () => {
-      setAnchorElUser(null);
-    };
-  
-    return (
-      <AppBar position="static">
-        <Container maxWidth="xl">
-          <Toolbar disableGutters>
-            {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
-            {/* <Typography
-              variant="h6"
-              noWrap
-              component="a"
-              href="/"
-              sx={{
-                mr: 2,
-                display: { xs: 'none', md: 'flex' },
-                fontFamily: 'monospace',
-                fontWeight: 700,
-                letterSpacing: '.3rem',
-                color: 'inherit',
-                textDecoration: 'none',
-              }}
+
+    const drawer = (
+        <Box>
+            <div
+                style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    padding: "0 40px",
+                }}
             >
-              LOGO
-            </Typography> */}
-            < Image />
-  
-            <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-              <IconButton
-                size="large"
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={handleOpenNavMenu}
-                color="inherit"
-              >
-                <MenuIcon />
-              </IconButton>
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorElNav}
-                anchorOrigin={{
-                  vertical: 'bottom',
-                  horizontal: 'left',
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'left',
-                }}
-                open={Boolean(anchorElNav)}
-                onClose={handleCloseNavMenu}
-                sx={{
-                  display: { xs: 'block', md: 'none' },
-                }}
-              >
-                {pages.map((page) => (
-                  <MenuItem key={page} onClick={handleCloseNavMenu}>
-                    <Typography textAlign="center">{page}</Typography>
-                  </MenuItem>
+                <img src={BottomLogo} alt="Logo" />
+                <img
+                    src={Close}
+                    alt="Close"
+                    onClick={handleDrawerToggle}
+                    style={{ cursor: "pointer" }}
+                />
+            </div>
+            <Divider />
+            <List>
+                {navItems.map((item) => (
+                    <ListItem key={item} disablePadding>
+                        <ListItemButton sx={{ textAlign: "center" }}>
+                            <ListItemText
+                                primary={<ComponentText>{item}</ComponentText>}
+                            />
+                        </ListItemButton>
+                    </ListItem>
                 ))}
-              </Menu>
-            </Box>
-            {/* <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} /> */}
-            <Typography
-              variant="h5"
-              noWrap
-              component="a"
-              href=""
-              sx={{
-                mr: 2,
-                display: { xs: 'flex', md: 'none' },
-                flexGrow: 1,
-                fontFamily: 'monospace',
-                fontWeight: 700,
-                letterSpacing: '.3rem',
-                color: 'inherit',
-                textDecoration: 'none',
-              }}
-            >
-              LOGO
-            </Typography>
-            <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-              {pages.map((page) => (
-                <Button
-                  key={page}
-                  onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: 'white', display: 'block' }}
+            </List>
+            <div style={{ textAlign: "center", marginTop: "70px" }}>
+                <ComponentText
+                    style={{
+                        marginBottom: "20px",
+                        color: "rgba(255,255,255,0.5)",
+                    }}
                 >
-                  {page}
-                </Button>
-              ))}
-            </Box>
-  
-            <Box sx={{ flexGrow: 0 }}>
-              <Tooltip title="Open settings">
-                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                  <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-                </IconButton>
-              </Tooltip>
-              <Menu
-                sx={{ mt: '45px' }}
-                id="menu-appbar"
-                anchorEl={anchorElUser}
-                anchorOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                open={Boolean(anchorElUser)}
-                onClose={handleCloseUserMenu}
-              >
-                {/* {settings.map((setting) => (
-                  <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                    <Typography textAlign="center">{setting}</Typography>
-                  </MenuItem>
-                ))} */}
-              </Menu>
-            </Box>
-          </Toolbar>
-        </Container>
-      </AppBar>
+                    Зарегистрироваться
+                </ComponentText>
+
+                <CustomButton
+                    variant="blue"
+                    style={{
+                        backgroundColor: "rgba(124, 227, 225, 1)",
+                        color: Colors.colorBlack,
+                    }}
+                >
+                    Войти
+                </CustomButton>
+            </div>
+        </Box>
     );
-  }
+
+    const container =
+        window !== undefined ? () => window().document.body : undefined;
+
+    const responsive = matches ? "0 14px" : "0px 60px";
+    return (
+        <>
+            <AppBar
+                sx={{
+                    boxShadow: "none",
+                    backgroundColor: "transparent",
+                    padding: responsive,
+                    display: "block",
+                    position: "relative",
+                }}
+            >
+                <CssBaseline />
+                <Toolbar>
+                    <Box
+                        sx={{
+                            flexGrow: 2,
+                            justifyContent: "start",
+                            display: "flex",
+                        }}
+                    >
+                        <img src={TopLogo} alt="Logo" />
+                    </Box>
+
+                    <Box
+                        sx={{
+                            flexGrow: 2,
+                            display: { xs: "none", lg: "block" },
+                        }}
+                    >
+                        {navItems.map((item) => (
+                            <Button
+                                key={item}
+                                sx={{
+                                    fontFamily: "Inter",
+                                    fontWeight: 400,
+                                    color: "#000",
+                                    textTransform: "none",
+                                    margin: "0 25px",
+                                }}
+                            >
+                                {item}
+                            </Button>
+                        ))}
+                    </Box>
+
+                    <Box
+                        sx={{
+                            flexGrow: 0,
+                            justifyContent: "space-between",
+                            alignItems: "center",
+                            display: "flex",
+                            backgroundColor: "#d9d9d9",
+                            padding: "5px 14px",
+                            borderRadius: "5px",
+                            color: "rgba(0, 0, 0, 0.5)",
+                            columnGap: 1,
+                        }}
+                    >
+                        <div
+                            style={{
+                                textAlign: "right",
+                            }}
+                        >
+                            <ComponentText
+                                style={{
+                                    fontSize: "10px",
+                                }}
+                            >
+                                Использовано компаний
+                            </ComponentText>
+                            <ComponentText
+                                style={{
+                                    fontSize: "10px",
+                                }}
+                            >
+                                лимит по компаниям
+                            </ComponentText>
+                        </div>
+                        <div
+                            style={{
+                                textAlign: "left",
+                            }}
+                        >
+                            <ComponentText
+                                style={{ margin: "0 0", fontSize: "14px" }}
+                            >
+                                34
+                            </ComponentText>
+                            <ComponentText
+                                style={{ margin: "0 0", fontSize: "14px" }}
+                            >
+                                100
+                            </ComponentText>
+                        </div>
+                    </Box>
+
+                    <Box
+                        sx={{
+                            flexGrow: 1,
+                            display: { xs: "none", lg: "flex" },
+                            justifyContent: "end",
+                            alignItems: "center",
+                        }}
+                    >
+                        <div style={{ textAlign: "right" }}>
+                            <ComponentText
+                                style={{
+                                    color: Colors.colorBlack,
+                                    marginBottom: 0,
+                                }}
+                            >
+                                Алексей А.
+                            </ComponentText>
+
+                            <button
+                                style={{
+                                    fontFamily: "Inter",
+                                    border: "none",
+                                    backgroundColor: "transparent",
+                                    cursor: "pointer",
+                                    marginTop: 0,
+                                }}
+                            >
+                                Выйти
+                            </button>
+                        </div>
+                        <Avatar />
+                    </Box>
+                    <IconButton
+                        color="inherit"
+                        aria-label="open drawer"
+                        edge="start"
+                        onClick={handleDrawerToggle}
+                        sx={{
+                            flexGrow: 2,
+                            display: { lg: "none" },
+                            justifyContent: "end",
+                        }}
+                    >
+                        <img src={menuIcon} alt="menuIcon" />
+                    </IconButton>
+                </Toolbar>
+            </AppBar>
+
+            <Box component="nav">
+                <Drawer
+                    PaperProps={{
+                        sx: {
+                            color: Colors.colorWhite,
+                            backgroundColor: Colors.colorAqua,
+                        },
+                    }}
+                    container={container}
+                    variant="temporary"
+                    open={mobileOpen}
+                    onClose={handleDrawerToggle}
+                    ModalProps={{
+                        keepMounted: true, // Better open performance on mobile.
+                    }}
+                    sx={{
+                        display: { md: "block", lg: "none" },
+                        "& .MuiDrawer-paper": {
+                            boxSizing: "border-box",
+                            width: drawerWidth,
+                        },
+                    }}
+                >
+                    {drawer}
+                </Drawer>
+            </Box>
+        </>
+    );
+};
 
 export { NavBar };
-

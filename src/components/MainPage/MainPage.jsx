@@ -9,7 +9,7 @@ const MainPage = () => {
         <CustomContainer>
           <OurGoals />
           <MainPageMedia />
-          {/*<OurRates />*/}       
+          <OurRates />       
             
         </CustomContainer>
     );

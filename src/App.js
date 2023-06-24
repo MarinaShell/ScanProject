@@ -1,8 +1,6 @@
 import './App.css';
 import { NavBar } from './components/NavBar/NavBar';
 import Header from './components/MainPage/Header/Header';
-import { CustomButton } from './components/ComponentButton/ComponentButton'
-import { ComponentButton } from './components/ComponentButton/ComponentButton';
 import { Route, Routes } from 'react-router-dom';
 import { MainPage } from './components/MainPage/MainPage';
 import { AuthPage } from './components/AuthPage/AuthPage';
