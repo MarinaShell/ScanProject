@@ -1,5 +1,5 @@
 import React from 'react'
-import ComponentImage from '../../../ComponentImage/ComponentImage';
+import ComponentImage from '../../../CustomComponents/ComponentImage/ComponentImage';
 import ComponentText from '../../../CustomComponents/ComponentText/ComponentText';
 import { CustomButton } from '../../../CustomComponents/CustomButton/CustomButton'
 import { CustomCard } from '../../../CustomComponents/CustomCard/CustomCard'
@@ -11,7 +11,7 @@ const ComponentOurRates = (props) => {
 	return (
 		<CustomCard style ={{  width:"415px",
                                height:"540px"}}>
-            <div class ="header" style = {{backgroundColor:props.color}}>
+            <div className ="header" style = {{backgroundColor:props.color}}>
                 <div>
                     <ComponentText style = {{fontSize:"30px", 
                                              fontWeight: "500",
@@ -36,7 +36,7 @@ const ComponentOurRates = (props) => {
                     </ComponentImage>
                 </div>
             </div>
-            <div class = "flex top">
+            <div className = "flex top">
                 <div>
                     <ComponentText style = {{fontSize:"30px", 
                                             lineHeight:"36px",
@@ -58,6 +58,7 @@ const ComponentOurRates = (props) => {
             <div>
                 <ComponentText style = {{fontSize:"18px", 
                                          whiteSpace:"nowrap",
+                                         textAlign: "left",
                                          marginTop: "10px"}}>
                     {props.priceIn }
                 </ComponentText>
@@ -68,8 +69,7 @@ const ComponentOurRates = (props) => {
                                          marginTop: "40px",
                                          lineHeight:"24px",
                                          textAlign: "left",
-                                         fontWeight: "500",
-                                         fontStyle:"italic"}}>
+                                         fontWeight: "500"}}>
                     В тариф входит:
                 </ComponentText>
             </div>
@@ -79,19 +79,19 @@ const ComponentOurRates = (props) => {
                                          lineHeight:"22px",
                                          textAlign: "left"}}>
                                             <ul>
-                                                <li class = "flex">
+                                                <li className = "flex">
                                                     <div><ComponentImage source = {galka}>
                                                          </ComponentImage>
                                                     </div>
-                                                     <div class = "li_div">{props.list1}</div>
+                                                     <div className = "li_div">{props.list1}</div>
                                                 </li>
-                                                <li class = "flex"> 
+                                                <li className = "flex"> 
                                                 <div><ComponentImage source = {galka}>
                                                      </ComponentImage>
                                                     </div>
                                                      <div class = "li_div">{props.list2}</div>
                                                 </li>
-                                                <li class = "flex"> 
+                                                <li className = "flex"> 
                                                 <div><ComponentImage source = {galka}>
                                                      </ComponentImage>
                                                     </div>

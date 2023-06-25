@@ -1,5 +1,5 @@
 import React from 'react'
-import ComponentImage from '../../ComponentImage/ComponentImage';
+import ComponentImage from '../../CustomComponents/ComponentImage/ComponentImage';
 import MyImage from './images/Group14.svg';
 
 function MainPageMedia() {

@@ -3,13 +3,16 @@ import { CustomContainer } from "../CustomComponents/CustomContainer/CustomConta
 import OurGoals from "./OurGoals/OurGoals";
 import MainPageMedia from "./MainPageMedia/MainPageMedia";
 import OurRates from "./OurRates/OurRates";
+import Header from "./Header/Header";
 
 const MainPage = () => {
     return (
         <CustomContainer>
-          <OurGoals />
-          <MainPageMedia />
-          <OurRates />       
+          <div> <Header /></div>
+          <div> <OurGoals /></div>
+          <div> <MainPageMedia /></div>
+          
+          <OurRates />     
             
         </CustomContainer>
     );

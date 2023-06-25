@@ -21,7 +21,7 @@ const OurRates = () => {
                     НАШИ ТАРИФЫ
                 </ComponentHeaderText>
             </div>
-            <div class = "cards">
+            <div className = "cards">
                 <ComponentOurRates 
                     header = "Beginner"
                     text = "Для небольшого исследования"
@@ -61,7 +61,7 @@ const OurRates = () => {
                     text = "Для корпоративных клиентов"
                     price = "2379 Р"
                     priceOld = "3700"
-                    priceIn = "      "
+                    priceIn = "&nbsp;"
                     color = {Colors.colorBlack}
                     colorText = {Colors.colorWhite}  
                     button = "Подробнее" 

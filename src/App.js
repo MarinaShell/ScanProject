@@ -12,10 +12,6 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-
-      <Header />
-      {/*<CustomButton variant='blue' >Читать в источнике</CustomButton>*/}
-
       <Routes>
         <Route path='/' element={<MainPage />} />
         <Route path='login' element={<AuthPage />} />

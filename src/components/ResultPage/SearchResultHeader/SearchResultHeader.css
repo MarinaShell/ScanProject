@@ -1,0 +1,9 @@
+.flex{
+    display: flex;
+    justify-content: space-between;
+}
+
+.text{
+    width: 30%;
+    text-align: left;
+}

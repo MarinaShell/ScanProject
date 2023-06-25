@@ -2,7 +2,7 @@ import React from 'react'
 import { CustomButton } from '../../CustomComponents/CustomButton/CustomButton'
 import ComponentHeaderText from '../../CustomComponents/ComponentHeaderText/ComponentHeaderText'
 import ComponentText from '../../CustomComponents/ComponentText/ComponentText'
-import ComponentImage from '../../ComponentImage/ComponentImage'
+import ComponentImage from '../../CustomComponents/ComponentImage/ComponentImage'
 import main_up from './main_up.svg'
 import './Header.css'
 
