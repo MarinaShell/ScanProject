@@ -5,7 +5,7 @@ import { Typography } from "@mui/material";
 
 const ComponentText = (props) => {
     let { children, ...others } = props;
-    console.log(props);
+    
     return (
         <ThemeProvider theme={theme}>
             <Typography variant="p" {...others}>{children}</Typography>
