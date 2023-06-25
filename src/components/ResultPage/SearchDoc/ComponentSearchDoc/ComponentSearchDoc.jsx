@@ -9,7 +9,7 @@ import './ComponentSearchDoc.css'
 const ComponentSearchDoc = (props) => {
 	return (
 		<CustomCard style ={{  width:"50%",
-                               height:"100%"}}>
+                               height:"645px"}}>
         <div>
             <div className = "flex">
                 <div>

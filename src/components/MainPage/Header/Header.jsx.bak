@@ -10,11 +10,11 @@ const Header = () => {
   return (<div className='header'>
     <div>
       <div className='size60'>
-				<ComponentHeaderText><p>Сервис по поиску публикаций  <br />о компании <br />по его ИНН</p></ComponentHeaderText>
+        <ComponentHeaderText>Сервис по поиску публикаций о компании по его ИНН</ComponentHeaderText>
       </div>
       <div className='size20' id='text'>
         <ComponentText>
-					Комплексный анализ публикаций, получение данных <br />в формате PDF на электронную почту.
+          Комплексный анализ публикаций, получение данных в формате PDF на электронную почту.
         </ComponentText>
       </div>
       <div className='button'>

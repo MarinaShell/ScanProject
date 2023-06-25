@@ -1,10 +1,8 @@
-import React from 'react';
-import { CustomContainer } from '../CustomComponents/CustomContainer/CustomContainer';
+import React from 'react'
 
 const SearchPage = () => {
   return (
-    <CustomContainer>
-    </CustomContainer>
+    <div>SearchPage</div>
   )
 }
 

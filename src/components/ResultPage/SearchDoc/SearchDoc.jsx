@@ -43,7 +43,7 @@ const SearchDoc = () => {
                     image = {image2}
                 />                  
             </div>
-            <div>
+            <div style={{marginTop:"30px"}}>
                 <CustomButton variant= 'blue'>
                     Показать больше
                 </CustomButton>

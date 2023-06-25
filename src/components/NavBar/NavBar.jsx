@@ -21,248 +21,201 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material";
 import { CustomButton } from "../CustomComponents/CustomButton/CustomButton";
 import ComponentText from "../CustomComponents/ComponentText/ComponentText";
+import { InfoBlock } from "./InfoBlock/InfoBlock";
 
 const navItems = ["Главная", "Тарифы", "FAQ"];
 const drawerWidth = "100%";
 
 const NavBar = (props) => {
-    const theme = useTheme();
-    const matches = useMediaQuery(theme.breakpoints.down("lg"));
-    const { window } = props;
-    const [mobileOpen, setMobileOpen] = React.useState(false);
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down("lg"));
+  const { window } = props;
+  const [mobileOpen, setMobileOpen] = React.useState(false);
 
-    const handleDrawerToggle = () => {
-        setMobileOpen((prevState) => !prevState);
-    };
+  const handleDrawerToggle = () => {
+    setMobileOpen((prevState) => !prevState);
+  };
 
-    const drawer = (
-        <Box>
-            <div
-                style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    padding: "0 40px",
-                }}
-            >
-                <img src={BottomLogo} alt="Logo" />
-                <img
-                    src={Close}
-                    alt="Close"
-                    onClick={handleDrawerToggle}
-                    style={{ cursor: "pointer" }}
-                />
-            </div>
-            <Divider />
-            <List>
-                {navItems.map((item) => (
-                    <ListItem key={item} disablePadding>
-                        <ListItemButton sx={{ textAlign: "center" }}>
-                            <ListItemText
-                                primary={<ComponentText>{item}</ComponentText>}
-                            />
-                        </ListItemButton>
-                    </ListItem>
-                ))}
-            </List>
-            <div style={{ textAlign: "center", marginTop: "70px" }}>
-                <ComponentText
-                    style={{
-                        marginBottom: "20px",
-                        color: "rgba(255,255,255,0.5)",
-                    }}
-                >
-                    Зарегистрироваться
-                </ComponentText>
+  const drawer = (
+    <Box>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          padding: "0 40px",
+        }}
+      >
+        <img src={BottomLogo} alt="Logo" />
+        <img
+          src={Close}
+          alt="Close"
+          onClick={handleDrawerToggle}
+          style={{ cursor: "pointer" }}
+        />
+      </div>
+      <Divider />
+      <List>
+        {navItems.map((item) => (
+          <ListItem key={item} disablePadding>
+            <ListItemButton sx={{ textAlign: "center" }}>
+              <ListItemText primary={<ComponentText>{item}</ComponentText>} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+      <div style={{ textAlign: "center", marginTop: "70px" }}>
+        <ComponentText
+          style={{
+            marginBottom: "20px",
+            color: "rgba(255,255,255,0.5)",
+          }}
+        >
+          Зарегистрироваться
+        </ComponentText>
 
-                <CustomButton
-                    variant="blue"
-                    style={{
-                        backgroundColor: "rgba(124, 227, 225, 1)",
-                        color: Colors.colorBlack,
-                    }}
-                >
-                    Войти
-                </CustomButton>
-            </div>
-        </Box>
-    );
+        <CustomButton
+          variant="blue"
+          style={{
+            backgroundColor: "rgba(124, 227, 225, 1)",
+            color: Colors.colorBlack,
+          }}
+        >
+          Войти
+        </CustomButton>
+      </div>
+    </Box>
+  );
 
-    const container =
-        window !== undefined ? () => window().document.body : undefined;
+  const container =
+    window !== undefined ? () => window().document.body : undefined;
 
-    const responsive = matches ? "0 14px" : "0px 60px";
-    return (
-        <>
-            <AppBar
+  const responsive = matches ? "0 14px" : "0px 60px";
+  return (
+    <>
+      <AppBar
+        sx={{
+          boxShadow: "none",
+          backgroundColor: "transparent",
+          padding: responsive,
+          display: "block",
+          position: "relative",
+          paddingTop: "5px",
+        }}
+      >
+        <CssBaseline />
+        <Toolbar sx={{ padding: { lg: "0 !important" } }}>
+          <Box
+            sx={{
+              flexGrow: 2,
+              justifyContent: "start",
+              display: "flex",
+            }}
+          >
+            <img src={TopLogo} alt="Logo" />
+          </Box>
+
+          <Box
+            sx={{
+              flexGrow: 2,
+              display: { xs: "none", lg: "block" },
+            }}
+          >
+            {navItems.map((item) => (
+              <Button
+                key={item}
                 sx={{
-                    boxShadow: "none",
-                    backgroundColor: "transparent",
-                    padding: responsive,
-                    display: "block",
-                    position: "relative",
+                  fontFamily: "Inter",
+                  fontWeight: 400,
+                  color: "#000",
+                  textTransform: "none",
+                  margin: "0 25px",
                 }}
-            >
-                <CssBaseline />
-                <Toolbar>
-                    <Box
-                        sx={{
-                            flexGrow: 2,
-                            justifyContent: "start",
-                            display: "flex",
-                        }}
-                    >
-                        <img src={TopLogo} alt="Logo" />
-                    </Box>
+              >
+                {item}
+              </Button>
+            ))}
+          </Box>
 
-                    <Box
-                        sx={{
-                            flexGrow: 2,
-                            display: { xs: "none", lg: "block" },
-                        }}
-                    >
-                        {navItems.map((item) => (
-                            <Button
-                                key={item}
-                                sx={{
-                                    fontFamily: "Inter",
-                                    fontWeight: 400,
-                                    color: "#000",
-                                    textTransform: "none",
-                                    margin: "0 25px",
-                                }}
-                            >
-                                {item}
-                            </Button>
-                        ))}
-                    </Box>
+          <InfoBlock />
 
-                    <Box
-                        sx={{
-                            flexGrow: 0,
-                            justifyContent: "space-between",
-                            alignItems: "center",
-                            display: "flex",
-                            backgroundColor: "#d9d9d9",
-                            padding: "5px 14px",
-                            borderRadius: "5px",
-                            color: "rgba(0, 0, 0, 0.5)",
-                            columnGap: 1,
-                        }}
-                    >
-                        <div
-                            style={{
-                                textAlign: "right",
-                            }}
-                        >
-                            <ComponentText
-                                style={{
-                                    fontSize: "10px",
-                                }}
-                            >
-                                Использовано компаний
-                            </ComponentText>
-                            <ComponentText
-                                style={{
-                                    fontSize: "10px",
-                                }}
-                            >
-                                лимит по компаниям
-                            </ComponentText>
-                        </div>
-                        <div
-                            style={{
-                                textAlign: "left",
-                            }}
-                        >
-                            <ComponentText
-                                style={{ margin: "0 0", fontSize: "14px" }}
-                            >
-                                34
-                            </ComponentText>
-                            <ComponentText
-                                style={{ margin: "0 0", fontSize: "14px" }}
-                            >
-                                100
-                            </ComponentText>
-                        </div>
-                    </Box>
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: "none", lg: "flex" },
+              justifyContent: "end",
+              alignItems: "center",
+            }}
+          >
+            <div style={{ textAlign: "right" }}>
+              <ComponentText
+                style={{
+                  color: Colors.colorBlack,
+                  marginBottom: 0,
+                }}
+              >
+                Алексей А.
+              </ComponentText>
 
-                    <Box
-                        sx={{
-                            flexGrow: 1,
-                            display: { xs: "none", lg: "flex" },
-                            justifyContent: "end",
-                            alignItems: "center",
-                        }}
-                    >
-                        <div style={{ textAlign: "right" }}>
-                            <ComponentText
-                                style={{
-                                    color: Colors.colorBlack,
-                                    marginBottom: 0,
-                                }}
-                            >
-                                Алексей А.
-                            </ComponentText>
+              <button
+                style={{
+                  fontFamily: "Inter",
+                  border: "none",
+                  backgroundColor: "transparent",
+                  cursor: "pointer",
+                  marginTop: 0,
+                }}
+              >
+                Выйти
+              </button>
+            </div>
+            <Avatar />
+          </Box>
+          <Box sx={{
+              flexGrow: 2,
+              display: { lg: "none" },
+              textAlign: "right"
+            }}>
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            edge="start"
+            onClick={handleDrawerToggle}
+            
+          >
+            <img src={menuIcon} alt="menuIcon" />
+          </IconButton>
+          </Box>
+        </Toolbar>
+      </AppBar>
 
-                            <button
-                                style={{
-                                    fontFamily: "Inter",
-                                    border: "none",
-                                    backgroundColor: "transparent",
-                                    cursor: "pointer",
-                                    marginTop: 0,
-                                }}
-                            >
-                                Выйти
-                            </button>
-                        </div>
-                        <Avatar />
-                    </Box>
-                    <IconButton
-                        color="inherit"
-                        aria-label="open drawer"
-                        edge="start"
-                        onClick={handleDrawerToggle}
-                        sx={{
-                            flexGrow: 2,
-                            display: { lg: "none" },
-                            justifyContent: "end",
-                        }}
-                    >
-                        <img src={menuIcon} alt="menuIcon" />
-                    </IconButton>
-                </Toolbar>
-            </AppBar>
-
-            <Box component="nav">
-                <Drawer
-                    PaperProps={{
-                        sx: {
-                            color: Colors.colorWhite,
-                            backgroundColor: Colors.colorAqua,
-                        },
-                    }}
-                    container={container}
-                    variant="temporary"
-                    open={mobileOpen}
-                    onClose={handleDrawerToggle}
-                    ModalProps={{
-                        keepMounted: true, // Better open performance on mobile.
-                    }}
-                    sx={{
-                        display: { md: "block", lg: "none" },
-                        "& .MuiDrawer-paper": {
-                            boxSizing: "border-box",
-                            width: drawerWidth,
-                        },
-                    }}
-                >
-                    {drawer}
-                </Drawer>
-            </Box>
-        </>
-    );
+      <Box component="nav">
+        <Drawer
+          PaperProps={{
+            sx: {
+              color: Colors.colorWhite,
+              backgroundColor: Colors.colorAqua,
+            },
+          }}
+          container={container}
+          variant="temporary"
+          open={mobileOpen}
+          onClose={handleDrawerToggle}
+          ModalProps={{
+            keepMounted: true, // Better open performance on mobile.
+          }}
+          sx={{
+            display: { md: "block", lg: "none" },
+            "& .MuiDrawer-paper": {
+              boxSizing: "border-box",
+              width: drawerWidth,
+            },
+          }}
+        >
+          {drawer}
+        </Drawer>
+      </Box>
+    </>
+  );
 };
 
 export { NavBar };
