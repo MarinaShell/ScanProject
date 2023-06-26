@@ -17,18 +17,21 @@ import Close from "../../media/Close.svg";
 import { Colors } from "../../theme/Colors/Colors";
 import { Avatar } from "@mui/material";
 import menuIcon from "../../media/menuIcon.svg";
-import useMediaQuery from "@mui/material/useMediaQuery";
-import { useTheme } from "@mui/material";
 import { CustomButton } from "../CustomComponents/CustomButton/CustomButton";
 import ComponentText from "../CustomComponents/ComponentText/ComponentText";
 import { InfoBlock } from "./InfoBlock/InfoBlock";
+import { useTheme, useMediaQuery } from "@mui/material";
+import { Navigate } from "react-router-dom";
+
 
 const navItems = ["Главная", "Тарифы", "FAQ"];
 const drawerWidth = "100%";
 
 const NavBar = (props) => {
   const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.down("lg"));
+  const matches_sm = useMediaQuery(theme.breakpoints.down("sm"));
+  
+
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -45,7 +48,7 @@ const NavBar = (props) => {
           padding: "0 40px",
         }}
       >
-        <img src={BottomLogo} alt="Logo" />
+        <img src={BottomLogo} alt="Logo" style={{width: "121px"}} />
         <img
           src={Close}
           alt="Close"
@@ -79,6 +82,9 @@ const NavBar = (props) => {
             backgroundColor: "rgba(124, 227, 225, 1)",
             color: Colors.colorBlack,
           }}
+          onClick={() => {
+            <Navigate to={"/login"}/>
+          }}
         >
           Войти
         </CustomButton>
@@ -88,15 +94,14 @@ const NavBar = (props) => {
 
   const container =
     window !== undefined ? () => window().document.body : undefined;
-
-  const responsive = matches ? "0" : "0px 60px";
+    
   return (
     <>
       <AppBar
         sx={{
           boxShadow: "none",
           backgroundColor: "transparent",
-          padding: responsive,
+          padding: matches_sm ? "0" : "0 60px",
           display: "block",
           position: "relative",
           paddingTop: "5px",
@@ -111,7 +116,7 @@ const NavBar = (props) => {
               
             }}
           >
-            <img src={TopLogo} alt="Logo" />
+            <img src={TopLogo} alt="Logo" width={{sm: "121px"}} />
           </Box>
 
           <Box
