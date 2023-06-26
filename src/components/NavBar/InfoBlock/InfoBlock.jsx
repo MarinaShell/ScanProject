@@ -5,8 +5,8 @@ import { useMediaQuery, useTheme } from "@mui/material";
 
 const InfoBlock = () => {
   const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.down("md"));
-  const wrappingMenuData = matches ? "column" : "row";
+  const matches = useMediaQuery(theme.breakpoints.down("sm"));
+  
 
   return (
     <Box
@@ -15,7 +15,7 @@ const InfoBlock = () => {
         display: "flex",
         flexDirection: "column",
         backgroundColor: "#d9d9d9",
-        padding: "5px 14px",
+        padding: matches ? "5px 2px": "5px 14px",
         borderRadius: "5px",
         color: "rgba(0, 0, 0, 0.5)",
       }}

@@ -2,7 +2,8 @@ import React from "react";
 import { ThemeProvider } from "@mui/material";
 import { theme } from "../../../theme/Headers/Headers";
 import { Typography } from "@mui/material";
-const ComponentHeader = (props) => {
+
+const ComponentHeaderText = (props) => {
     let { children, ...others } = props;
     return (
         <ThemeProvider theme={theme}>
@@ -12,4 +13,4 @@ const ComponentHeader = (props) => {
         </ThemeProvider>
     );
 };
-export default ComponentHeader;
+export default ComponentHeaderText;

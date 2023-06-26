@@ -89,7 +89,7 @@ const NavBar = (props) => {
   const container =
     window !== undefined ? () => window().document.body : undefined;
 
-  const responsive = matches ? "0 14px" : "0px 60px";
+  const responsive = matches ? "0" : "0px 60px";
   return (
     <>
       <AppBar
@@ -108,7 +108,7 @@ const NavBar = (props) => {
             sx={{
               flexGrow: 2,
               justifyContent: "start",
-              display: "flex",
+              
             }}
           >
             <img src={TopLogo} alt="Logo" />

@@ -1,280 +1,78 @@
 import React from "react";
-import { CustomCard } from "../../CustomComponents/CustomCard/CustomCard";
-import { Colors } from "../../../theme/Colors/Colors";
-import ComponentText from "../../CustomComponents/ComponentText/ComponentText";
-import ComponentHeader from "../../CustomComponents/ComponentHeader/ComponentHeader";
-import lamp from "../../../media/lamp.svg";
+import { CustomContainer } from "../../CustomComponents/CustomContainer/CustomContainer";
+import ComponentOurRates from "./ComponentOurRates/ComponentOurRates";
+import ComponentHeaderText from '../../CustomComponents/ComponentHeaderText/ComponentHeaderText';
+import './OurRates.css'
+import {Colors} from '../../../theme/Colors/Colors'
+import pro from './pro.svg'
+import business from './business.svg'
+import begin from './begin.svg'
 
 const OurRates = () => {
     return (
-        <>
-            <ComponentHeader
-                style={{
-                    textAlign: "left",
-                    marginLeft: "30px",
-                    textTransform: "uppercase",
-                    marginBottom: "50px",
-                }}
-            >
-                наши тарифы
-            </ComponentHeader>
-            <div style={{ display: "flex" }}>
-                <CustomCard
-                    style={{
-                        padding: 0,
-                    }}
-                >
-                    <CustomCard
-                        style={{
-                            backgroundColor: Colors.colorYellow,
-                            border: `2px ${Colors.colorYellow} solid`,
-                            paddingTop: "4px",
-                            margin: 0,
-                            borderBottomLeftRadius: 0,
-                            borderBottomRightRadius: 0,
-                            boxShadow: "none",
-                            display: "flex",
-                            alignItems: "center",
-                        }}
-                    >
-                        <div>
-                            <ComponentText
-                                style={{
-                                    fontWeight: 500,
-                                    fontSize: "30px",
-                                    textAlign: "left",
-                                    lineHeight: "21px",
-                                    marginTop: "15px",
-                                }}
-                            >
-                                Beginner
-                            </ComponentText>
-
-                            <ComponentText
-                                style={{
-                                    fontSize: "18px",
-                                    lineHeight: "21px",
-                                    textAlign: "left",
-                                    marginTop: "15px",
-                                }}
-                            >
-                                Для небольшого исследования
-                            </ComponentText>
-                        </div>
-                        <div>
-                            <img src={lamp} alt="lamp" />
-                        </div>
-                    </CustomCard>
-
-                    <CustomCard
-                        style={{
-                            boxShadow: "none",
-                            borderRadius: 0,
-                            border: 0,
-                            padding: 0,
-                            paddingTop: "14px",
-                            textAlign: "left",
-                        }}
-                    >
-                        <ComponentText style={{ fontSize: "30px", margin: 0 }}>
-                            799 &#x20bd;{" "}
-                            <strike
-                                style={{
-                                    fontSize: "25px",
-                                    margin: 0,
-                                    color: "rgba(0, 0, 0, 0.5)",
-                                }}
-                            >
-                                1200 &#x20bd;
-                            </strike>
-                        </ComponentText>
-                        <ComponentText>
-                            или 150 ₽/мес. при рассрочке на 24 мес.
-                        </ComponentText>
-
-                        <ComponentText
-                            style={{
-                                marginTop: "60px",
-                                fontWeight: 500,
-                                fontSize: "20px",
-                            }}
-                        >
-                            В тариф входит:
-                        </ComponentText>
-                    </CustomCard>
-                </CustomCard>
-                <CustomCard
-                    style={{
-                        padding: 0,
-                    }}
-                >
-                    <CustomCard
-                        style={{
-                            backgroundColor: Colors.colorYellow,
-                            border: `2px ${Colors.colorYellow} solid`,
-                            paddingTop: "4px",
-                            margin: 0,
-                            borderBottomLeftRadius: 0,
-                            borderBottomRightRadius: 0,
-                            boxShadow: "none",
-                            display: "flex",
-                            alignItems: "center",
-                        }}
-                    >
-                        <div>
-                            <ComponentText
-                                style={{
-                                    fontWeight: 500,
-                                    fontSize: "30px",
-                                    textAlign: "left",
-                                    lineHeight: "21px",
-                                    marginTop: "15px",
-                                }}
-                            >
-                                Beginner
-                            </ComponentText>
-
-                            <ComponentText
-                                style={{
-                                    fontSize: "18px",
-                                    lineHeight: "21px",
-                                    textAlign: "left",
-                                    marginTop: "15px",
-                                }}
-                            >
-                                Для небольшого исследования
-                            </ComponentText>
-                        </div>
-                        <div>
-                            <img src={lamp} alt="lamp" />
-                        </div>
-                    </CustomCard>
-
-                    <CustomCard
-                        style={{
-                            boxShadow: "none",
-                            borderRadius: 0,
-                            border: 0,
-                            padding: 0,
-                            paddingTop: "14px",
-                            textAlign: "left",
-                        }}
-                    >
-                        <ComponentText style={{ fontSize: "30px", margin: 0 }}>
-                            799 &#x20bd;{" "}
-                            <strike
-                                style={{
-                                    fontSize: "25px",
-                                    margin: 0,
-                                    color: "rgba(0, 0, 0, 0.5)",
-                                }}
-                            >
-                                1200 &#x20bd;
-                            </strike>
-                        </ComponentText>
-                        <ComponentText>
-                            или 150 ₽/мес. при рассрочке на 24 мес.
-                        </ComponentText>
-
-                        <ComponentText
-                            style={{
-                                marginTop: "60px",
-                                fontWeight: 500,
-                                fontSize: "20px",
-                            }}
-                        >
-                            В тариф входит:
-                        </ComponentText>
-                    </CustomCard>
-                </CustomCard>
-                <CustomCard
-                    style={{
-                        padding: 0,
-                    }}
-                >
-                    <CustomCard
-                        style={{
-                            backgroundColor: Colors.colorYellow,
-                            border: `2px ${Colors.colorYellow} solid`,
-                            paddingTop: "4px",
-                            margin: 0,
-                            borderBottomLeftRadius: 0,
-                            borderBottomRightRadius: 0,
-                            boxShadow: "none",
-                            display: "flex",
-                            alignItems: "center",
-                        }}
-                    >
-                        <div>
-                            <ComponentText
-                                style={{
-                                    fontWeight: 500,
-                                    fontSize: "30px",
-                                    textAlign: "left",
-                                    lineHeight: "21px",
-                                    marginTop: "15px",
-                                }}
-                            >
-                                Beginner
-                            </ComponentText>
-
-                            <ComponentText
-                                style={{
-                                    fontSize: "18px",
-                                    lineHeight: "21px",
-                                    textAlign: "left",
-                                    marginTop: "15px",
-                                }}
-                            >
-                                Для небольшого исследования
-                            </ComponentText>
-                        </div>
-                        <div>
-                            <img src={lamp} alt="lamp" />
-                        </div>
-                    </CustomCard>
-
-                    <CustomCard
-                        style={{
-                            boxShadow: "none",
-                            borderRadius: 0,
-                            border: 0,
-                            padding: 0,
-                            paddingTop: "14px",
-                            textAlign: "left",
-                        }}
-                    >
-                        <ComponentText style={{ fontSize: "30px", margin: 0 }}>
-                            799 &#x20bd;{" "}
-                            <strike
-                                style={{
-                                    fontSize: "25px",
-                                    margin: 0,
-                                    color: "rgba(0, 0, 0, 0.5)",
-                                }}
-                            >
-                                1200 &#x20bd;
-                            </strike>
-                        </ComponentText>
-                        <ComponentText>
-                            или 150 ₽/мес. при рассрочке на 24 мес.
-                        </ComponentText>
-
-                        <ComponentText
-                            style={{
-                                marginTop: "60px",
-                                fontWeight: 500,
-                                fontSize: "20px",
-                            }}
-                        >
-                            В тариф входит:
-                        </ComponentText>
-                    </CustomCard>
-                </CustomCard>
-                
+         <CustomContainer>
+            <div>     
+                <ComponentHeaderText style = {{fontSize:"45px", 
+                                             fontWeight: "500",
+                                             lineHeight:"54px",
+                                             marginTop:"20px",
+                                             marginBottom:"60px",
+                                             textAlign:"left"}}>
+                    НАШИ ТАРИФЫ
+                </ComponentHeaderText>
             </div>
-        </>
+            <div className = "cards">
+                <ComponentOurRates 
+                    header = "Beginner"
+                    text = "Для небольшого исследования"
+                    price = "799 Р"
+                    priceOld = "1200 Р"
+                    priceIn = "или 150Р/мес. при рассрочке 24 мес."
+                    button = "Перейти в личный кабинет"  
+                    color = {Colors.colorYellow} 
+                    colorText = {Colors.colorBlack}
+                    buttonStyle = "grey" 
+                    list1 = "Безлимитная история запросов"
+                    list2 = "Безопасная сделка"
+                    list3 = "Поддержка 24/7"            
+                    source = {begin}
+                    style ={{border:"2px",
+                            borderStyle:"solid",
+                            boxShadow:"none",
+                            borderColor: Colors.colorYellow }}       
+                />
+                <ComponentOurRates 
+                    header = "Pro"
+                    text = "Для HR и фрилансеров"
+                    price = "1299 Р"
+                    priceOld = "2600 Р"
+                    priceIn = "или 279Р/мес. при рассрочке 24 мес."
+                    color = {Colors.colorLightBlue}
+                    colorText = {Colors.colorBlack} 
+                    button = "Подробнее"  
+                    buttonStyle = "blue"   
+                    source = {pro}
+                    list1 = "Все пункты тарифа Beginner"
+                    list2 = "Экспорт истории"
+                    list3 = "Рекомендации по приоритетам"
+                />      
+                <ComponentOurRates 
+                    header = "Business"
+                    text = "Для корпоративных клиентов"
+                    price = "2379 Р"
+                    priceOld = "3700"
+                    priceIn = "&nbsp;"
+                    color = {Colors.colorBlack}
+                    colorText = {Colors.colorWhite}  
+                    button = "Подробнее" 
+                    buttonStyle = "blue"  
+                    source = {business}
+                    list1 = "Все пункты тарифа Pro"
+                    list2 = "Безлимитное количество запросов"
+                    list3 = "Приоритетная поддержка" />            
+            </div>
+        </CustomContainer>  
     );
 };
 
-export { OurRates };
+export default OurRates;

@@ -8,7 +8,7 @@ import search from "../../../media/search.svg";
 import armor from "../../../media/armor.svg";
 import "react-alice-carousel/lib/alice-carousel.css";
 import ComponentText from "../../CustomComponents/ComponentText/ComponentText";
-import ComponentHeader from "../../CustomComponents/ComponentHeader/ComponentHeader";
+import ComponentHeaderText from "../../CustomComponents/ComponentHeaderText/ComponentHeaderText";
 
 const OurGoals = () => {
     const items = [
@@ -48,8 +48,8 @@ const OurGoals = () => {
     };
 
     return (
-        <div style={{ position: "relative" }}>
-            <ComponentHeader style={{textAlign: "left", marginBottom: "50px", marginLeft: "30px"}}>Почему именно мы</ComponentHeader>
+        <div >
+            <ComponentHeaderText style={{textAlign: "left", marginBottom: "50px", marginLeft: "30px"}}>Почему именно мы</ComponentHeaderText>
             <AliceCarousel
                 autoWidth={false}
                 items={items}
@@ -90,3 +90,4 @@ const OurGoals = () => {
 };
 
 export default OurGoals;
+
