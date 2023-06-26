@@ -4,7 +4,7 @@ import { NavBar } from './components/NavBar/NavBar';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { MainPage } from './components/MainPage/MainPage';
 import  AuthPage  from './components/AuthPage/AuthPage';
-import { SearchPage } from './components/SearchPage/SearchPage';
+import SearchPage from './components/SearchPage/SearchPage';
 import { ResultPage } from './components/ResultPage/ResultPage';
 import Footer from './components/Footer/Footer';
 

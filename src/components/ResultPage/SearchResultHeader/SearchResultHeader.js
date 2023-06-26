@@ -5,7 +5,7 @@ import ComponentHeaderText from "../../CustomComponents/ComponentHeaderText/Comp
 import { useTheme, useMediaQuery } from "@mui/material";
 import './SearchResultHeader.css'
 
-import image from './search.svg'
+import image from "./search.svg";
 
 const SearchResultHeader = () => {
     const theme = useTheme();

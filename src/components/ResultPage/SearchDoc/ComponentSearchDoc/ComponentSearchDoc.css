@@ -13,3 +13,11 @@
 	padding: 0 10px;
 	background: #FFB64F;
 }
+
+
+@media screen and (max-width: 1400px) {
+	.flex {
+    display: flex; 
+		flex-direction: column;
+	}
+}

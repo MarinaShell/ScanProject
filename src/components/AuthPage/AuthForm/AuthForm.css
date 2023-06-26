@@ -33,7 +33,7 @@
 	color: #949494;
 }
 
-.button {
+button {
 	border: none;
 	outline: none;
 	background-color: white;
@@ -60,7 +60,7 @@ input {
 
 .logos {
 	display: flex;
-	flex-direction: column;
+	/* flex-direction: column; */
 
 	/* margin-left: 25px; - лишний стиль (при наличии отступов формы) */
 }
@@ -114,41 +114,92 @@ input {
 .mr {
 	margin: 0 10px;
 }
-
-@media screen and (max-width: 1000px) {
-    .form {
-        padding: 5px;
-        margin: 70px;
-        margin-left: 8px;
-    }
-
-    .form_auth {
-        width: 98%;
-    }
-
-    input {
-        margin-right: 10px;
-        margin-left: 10px;
-    }
-
-    .form_auth_text {
-        margin-left: 10px;
-    }
-
-    .el {
-        margin-top: 30px;
-    }
-
-    .el-2 {
-        text-align: center;
-    }
-
-    .line-2 {
-        width: 90%;
-    }
-
-    .lck {
-        left: 100px;
-        top: -60px;
-    }
+@media screen and (max-width: 640px) {
+	.form {
+		width: 350px;
+	}
+	.el-1 {
+		width: 100px;
+	}
+	.el-2 {
+		text-align: center;
+		width: 170px;
+	}
+	.line-1 {
+		width: 100%;
+	}
+	.line-2 {
+		width: 100%;
+	}
+	.el-2 {
+		text-align: center;
+	}
+	.head {
+		display: flex;
+		border: 1px solid;
+	}
+}
+@media screen and (max-width: 540px) {
+	.form {
+		width: 350px;
+	}
+	.mr {
+		margin: 0 5px;
+	}
+	.line-2 {
+		width: 130px;
+	}
+	.el-2 {
+		margin-right: 40px;
+	}
+	.el {
+		font-size: 11px;
+	}
+	.form_auth_text {
+		font-size: 15px;
+	}
+}
+@media screen and (max-width: 1360px) {
+	.lck {
+		position: absolute;
+		left: 60px;
+		top: -80px;
+	}
+}
+@media screen and (max-width: 490px) {
+	.form {
+		width: 350px;
+	}
+	.mr {
+		margin: 0 5px;
+	}
+	.line-2 {
+		width: 130px;
+	}
+	.line-1 {
+		width: 70px;
+	}
+	.el-1 {
+		margin: 0 auto;
+	}
+	.el-2 {
+		margin-right: 40px;
+	}
+	.el {
+		font-size: 11px;
+	}
+	.form_auth_text {
+		font-size: 15px;
+	}
+}
+@media screen and (max-width: 490px) {
+	.form {
+		width: 300px;
+	}
+	.mr {
+		margin: 0;
+	}
+	.form {
+		padding: 15px;
+	}
 }

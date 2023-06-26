@@ -1,12 +1,12 @@
-.header{
+.header_rates{
     text-align: left;
     margin-left:-20px;
     margin-top:-20px;
     padding-bottom:20px;
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
     height: 132px;
-    width: 415px;
+    width: 425px;
 }
 
 .flex{
