@@ -1,0 +1,21 @@
+.custom-container {
+	max-width: 1440px;
+	margin: 0 auto;
+	display: block;
+}
+.our-goals {
+}
+@media screen and (max-width: 1000px) {
+	.our-goals {
+		margin-top: 600px;
+	}
+	.header {
+		max-height: max-content;
+	}
+}
+.header {
+	width: 100%;
+	height: 620px;
+	margin: 0 auto;
+	border: 1px solid;
+}

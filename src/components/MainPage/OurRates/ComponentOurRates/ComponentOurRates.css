@@ -1,0 +1,33 @@
+.header{
+    text-align: left;
+    margin-left:-20px;
+    margin-top:-20px;
+    padding-bottom:20px;
+    display: flex;
+    
+    height: 132px;
+    width: 415px;
+}
+
+.flex{
+    display: flex;
+}
+
+.top{
+    margin-top: 20px;
+}
+
+li {
+    list-style-type: none; /* Убираем маркеры */
+    margin-top: 10px;
+}
+
+ul {
+    margin-left: 0; /* Отступ слева в браузере IE и Opera */
+    padding-left: 0; /* Отступ слева в браузере Firefox, Safari, Chrome */
+    margin-bottom: 40px;
+}
+
+.li_div{
+    margin-left: 5px;
+}

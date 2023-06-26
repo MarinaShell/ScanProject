@@ -1,0 +1,62 @@
+.header {
+	display: flex;
+	max-width: 1440px;
+	margin: 0;
+	height: 620px;
+}
+.left-part {
+	display: flex;
+	flex-direction: column;
+	max-width: 743px;
+	text-align: left;
+	height: 490px;
+}
+
+.size60 {
+	text-align: left;
+	text-transform: uppercase;
+	font-style: normal;
+	font-weight: 900;
+	font-size: 60px;
+	line-height: 72px;
+	letter-spacing: 0.01em;
+	margin-bottom: 26px;
+}
+
+.size20 {
+	/* Комплексный анализ публикаций, получение данных в формате PDF на электронную почту. */
+	margin: 26px 0px 85px;
+	font-family: "Inter";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 24px;
+	letter-spacing: 0.01em;
+}
+
+@media screen and (max-width: 1000px) {
+	.header {
+		flex-direction: column;
+		height: auto;
+	}
+	.left-part {
+		padding: 25px;
+	}
+}
+@media screen and (max-width: 640px) {
+	.image {
+		margin-top: 30px;
+	}
+	.button {
+		margin: 0 auto;
+		align-items: center;
+	}
+	.left-part {
+		height: auto;
+	}
+}
+@media screen and (max-width: 450px) {
+	.size40 {
+		font-size: 40px;
+	}
+}
