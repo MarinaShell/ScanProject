@@ -6,6 +6,7 @@ import { CustomButton } from '../../CustomComponents/CustomButton/CustomButton'
 import {Colors} from '../../../theme/Colors/Colors'
 import image1 from './image1.svg'
 import image2 from './image2.svg'
+import './SearchDoc.css'
 
 const SearchDoc = () => {
     return (
@@ -20,7 +21,7 @@ const SearchDoc = () => {
                     СПИСОК ДОКУМЕНТОВ
                 </ComponentHeaderText>
             </div>
-            <div class = "cards">
+            <div className = "cards">
                 <ComponentSearchDoc 
                     textDate = "13.09.2021"
                     textSource = "Комсомольская правда KP.RU"

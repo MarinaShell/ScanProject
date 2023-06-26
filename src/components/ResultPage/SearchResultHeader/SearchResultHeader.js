@@ -25,7 +25,7 @@ const SearchResultHeader = () => {
                     </ComponentText>
 
                 </div>
-                <div>
+                <div class = "image_div">
                     <ComponentImage source = {image} />
                 </div>
             </div>

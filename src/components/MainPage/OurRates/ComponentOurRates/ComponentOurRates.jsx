@@ -9,9 +9,9 @@ import galka from './galka.svg'
 
 const ComponentOurRates = (props) => {
 	return (
-		<CustomCard style ={{  width:"415px",
+		<CustomCard style ={{  width:"425px",
                                height:"540px"}}>
-            <div className ="header" style = {{backgroundColor:props.color}}>
+            <div className ="header_rates" style = {{backgroundColor:props.color}}>
                 <div>
                     <ComponentText style = {{fontSize:"30px", 
                                              fontWeight: "500",

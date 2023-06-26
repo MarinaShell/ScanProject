@@ -9,7 +9,7 @@ import './ComponentSearchDoc.css'
 const ComponentSearchDoc = (props) => {
 	return (
 		<CustomCard style ={{  width:"50%",
-                               height:"645px"}}>
+                               height:"100%"}}>
         <div>
             <div className = "flex">
                 <div>
@@ -55,7 +55,7 @@ const ComponentSearchDoc = (props) => {
                     <span className = "span_div">{props.textType}</span>
                 </ComponentText>
             </div>
-            <ComponentImage source = {props.image}>
+            <ComponentImage source = {props.image} width = "100%">
 
             </ComponentImage>
             <div>
