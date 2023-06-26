@@ -118,16 +118,30 @@ input {
 	.form {
 		width: 350px;
 	}
+	.el-1 {
+		width: 100px;
+	}
+	.el-2 {
+		text-align: center;
+		width: 170px;
+	}
+	.line-1 {
+		width: 100%;
+	}
 	.line-2 {
-		width: 172px;
+		width: 100%;
 	}
 	.el-2 {
 		text-align: center;
 	}
+	.head {
+		display: flex;
+		border: 1px solid;
+	}
 }
 @media screen and (max-width: 540px) {
 	.form {
-		width: 300px;
+		width: 350px;
 	}
 	.mr {
 		margin: 0 5px;
@@ -154,7 +168,7 @@ input {
 }
 @media screen and (max-width: 490px) {
 	.form {
-		width: 250px;
+		width: 350px;
 	}
 	.mr {
 		margin: 0 5px;
@@ -176,5 +190,16 @@ input {
 	}
 	.form_auth_text {
 		font-size: 15px;
+	}
+}
+@media screen and (max-width: 490px) {
+	.form {
+		width: 300px;
+	}
+	.mr {
+		margin: 0;
+	}
+	.form {
+		padding: 15px;
 	}
 }
