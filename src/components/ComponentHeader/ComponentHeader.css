@@ -1,8 +1,0 @@
-@font-face {
-	font-family: "FERRY";
-	src: local("FERRY") url("./fonts/FERRY/ferry.otf") format("truetype");
-	font-weight: bold;
-}
-.font_ferry {
-	font-family: "FERRY";
-}
