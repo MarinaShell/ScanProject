@@ -8,8 +8,8 @@ import './ComponentSearchDoc.css'
 
 const ComponentSearchDoc = (props) => {
 	return (
-		<CustomCard style ={{  width:"50%",
-                               height:"100%"}}>
+		<CustomCard style ={{  MaxWidth:"50%",
+                               MaxHeight:"100%"}}>
         <div>
             <div className = "flex">
                 <div>

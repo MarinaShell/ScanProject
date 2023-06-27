@@ -1,12 +1,12 @@
 import React from "react";
 import { CustomContainer } from "../../CustomComponents/CustomContainer/CustomContainer";
 import ComponentSearchDoc from "./ComponentSearchDoc/ComponentSearchDoc";
-import ComponentHeaderText from '../../CustomComponents/ComponentHeaderText/ComponentHeaderText';
-import { CustomButton } from '../../CustomComponents/CustomButton/CustomButton'
-import {Colors} from '../../../theme/Colors/Colors'
-import image1 from './image1.svg'
-import image2 from './image2.svg'
-import './SearchDoc.css'
+import ComponentHeaderText from "../../CustomComponents/ComponentHeaderText/ComponentHeaderText";
+import { CustomButton } from "../../CustomComponents/CustomButton/CustomButton";
+import { Colors } from "../../../theme/Colors/Colors";
+import image1 from "./image1.svg";
+import image2 from "./image2.svg";
+import "./SearchDoc.css";
 
 const SearchDoc = () => {
     return (

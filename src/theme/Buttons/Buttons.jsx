@@ -16,6 +16,7 @@ const theme = createTheme({
                         lineHeight: "24px",
                         textTransform: "none",
                         letterSpacing: "1px",
+                        borderRadius: "6px"
                     }
                 }
             },
@@ -25,14 +26,15 @@ const theme = createTheme({
                     style: {
                         backgroundColor: Colors.colorBlue,
                         color: Colors.colorWhite,
-                        padding: "10px 16px",
-                        width: "310px",
+                        padding: "17px 20px",
+                        minWidth: "250px",
                         fontFamily: "Inter, sans",
                         fontWeight: 400,
                         fontSize: "20px",
                         lineHeight: "24px",
                         textTransform: "none",
                         letterSpacing: "1px",
+                        borderRadius: "5px",
                         
                         "&:hover": {
                             backgroundColor: Colors.colorBlue,
@@ -46,13 +48,14 @@ const theme = createTheme({
                         backgroundColor: "#D2D2D2",
                         color: Colors.colorBlack,
                         fontFamily: "Inter, sans",
-                        minWidth: "355px",
-                        padding: "17px 40px",
+                        minWidth: "250px",
+                        padding: "17px 20px",
                         fontWeight: 400,
-                        fontSize: "20px",
-                        lineHeight: "24px",
+                        fontSize: "14px",
+                        lineHeight: "21px",
                         textTransform: "none",
-                        letterSpacing: "1px",
+                        // letterSpacing: "1px",
+                        borderRadius: "5px",
                         "&:hover": {
                             backgroundColor: "#D2D2D2",
                             boxShadow: "0px 8px 15px rgba(0, 0, 0, 0.1)",
@@ -65,6 +68,7 @@ const theme = createTheme({
                         backgroundColor: Colors.colorLightBlue,
                         color: Colors.colorBlack,
                         fontFamily: "Inter, sans",
+                        minWidth: "250px",
                         fontWeight: 400,
                         fontSize: "16px",
                         lineHeight: "19px",
