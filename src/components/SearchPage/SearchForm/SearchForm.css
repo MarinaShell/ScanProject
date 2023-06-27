@@ -1,0 +1,122 @@
+@font-face {
+	font-family: "Inter";
+	src: url("../../../fonts/inter/Inter-Regular.ttf");
+}
+
+.form {
+	width: 872px;
+	height: 543px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #c7c7c7;
+	box-shadow: 2px 2px 15px 0px #c7c7c7;
+	border-radius: 10px;
+	font-size: 18px;
+	font-family: "Inter";
+}
+.field-input1::placeholder {
+	text-align: center;
+}
+.field-input2 {
+	width: 176px;
+	margin-right: 20px;
+}
+.field-input1 {
+	width: 242px;
+	height: 43px;
+	border-style: solid;
+	border-color: #c7c7c7;
+	border-radius: 5px;
+	border-width: 1px;
+}
+select {
+	background-color: #fff;
+	width: 242px;
+	height: 43px;
+	border-style: solid;
+	border-color: #c7c7c7;
+	border-radius: 5px;
+	border-width: 1px;
+}
+
+.square {
+	height: 20px;
+	width: 20px;
+}
+.title-input {
+	margin-bottom: 26px;
+	margin-top: 29px;
+}
+form {
+	display: flex;
+	/* justify-content: space-between; */
+	width: 872px;
+	height: 543px;
+	/* padding-bottom: 60px; */
+}
+.form {
+	display: flex;
+	/* width: 100%; */
+}
+
+.part_form-right {
+	border: 1px solid;
+}
+.part_form1 {
+	width: 373px;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	text-align: left; /* margin-left: 20px; */
+}
+
+.part_form2 {
+	margin-left: 0;
+	margin-right: auto;
+	display: flex;
+	flex-direction: column;
+	height: 244px;
+	width: 406px;
+}
+
+.part_form3 {
+	display: flex;
+	width: 372px;
+	flex-direction: column;
+	flex-grow: 1;
+	text-align: left;
+	margin-top: 10px;
+}
+.part_form3_block-input {
+	display: flex;
+}
+.checkbox {
+	display: flex;
+	padding-bottom: 10px;
+	/* flex-flow: row nowrap; */
+}
+.btn {
+	margin-bottom: 0;
+	margin-top: auto;
+	margin-right: 0;
+	margin-left: auto;
+}
+.part_form3 {
+}
+@media screen and (max-width: 1000px) {
+	.part_form2 {
+		display: none;
+	}
+	.part_form3 {
+		margin-bottom: 20px;
+	}
+
+	.form {
+		width: 98%;
+		margin-left: 0px;
+	}
+
+	form {
+		height: 543px;
+	}
+}
