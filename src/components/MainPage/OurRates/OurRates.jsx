@@ -7,25 +7,29 @@ import { Colors } from "../../../theme/Colors/Colors";
 import pro from "./pro.svg";
 import business from "./business.svg";
 import begin from "./begin.svg";
+import { useTheme, useMediaQuery } from "@mui/material";
 
 const OurRates = () => {
+    const theme = useTheme();
+    const matches = useMediaQuery(theme.breakpoints.down("md"));
+
   return (
     <>
       <div>
         <ComponentHeaderText
           style={{
-            fontSize: "45px",
-            fontWeight: "500",
-            lineHeight: "54px",
+            fontSize: matches ? "28px" : "45px",
+            lineHeight: matches ? "33px" : "54px",
+            fontWeight: "900",
             marginTop: "20px",
-            marginBottom: "60px",
+            marginBottom:matches ? "35px" : "60px",
             textAlign: "left",
           }}
         >
           НАШИ ТАРИФЫ
         </ComponentHeaderText>
       </div>
-      
+
       <div className="cards">
         <ComponentOurRates
           header="Beginner"

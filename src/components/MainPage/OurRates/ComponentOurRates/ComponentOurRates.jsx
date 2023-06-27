@@ -3,22 +3,27 @@ import ComponentImage from "../../../CustomComponents/ComponentImage/ComponentIm
 import ComponentText from "../../../CustomComponents/ComponentText/ComponentText";
 import { CustomButton } from "../../../CustomComponents/CustomButton/CustomButton";
 import { CustomCard } from "../../../CustomComponents/CustomCard/CustomCard";
-import "./ComponentOurRates.css";
+// import "./ComponentOurRates.css";
 import { Colors } from "../../../../theme/Colors/Colors";
 import galka from "./galka.svg";
+import { useTheme, useMediaQuery } from "@mui/material";
 
 const ComponentOurRates = (props) => {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down("md"));
   return (
-    <CustomCard style={{padding: 0, border: "2px solid" + props.color}}>
+    <CustomCard
+      style={{ padding: 0, border: "2px solid" + props.color, margin: 0 }}
+    >
       <div style={{ backgroundColor: props.color }}>
-        <div>
+        <div style={{ padding: "30px 24px" }}>
           <ComponentText
             style={{
-              fontSize: "30px",
+              padding: 0,
+              textAlign: "left",
+              fontSize: matches ? "20px" : "30px",
               fontWeight: "500",
-              lineHeight: "36px",
-              marginTop: "20px",
-              marginLeft: "20px",
+              lineHeight: matches ? "24px" : "36px",
               color: props.colorText,
             }}
           >
@@ -28,11 +33,8 @@ const ComponentOurRates = (props) => {
           <ComponentText
             style={{
               fontSize: "18px",
-              whiteSpace: "nowrap",
               lineHeight: "21px",
               marginTop: "20px",
-              marginBottom: "20px",
-              marginLeft: "20px",
               color: props.colorText,
             }}
           >
@@ -104,7 +106,7 @@ const ComponentOurRates = (props) => {
             textAlign: "left",
           }}
         >
-          <ul>
+          {/* <ul>
             <li className="flex">
               <div>
                 <ComponentImage source={galka}></ComponentImage>
@@ -123,7 +125,7 @@ const ComponentOurRates = (props) => {
               </div>
               <div class="li_div">{props.list3}</div>
             </li>
-          </ul>
+          </ul> */}
         </ComponentText>
       </div>
       <CustomButton variant={props.buttonStyle}>{props.button}</CustomButton>
