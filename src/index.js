@@ -5,8 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-
-import './fonts/inter/Inter-Regular.ttf'
+import "../src/fonts/inter/Inter-Regular.woff2";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

@@ -3,6 +3,7 @@ import { Colors } from "../Colors/Colors";
 
 const theme = createTheme({
     components: {
+        
         MuiButton: {
             styleOverrides: {
                 root: {
@@ -45,6 +46,8 @@ const theme = createTheme({
                         backgroundColor: "#D2D2D2",
                         color: Colors.colorBlack,
                         fontFamily: "Inter, sans",
+                        minWidth: "355px",
+                        padding: "17px 40px",
                         fontWeight: 400,
                         fontSize: "20px",
                         lineHeight: "24px",

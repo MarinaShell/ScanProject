@@ -7,7 +7,7 @@ const CustomButton = (props) => {
     let { children, ...others } = props;
     return (
         <ThemeProvider theme={theme}>
-            <Button {...others} variant={props.variant}>{children}</Button>
+            <Button variant={props.variant} {...others} >{children}</Button>
         </ThemeProvider>
     );
 };
