@@ -112,11 +112,12 @@ const NavBar = (props) => {
           <Box
             sx={{
               flexGrow: 2,
-              justifyContent: "start",
+              textAlign: "left",
+              width: {md: "121px"}
               
             }}
           >
-            <img src={TopLogo} alt="Logo" width={{sm: "121px"}} />
+            <img src={TopLogo} alt="TopLogo"  />
           </Box>
 
           <Box

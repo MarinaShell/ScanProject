@@ -8,7 +8,7 @@ const CustomContainer = (props) => {
     let { children, ...others } = props;
 
     const responsive = matches
-        ? { padding: "20px 5px" }
+        ? { padding: "20px 10px" }
         : { padding: "20px 60px" };
     return (
         <Container maxWidth="false" style={responsive} {...others}>

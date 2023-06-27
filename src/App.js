@@ -13,7 +13,7 @@ function App() {
     <div className="App">
       <NavBar />
 
-      {/* <Routes>
+      <Routes>
         <Route path='/' element={<MainPage />} />
         <Route path='login' element={<AuthPage />} />
         <Route path='search' element={<SearchPage />} />
@@ -22,7 +22,7 @@ function App() {
         <Route path='*' element={<Navigate to='/' />}/>
       </Routes>
 
-      <Footer /> */}
+      {/* <Footer /> */}
     </div>
   );
 }

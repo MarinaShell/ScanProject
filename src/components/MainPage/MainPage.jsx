@@ -12,9 +12,9 @@ const MainPage = () => {
 
     return (
         <CustomContainer>
-          <Header />
+          {/* <Header />
           <OurGoals />
-          <MainPageMedia />
+          <MainPageMedia /> */}
           
           <OurRates />     
             
