@@ -40,7 +40,7 @@ const NavBar = (props) => {
         setMobileOpen((prevState) => !prevState);
     };
 
-    const [authorized, setAuthorized] = useState(false); // статус авторизации
+    const [authorized, setAuthorized] = useState(false); // статус авторизации, можно имитировать авторизацию (false) на (true)
 
     const drawer = (
         <Box>

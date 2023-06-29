@@ -8,6 +8,7 @@ import SearchPage from './components/SearchPage/SearchPage';
 import { ResultPage } from './components/ResultPage/ResultPage';
 import Footer from './components/Footer/Footer';
 
+
 function App() {
   return (
     <div className="App">
