@@ -10,7 +10,7 @@ import { useTheme, useMediaQuery } from "@mui/material";
 
 const ComponentOurRates = (props) => {
     const theme = useTheme();
-    const matches = useMediaQuery(theme.breakpoints.down("md"));
+    const matches = useMediaQuery(theme.breakpoints.down("lg"));
     return (
         <CustomCard
             style={{
@@ -25,13 +25,13 @@ const ComponentOurRates = (props) => {
             <div style={{display: "flex", flexDirection: "column"}}>
                 <div
                     style={{
-                        flexGrow: 2,
+                        flexShrink: 2,
                         backgroundColor: props.color,
                         display: "flex",
                         position: "relative",
                     }}
                 >
-                    <div style={{ padding: "30px 24px", flexGrow: 2 }}>
+                    <div style={{ padding: "30px 24px", flexShrink: 2 }}>
                         <ComponentText
                             style={{
                                 padding: 0,
@@ -59,7 +59,7 @@ const ComponentOurRates = (props) => {
                     </div>
                     <div
                         style={{
-                            flexGrow: 1,
+                            flexShrink: 1,
                             padding: "15px",
                             alignItems: "center",
                             position: matches ? "absolute" : "static",
@@ -73,7 +73,7 @@ const ComponentOurRates = (props) => {
                         ></ComponentImage>
                     </div>
                 </div>
-                <div style={{flex: 1, display: "flex", flexDirection: "column" }}>
+                <div style={{flexshrink: 1, display: "flex", flexDirection: "column" }}>
                     <div
                         style={{
                             display: "flex",

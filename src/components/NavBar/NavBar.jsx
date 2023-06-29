@@ -21,7 +21,7 @@ import { CustomButton } from "../CustomComponents/CustomButton/CustomButton";
 import ComponentText from "../CustomComponents/ComponentText/ComponentText";
 import { InfoBlock } from "./InfoBlock/InfoBlock";
 import { useTheme, useMediaQuery } from "@mui/material";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 const navItems = ["Главная", "Тарифы", "FAQ"];
@@ -32,6 +32,7 @@ const NavBar = (props) => {
   const matches_sm = useMediaQuery(theme.breakpoints.down("sm"));
   
 
+  const navigate = useNavigate();
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -60,7 +61,10 @@ const NavBar = (props) => {
       <List>
         {navItems.map((item) => (
           <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: "center" }}>
+            <ListItemButton sx={{ textAlign: "center" }} onClick={() => {
+            navigate("/");
+            handleDrawerToggle();
+          }}>
               <ListItemText primary={<ComponentText>{item}</ComponentText>} />
             </ListItemButton>
           </ListItem>
@@ -71,6 +75,10 @@ const NavBar = (props) => {
           style={{
             marginBottom: "20px",
             color: "rgba(255,255,255,0.5)",
+          }}
+          onClick={() => {
+            navigate("/login");
+            handleDrawerToggle();
           }}
         >
           Зарегистрироваться
@@ -83,7 +91,8 @@ const NavBar = (props) => {
             color: Colors.colorBlack,
           }}
           onClick={() => {
-            <Navigate to={"/login"}/>
+            navigate("/login");
+            handleDrawerToggle();
           }}
         >
           Войти
