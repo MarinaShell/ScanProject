@@ -17,8 +17,9 @@ const ComponentOurRates = (props) => {
                 padding: "0 0 20px",
                 border: "2px solid" + props.color,
                 flex: 1,
-                maxWidth: "500px",
-                minHeight: "540px",
+                maxWidth: "415px",
+                minWidth: "335px",
+                minHeight: "512px",
                 marginBottom: "20px",
             }}
         >
@@ -116,6 +117,7 @@ const ComponentOurRates = (props) => {
                     <div style={{ padding: "20px 20px 0" }}>
                         <ComponentText
                             style={{
+                                textWrap: "wrap",
                                 fontSize: "20px",
                                 lineHeight: "24px",
                                 textAlign: "left",
@@ -155,7 +157,7 @@ const ComponentOurRates = (props) => {
                                             source={galka}
                                         ></ComponentImage>
                                     </div>
-                                    <div class="li_div">{props.list2}</div>
+                                    <div className="li_div">{props.list2}</div>
                                 </div>
                             </li>
                             <li className="flex">
@@ -170,7 +172,7 @@ const ComponentOurRates = (props) => {
                                             source={galka}
                                         ></ComponentImage>
                                     </div>
-                                    <div class="li_div">{props.list3}</div>
+                                    <div className="li_div">{props.list3}</div>
                                 </div>
                             </li>
                         </ul>

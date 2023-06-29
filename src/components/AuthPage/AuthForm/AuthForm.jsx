@@ -31,12 +31,12 @@ const AuthForm = () => {
 					<p className='form_auth_text'>Пароль:</p>
 					<p><input type='password' required /></p>
 				</form>
-				<CustomButton variant='blue'>Войти</CustomButton><br />
+				<CustomButton variant='blue' disabled>Войти</CustomButton><br />
 				<a className='return_passw'>Восстановить пароль</a>
 				<p className='form_auth_text'>Войти через:</p>
 				<div className='logos'>
 					<button><img src={goog} /></button>
-					<button class="mr"><img src={face} /></button>
+					<button className="mr"><img src={face} /></button>
 					<button><img src={yand} /></button>
 				</div>
 			</div >

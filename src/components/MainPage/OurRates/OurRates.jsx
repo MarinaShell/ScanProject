@@ -36,6 +36,7 @@ const OurRates = () => {
                     border: 0,
                     margin: "0 0 20px",
                     display: "flex",
+                    flexWrap: 'wrap',
                     justifyContent: "space-around",
                     alignItems: "center",
                     flexDirection: matches ? "column" : "row",

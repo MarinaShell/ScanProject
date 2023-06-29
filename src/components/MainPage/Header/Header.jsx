@@ -10,7 +10,6 @@ import { useTheme, useMediaQuery } from "@mui/material";
 const Header = () => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("md"));
-  console.log(matches);
   return (
     <div style={{display: "flex", flexDirection: matches ? "column" : "row"}}>
       <div className="left-part">
