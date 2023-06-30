@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { CustomButton } from "../../CustomComponents/CustomButton/CustomButton";
 import ComponentHeaderText from "../../CustomComponents/ComponentHeaderText/ComponentHeaderText";
 import ComponentText from "../../CustomComponents/ComponentText/ComponentText";
@@ -13,6 +13,7 @@ const Header = () => {
   const matches = useMediaQuery(theme.breakpoints.down("md"));
   console.log(matches);
   const navigate = useNavigate();
+  const [authorized, setAuthotized] = useState(false)
   
   return (
     <div style={{display: "flex", flexDirection: matches ? "column" : "row"}}>
@@ -42,7 +43,11 @@ const Header = () => {
           </div>
         </div>
         <div style={{textAlign: matches ? "center" : "left", marginTop: "70px"}}>
-          <CustomButton variant="blue" onClick={() => { navigate('/search')}}>Запросить данные</CustomButton>
+          {authorized ? (
+            <>
+            <CustomButton variant="blue" onClick={() => { navigate('/search')}}>Запросить данные</CustomButton>
+            </>
+          ) : (<></>)}          
         </div>
       </div>
       <div className="image">
