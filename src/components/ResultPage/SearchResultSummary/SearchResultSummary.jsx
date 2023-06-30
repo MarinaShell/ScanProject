@@ -8,28 +8,19 @@ import { CustomCard } from "../../CustomComponents/CustomCard/CustomCard";
 import { Colors } from "../../../theme/Colors/Colors";
 import { DataCarousel } from "./DataCArousel/DataCarousel";
 import { CustomButton } from "../../CustomComponents/CustomButton/CustomButton";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
-import { useState } from "react";
 
 const SearchResultSummary = () => {
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.down("sm"));
 
-    const [histograms, setHistograms] = useState([]);
     const [objectsTotal, setObjectsTotal] = useState(0);
 
     useEffect(() => {
         axios
             .get("/Mocks/response-objectsearch.json")
             .then((data) => setObjectsTotal(data.data))
-            .catch((error) => console.log(error));
-    }, []);
-
-    useEffect(() => {
-        axios
-            .get("/Mocks/response-objectsearch-histograms.json")
-            .then((result) => setHistograms(result.data))
             .catch((error) => console.log(error));
     }, []);
 
@@ -104,7 +95,7 @@ const SearchResultSummary = () => {
                         </ComponentText>
                     </div>
                     <div style={{ flexGrow: 1, position: "relative" }}>
-                        <DataCarousel histograms={histograms} />
+                        <DataCarousel />
                     </div>
                 </CustomCard>
                 <CustomButton
