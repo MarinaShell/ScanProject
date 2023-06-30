@@ -23,7 +23,7 @@ import { InfoBlock } from "./InfoBlock/InfoBlock";
 import { useTheme, useMediaQuery } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { Authorized } from "./Authorized/Authorized";
-import { Unauthorized } from "./Unathourized/Unauthorized";
+import { Unauthorized } from "./Unathorized/Unauthorized";
 
 const navItems = ["Главная", "Тарифы", "FAQ"];
 const drawerWidth = "100%";
