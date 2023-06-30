@@ -4,195 +4,31 @@ import "react-alice-carousel/lib/alice-carousel.css";
 import ComponentText from "../../../CustomComponents/ComponentText/ComponentText";
 import { useTheme, useMediaQuery } from "@mui/material";
 
-const DataCarousel = () => {
+const DataCarousel = (props) => {
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.down("sm"));
+    props.histograms.data[0].data.map(item => console.log(item.value))
+    props.histograms.data[1].data.map(item => console.log(item.value))
 
-    const Items = [
-        <div
-            style={{
-                marginTop: "18px",
-                borderRight: "1px solid grey",
-                display: "flex",
-                flexDirection: matches ? "row" : "column",
-                
-                // justifyContent: "space-around"
-            }}
-        >
-            <ComponentText style={{flexGrow: 1}}>20.02.2022</ComponentText>
-            <ComponentText style={{ margin: matches ? "0" : "26px 0", flexGrow: 2 }}>5</ComponentText>
-            <ComponentText style={{flexGrow: 2}}>0</ComponentText>
-        </div>,
-        <div
-            style={{
-                marginTop: "18px",
-                borderRight: "1px solid grey",
-                display: "flex",
-                flexDirection: matches ? "row" : "column",
-                
-                // justifyContent: "space-around"
-            }}
-        >
-            <ComponentText style={{flexGrow: 1}}>20.02.2022</ComponentText>
-            <ComponentText style={{ margin: matches ? "0" : "26px 0", flexGrow: 2 }}>5</ComponentText>
-            <ComponentText style={{flexGrow: 2}}>0</ComponentText>
-        </div>,
-        <div
-            style={{
-                marginTop: "18px",
-                borderRight: "1px solid grey",
-                display: "flex",
-                flexDirection: matches ? "row" : "column",
-                
-                // justifyContent: "space-around"
-            }}
-        >
-            <ComponentText style={{flexGrow: 1}}>20.02.2022</ComponentText>
-            <ComponentText style={{ margin: matches ? "0" : "26px 0", flexGrow: 2 }}>5</ComponentText>
-            <ComponentText style={{flexGrow: 2}}>0</ComponentText>
-        </div>,
-        <div
-            style={{
-                marginTop: "18px",
-                borderRight: "1px solid grey",
-                display: "flex",
-                flexDirection: matches ? "row" : "column",
-                
-                // justifyContent: "space-around"
-            }}
-        >
-            <ComponentText style={{flexGrow: 1}}>20.02.2022</ComponentText>
-            <ComponentText style={{ margin: matches ? "0" : "26px 0", flexGrow: 2 }}>5</ComponentText>
-            <ComponentText style={{flexGrow: 2}}>0</ComponentText>
-        </div>,
-        <div
-            style={{
-                marginTop: "18px",
-                borderRight: "1px solid grey",
-                display: "flex",
-                flexDirection: matches ? "row" : "column",
-                
-                // justifyContent: "space-around"
-            }}
-        >
-            <ComponentText style={{flexGrow: 1}}>20.02.2022</ComponentText>
-            <ComponentText style={{ margin: matches ? "0" : "26px 0", flexGrow: 2 }}>5</ComponentText>
-            <ComponentText style={{flexGrow: 2}}>0</ComponentText>
-        </div>,
-        <div
-            style={{
-                marginTop: "18px",
-                borderRight: "1px solid grey",
-                display: "flex",
-                flexDirection: matches ? "row" : "column",
-                
-                // justifyContent: "space-around"
-            }}
-        >
-            <ComponentText style={{flexGrow: 1}}>20.02.2022</ComponentText>
-            <ComponentText style={{ margin: matches ? "0" : "26px 0", flexGrow: 2 }}>5</ComponentText>
-            <ComponentText style={{flexGrow: 2}}>0</ComponentText>
-        </div>,
-        <div
-            style={{
-                marginTop: "18px",
-                borderRight: "1px solid grey",
-                display: "flex",
-                flexDirection: matches ? "row" : "column",
-                
-                // justifyContent: "space-around"
-            }}
-        >
-            <ComponentText style={{flexGrow: 1}}>20.02.2022</ComponentText>
-            <ComponentText style={{ margin: matches ? "0" : "26px 0", flexGrow: 2 }}>5</ComponentText>
-            <ComponentText style={{flexGrow: 2}}>0</ComponentText>
-        </div>,
-        <div
-            style={{
-                marginTop: "18px",
-                borderRight: "1px solid grey",
-                display: "flex",
-                flexDirection: matches ? "row" : "column",
-                
-                // justifyContent: "space-around"
-            }}
-        >
-            <ComponentText style={{flexGrow: 1}}>20.02.2022</ComponentText>
-            <ComponentText style={{ margin: matches ? "0" : "26px 0", flexGrow: 2 }}>5</ComponentText>
-            <ComponentText style={{flexGrow: 2}}>0</ComponentText>
-        </div>,
-        <div
-            style={{
-                marginTop: "18px",
-                borderRight: "1px solid grey",
-                display: "flex",
-                flexDirection: matches ? "row" : "column",
-                
-                // justifyContent: "space-around"
-            }}
-        >
-            <ComponentText style={{flexGrow: 1}}>20.02.2022</ComponentText>
-            <ComponentText style={{ margin: matches ? "0" : "26px 0", flexGrow: 2 }}>5</ComponentText>
-            <ComponentText style={{flexGrow: 2}}>0</ComponentText>
-        </div>,
-        <div
-            style={{
-                marginTop: "18px",
-                borderRight: "1px solid grey",
-                display: "flex",
-                flexDirection: matches ? "row" : "column",
-                
-                // justifyContent: "space-around"
-            }}
-        >
-            <ComponentText style={{flexGrow: 1}}>20.02.2022</ComponentText>
-            <ComponentText style={{ margin: matches ? "0" : "26px 0", flexGrow: 2 }}>5</ComponentText>
-            <ComponentText style={{flexGrow: 2}}>0</ComponentText>
-        </div>,
-        <div
-            style={{
-                marginTop: "18px",
-                borderRight: "1px solid grey",
-                display: "flex",
-                flexDirection: matches ? "row" : "column",
-                
-                // justifyContent: "space-around"
-            }}
-        >
-            <ComponentText style={{flexGrow: 1}}>20.02.2022</ComponentText>
-            <ComponentText style={{ margin: matches ? "0" : "26px 0", flexGrow: 2 }}>5</ComponentText>
-            <ComponentText style={{flexGrow: 2}}>0</ComponentText>
-        </div>,
-        <div
-            style={{
-                marginTop: "18px",
-                borderRight: "1px solid grey",
-                display: "flex",
-                flexDirection: matches ? "row" : "column",
-                
-                // justifyContent: "space-around"
-            }}
-        >
-            <ComponentText style={{flexGrow: 1}}>20.02.2022</ComponentText>
-            <ComponentText style={{ margin: matches ? "0" : "26px 0", flexGrow: 2 }}>5</ComponentText>
-            <ComponentText style={{flexGrow: 2}}>0</ComponentText>
-        </div>,
-        <div
-            style={{
-                marginTop: "18px",
-                borderRight: "1px solid grey",
-                display: "flex",
-                flexDirection: matches ? "row" : "column",
-                
-                // justifyContent: "space-around"
-            }}
-        >
-            <ComponentText style={{flexGrow: 1, fontSize: matches ? "18px" : "20px"}}>20.02.2022</ComponentText>
-            <ComponentText style={{ margin: matches ? "0" : "26px 0", flexGrow: 2, fontSize: matches ? "18px" : "20px" }}>5</ComponentText>
-            <ComponentText style={{flexGrow: 2, fontSize: matches ? "18px" : "20px"}}>0</ComponentText>
-        </div>,
-
-    ];
+    // const Items = props.histograms.data.map(({ total, risks }) => (
+    //     <div
+    //         style={{
+    //             marginTop: "18px",
+    //             borderRight: "1px solid grey",
+    //             display: "flex",
+    //             flexDirection: matches ? "row" : "column",
+    //         }}
+    //     >
+    //         <ComponentText style={{ flexGrow: 1 }}>20.02.2022</ComponentText>
+    //         <ComponentText
+    //             style={{ margin: matches ? "0" : "26px 0", flexGrow: 2 }}
+    //         >
+    //             5
+    //         </ComponentText>
+    //         <ComponentText style={{ flexGrow: 2 }}>0</ComponentText>
+    //     </div>
+    // ));
+// console.log(Items.data)
     const responsive = {
         0: { items: 1 },
         768: { items: 4 },
@@ -202,7 +38,7 @@ const DataCarousel = () => {
     return (
         <>
             <AliceCarousel
-                items={Items}
+                // items={Items}
                 responsive={responsive}
                 autoHeight
                 disableDotsControls

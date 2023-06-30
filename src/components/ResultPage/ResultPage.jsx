@@ -11,7 +11,7 @@ const ResultPage = () => {
         <SearchResultHeader/>
       </div>
       <div>
-        <SearchResultSummary/>
+        {/*<SearchResultSummary/> */} 
       </div>
       <div>
         <SearchDoc/>

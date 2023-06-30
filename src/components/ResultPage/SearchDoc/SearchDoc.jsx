@@ -7,10 +7,70 @@ import { Colors } from "../../../theme/Colors/Colors";
 import image1 from "./image1.svg";
 import image2 from "./image2.svg";
 import "./SearchDoc.css";
+import { useEffect, useState } from 'react'
+import axios from "axios";
 
 const SearchDoc = () => {
+    const [userInfo, setUserInfo] = useState([]); // Состояние инфоблока
+
+    useEffect(() => {
+        axios
+            .get("/Mocks/response-documents.json") // Запрос
+            .then((result) => console.log(setUserInfo(result.data))) // получаем данные
+            .catch((error) => console.log(error)); // выводим в консоль если получили ошибку вместо данных
+    }, []);
+
+    function getData(){
+        axios
+            .get("/Mocks/response-documents.json") // Запрос
+            .then((result) => console.log(setUserInfo(result.data))) // получаем данные
+            .catch((error) => console.log(error)); // выводим в консоль если получили ошибку вместо данных
+    };
+
+    console.log(userInfo);
+
     return (
-         <CustomContainer>
+        <CustomContainer>
+            <div>     
+                <ComponentHeaderText style = {{fontSize:"45px", 
+                                             fontWeight: "500",
+                                             lineHeight:"54px",
+                                             marginTop:"20px",
+                                             marginBottom:"60px",
+                                             textAlign:"left"}}>
+                    СПИСОК ДОКУМЕНТОВ
+                </ComponentHeaderText>
+            </div>
+            <div className = "cards">    
+            { userInfo.map(x =>         
+            <ComponentSearchDoc 
+                            textDate = {x.issueDate}
+                            textSource = {x.name}
+                            textHeader = "Скиллфэктори - лучшая онлайн-школа для будущих айтишников"
+                            textType = "Технические новости"
+                            text = "SkillFactory — школа для всех, кто хочет изменить свою карьеру и жизнь. С 2016 года обучение прошли 20 000+ человек из 40 стран с 4 континентов, самому взрослому студенту сейчас 86 лет. Выпускники работают в Сбере, Cisco, Bayer, Nvidia, МТС, Ростелекоме, Mail.ru, Яндексе, Ozon и других топовых компаниях.
+                            Принципы SkillFactory: акцент на практике, забота о студентах и ориентир на трудоустройство. 80% обучения — выполнение упражнений и реальных проектов. Каждого студента поддерживают менторы, 2 саппорт-линии и комьюнити курса. А карьерный центр помогает составить резюме, подготовиться к собеседованиям и познакомиться с IT-рекрутерами."
+                            textNumWord = "2 543 слова"
+                            image = {image1}
+                        />
+                        )            
+            }
+  
+           </div>
+           <div style={{marginTop:"30px"}}>
+                <CustomButton  onClick={() => getData()}
+                               variant= 'blue'>
+                    Показать больше
+                </CustomButton>
+            </div>
+        </CustomContainer>
+    );
+};
+
+
+   {/*
+
+   <CustomContainer>
             <div>     
                 <ComponentHeaderText style = {{fontSize:"45px", 
                                              fontWeight: "500",
@@ -45,12 +105,16 @@ const SearchDoc = () => {
                 />                  
             </div>
             <div style={{marginTop:"30px"}}>
-                <CustomButton variant= 'blue'>
+                <CustomButton  onClick={() => getData()}
+                               variant= 'blue'>
                     Показать больше
                 </CustomButton>
             </div>
         </CustomContainer>  
-    );
-};
+   */
+
+   }      
+
+  
 
 export default SearchDoc;
