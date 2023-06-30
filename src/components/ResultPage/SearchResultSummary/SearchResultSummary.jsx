@@ -22,7 +22,7 @@ const SearchResultSummary = () => {
             .get("/Mocks/response-objectsearch.json")
             .then((data) => setObjectsTotal(data.data))
             .catch((error) => console.log(error));
-    }, []);
+    }, [window.innerWidth]);
 
     const toLeft = () => {
         document.querySelector(".alice-carousel__prev-btn").click();
@@ -31,7 +31,6 @@ const SearchResultSummary = () => {
         document.querySelector(".alice-carousel__next-btn").click();
     };
 
-    
     return (
         <>
             <ComponentHeaderText
@@ -94,9 +93,9 @@ const SearchResultSummary = () => {
                             Риски
                         </ComponentText>
                     </div>
-                    <div style={{ flexGrow: 1, position: "relative" }}>
+                    {/* <div style={{ flexGrow: 1, position: "relative", width: "100%", display: "flex"}}> */}
                         <DataCarousel />
-                    </div>
+                    {/* </div> */}
                 </CustomCard>
                 <CustomButton
                     onClick={toRight}

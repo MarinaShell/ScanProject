@@ -26,61 +26,60 @@ const DataCarousel = () => {
                   key={idx}
                   style={{
                       marginTop: "18px",
+                      //   marginRight: "-20px",
                       borderRight: "1px solid grey",
                       display: "flex",
+                      justifyContent: "center",
+                      flexBasis: "auto",
                       flexDirection: matches ? "row" : "column",
                   }}
               >
-                  <ComponentText style={{ flexGrow: 1 }}>
+                  <ComponentText>
                       {new Date(value.date).toLocaleDateString()}
                   </ComponentText>
-                  <ComponentText
-                      style={{ margin: matches ? "0" : "26px 0", flexGrow: 2 }}
-                  >
+                  <ComponentText style={{ margin: matches ? "0" : "26px 0" }}>
                       {value.value}
                   </ComponentText>
-                  <ComponentText style={{ flexGrow: 2 }}>
+                  <ComponentText>
                       {histograms.data[1].data[idx].value}
                   </ComponentText>
               </div>
-        ))
+          ))
         : [];
 
-    // console.log(Items);
     const responsive = {
-        0: { items: 1},
-        768: { items: 3},
-        1024: { items: 6, itemsFit: "contain" },
+        0: { items: 1 },
+        768: { items: 4 },
+        1024: { items: 8 },
     };
 
     return histograms.data ? (
-        <>
-            <AliceCarousel
-                items={Items}
-                responsive={responsive}
-                autoHeight
-                disableDotsControls
-                autoWidth={false}
-                renderPrevButton={() => {
-                    return (
-                        <div
-                            style={{
-                                visibility: "hidden",
-                            }}
-                        ></div>
-                    );
-                }}
-                renderNextButton={() => {
-                    return (
-                        <div
-                            style={{
-                                visibility: "hidden",
-                            }}
-                        ></div>
-                    );
-                }}
-            />
-        </>
+        <AliceCarousel
+            items={Items}
+            responsive={responsive}
+            autoHeight
+            disableDotsControls
+            autoWidth={false}
+            activeIndex={0}
+            renderPrevButton={() => {
+                return (
+                    <div
+                        style={{
+                            visibility: "hidden",
+                        }}
+                    ></div>
+                );
+            }}
+            renderNextButton={() => {
+                return (
+                    <div
+                        style={{
+                            visibility: "hidden",
+                        }}
+                    ></div>
+                );
+            }}
+        />
     ) : (
         <CircularProgress />
     );
