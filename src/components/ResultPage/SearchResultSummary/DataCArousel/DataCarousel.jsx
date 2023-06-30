@@ -5,11 +5,12 @@ import ComponentText from "../../../CustomComponents/ComponentText/ComponentText
 import { useTheme, useMediaQuery } from "@mui/material";
 
 const DataCarousel = (props) => {
+    
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.down("sm"));
-    props.histograms.data[0].data.map(item => console.log(item.value))
-    props.histograms.data[1].data.map(item => console.log(item.value))
-
+    // props.histograms.data[0].data.map(item => console.log(item.value))
+    // props.histograms.data[1].data.map(item => console.log(item.value))
+    console.log(...props.histograms.data)
     // const Items = props.histograms.data.map(({ total, risks }) => (
     //     <div
     //         style={{
