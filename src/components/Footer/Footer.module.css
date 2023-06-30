@@ -1,10 +1,5 @@
-@font-face {
-    font-family: "Inter";
-    src: url('../../fonts/inter/Inter-Regular.ttf');
-}
-
 .footer {
-    position: sticky;
+    position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;

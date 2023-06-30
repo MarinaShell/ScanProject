@@ -1,10 +1,17 @@
 import React from "react";
 import { Card } from "@mui/material";
+import { theme } from "../../../theme/Cards/Cards";
+import { ThemeProvider } from "@mui/material";
 
 const CustomCard = (props) => {
-    console.log(props);
     let { children, ...others } = props;
-    return <Card {...others}>{children}</Card>;
+    return (
+        <ThemeProvider theme={theme}>
+            <Card variant={"outlined"} {...others}>
+                {children}
+            </Card>
+        </ThemeProvider>
+    );
 };
 
 export { CustomCard };

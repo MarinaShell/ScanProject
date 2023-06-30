@@ -1,0 +1,27 @@
+.custom-container {
+	/* max-width - чтобы адаптация была резиновой	 */
+	max-width: 1440px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+}
+.our-goals {
+}
+@media screen and (max-width: 1000px) {
+	.our-goals {
+		margin-top: 600px;
+	}
+}
+@media screen and (max-width: 700px) {
+	.our-goals {
+		margin-top: 500px;
+	}
+}
+.header {
+	width: 100%;
+	height: 620px;
+	margin: 0 auto;
+}
+.auth-page {
+	margin: 100px auto;
+}
