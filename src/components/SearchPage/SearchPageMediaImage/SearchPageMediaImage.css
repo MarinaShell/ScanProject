@@ -1,25 +1,42 @@
 .my-guy {
 	position: absolute;
-	left: 0;
-	bottom: 0;
-	width: 397px;
-	height: 476px;
+	margin: 0 auto;
+	margin-top: -200px;
+	max-width: 394px;
+	max-height: 473px;
 	background: cover;
-	align-self: end;
+	bottom: 0;
+	left: 80px;
+}
+@media screen and (max-width: 1200px) {
+	.my-guy {
+		left: 40px;
+	}
+}
+@media screen and (max-width: 1100px) {
+	.my-guy {
+		left: 10px;
+	}
+}
+@media screen and (max-width: 1000px) {
+	.my-guy {
+		max-width: 80%;
+		max-height: 80%;
+	}
 }
 .my-document {
 	position: absolute;
-	left: -90px;
-	top: 0;
-	width: 102px;
-	height: 117px;
+	left: 0px;
+	top: 50px;
+	width: auto;
+	height: auto;
 }
 .my-folders {
 	position: absolute;
-	left: 190px;
-	top: 0;
-	width: 140px;
-	height: 68px;
+	left: 290px;
+	top: 50px;
+	width: auto;
+	height: auto;
 }
 .container-images {
 	position: relative;

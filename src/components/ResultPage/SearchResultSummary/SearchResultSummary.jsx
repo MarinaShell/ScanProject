@@ -8,15 +8,13 @@ import { CustomCard } from "../../CustomComponents/CustomCard/CustomCard";
 import { Colors } from "../../../theme/Colors/Colors";
 import { DataCarousel } from "./DataCArousel/DataCarousel";
 import { CustomButton } from "../../CustomComponents/CustomButton/CustomButton";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
-import { useState } from "react";
 
 const SearchResultSummary = () => {
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.down("sm"));
 
-    const [histograms, setHistograms] = useState([]);
     const [objectsTotal, setObjectsTotal] = useState(0);
 
     useEffect(() => {
@@ -24,14 +22,7 @@ const SearchResultSummary = () => {
             .get("/Mocks/response-objectsearch.json")
             .then((data) => setObjectsTotal(data.data))
             .catch((error) => console.log(error));
-    }, []);
-
-    useEffect(() => {
-        axios
-            .get("/Mocks/response-objectsearch-histograms.json")
-            .then((result) => setHistograms(result.data))
-            .catch((error) => console.log(error));
-    }, []);
+    }, [window.innerWidth]);
 
     const toLeft = () => {
         document.querySelector(".alice-carousel__prev-btn").click();
@@ -40,7 +31,6 @@ const SearchResultSummary = () => {
         document.querySelector(".alice-carousel__next-btn").click();
     };
 
-    
     return (
         <>
             <ComponentHeaderText
@@ -103,9 +93,9 @@ const SearchResultSummary = () => {
                             Риски
                         </ComponentText>
                     </div>
-                    <div style={{ flexGrow: 1, position: "relative" }}>
-                        <DataCarousel histograms={histograms} />
-                    </div>
+                    {/* <div style={{ flexGrow: 1, position: "relative", width: "100%", display: "flex"}}> */}
+                        <DataCarousel />
+                    {/* </div> */}
                 </CustomCard>
                 <CustomButton
                     onClick={toRight}

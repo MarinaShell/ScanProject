@@ -10,29 +10,28 @@ import { useTheme, useMediaQuery } from "@mui/material";
 
 const ComponentOurRates = (props) => {
     const theme = useTheme();
-    const matches = useMediaQuery(theme.breakpoints.down("lg"));
+    const matches = useMediaQuery(theme.breakpoints.down("md"));
     return (
         <CustomCard
             style={{
                 padding: "0 0 20px",
                 border: "2px solid" + props.color,
                 flex: 1,
-                maxWidth: "415px",
-                minWidth: "335px",
-                minHeight: "512px",
+                maxWidth: "500px",
+                minHeight: "540px",
                 marginBottom: "20px",
             }}
         >
             <div style={{display: "flex", flexDirection: "column"}}>
                 <div
                     style={{
-                        flexShrink: 2,
+                        flexGrow: 2,
                         backgroundColor: props.color,
                         display: "flex",
                         position: "relative",
                     }}
                 >
-                    <div style={{ padding: "30px 24px", flexShrink: 2 }}>
+                    <div style={{ padding: "30px 24px", flexGrow: 2 }}>
                         <ComponentText
                             style={{
                                 padding: 0,
@@ -60,7 +59,7 @@ const ComponentOurRates = (props) => {
                     </div>
                     <div
                         style={{
-                            flexShrink: 1,
+                            flexGrow: 1,
                             padding: "15px",
                             alignItems: "center",
                             position: matches ? "absolute" : "static",
@@ -74,7 +73,7 @@ const ComponentOurRates = (props) => {
                         ></ComponentImage>
                     </div>
                 </div>
-                <div style={{flexshrink: 1, display: "flex", flexDirection: "column" }}>
+                <div style={{flex: 1, display: "flex", flexDirection: "column" }}>
                     <div
                         style={{
                             display: "flex",

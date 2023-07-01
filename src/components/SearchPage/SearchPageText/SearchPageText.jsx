@@ -3,9 +3,9 @@ import ComponentText from '../../CustomComponents/ComponentText/ComponentText';
 
 function SearchPageText() {
 	return (
-		<div><ComponentText style={{ fontSize: "20px" }}>Задайте параметры поиска.
+		<div><ComponentText className="fsz-text" style={{ fontSize: "20px" }}>Задайте параметры поиска.
 			<br />Чем больше заполните, тем точнее поиск.
-		</ComponentText></div>
+		</ComponentText></div >
 	)
 }
 
