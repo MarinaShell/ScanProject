@@ -13,7 +13,7 @@ import axios from "axios";
 
 const SearchResultSummary = () => {
     const theme = useTheme();
-    const matches = useMediaQuery(theme.breakpoints.down("sm"));
+    const matches = useMediaQuery(theme.breakpoints.down("md"));
 
     const [objectsTotal, setObjectsTotal] = useState(0);
 
@@ -22,7 +22,7 @@ const SearchResultSummary = () => {
             .get("/Mocks/response-objectsearch.json")
             .then((data) => setObjectsTotal(data.data))
             .catch((error) => console.log(error));
-    }, [window.innerWidth]);
+    }, []);
 
     const toLeft = () => {
         document.querySelector("span[type='prev']").click();
@@ -94,13 +94,13 @@ const SearchResultSummary = () => {
                             Риски
                         </ComponentText>
                     </div>
-                    <div style={{ flexGrow: 1, position: "relative", display: "flex", alignItems: "center", justifyContent: "center"}}>
+                    <div style={{ flexGrow: 1, alignItems: "middle", marginTop: matches ? 0 : "20px"}}>
                         <DataCarousel />
                     </div>
                 </CustomCard>
                 <CustomButton
                     onClick={toRight}
-                    style={{ flexGrow: 0, marginLeft: matches ? "-20px" : 0 }}
+                    style={{ flexGrow: 0, marginLeft: matches ? "-10px" : 0 }}
                 >
                     <img src={RightArrow} alt="RightArrow" />
                 </CustomButton>
