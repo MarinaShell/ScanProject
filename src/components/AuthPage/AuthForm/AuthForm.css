@@ -24,13 +24,18 @@
 	/* внутренние отступы для формы по макету */
 	padding: 26px;
 }
-
+.form_auth {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
 .form_auth_text {
 	/* раположение названий форм по макету возле левого края*/
 	text-align: left;
 	font-family: "Inter";
 	font-size: 16px;
 	color: #949494;
+	margin: 0 !important;
 }
 
 button {
@@ -57,7 +62,8 @@ input {
 	border-radius: 5px;
 	border-width: 1px;
 }
-
+.form_input {
+}
 .logos {
 	display: flex;
 	/* flex-direction: column; */

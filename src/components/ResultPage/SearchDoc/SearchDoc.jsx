@@ -7,10 +7,80 @@ import { Colors } from "../../../theme/Colors/Colors";
 import image1 from "./image1.svg";
 import image2 from "./image2.svg";
 import "./SearchDoc.css";
+import { useEffect, useState } from 'react'
+import axios from "axios";
 
 const SearchDoc = () => {
+    const [userInfo, setUserInfo] = useState([]); // Состояние инфоблока
+
+    useEffect(() => {
+        axios
+            .get("/Mocks/response-documents.json") // Запрос
+            .then((result) => console.log(setUserInfo(result.data))) // получаем данные
+            .catch((error) => console.log(error)); // выводим в консоль если получили ошибку вместо данных
+    }, []);
+
+    function getData(){
+        axios
+            .get("/Mocks/response-documents.json") // Запрос
+            .then((result) => setUserInfo(result.data)) // получаем данные
+            .catch((error) => console.log(error)); // выводим в консоль если получили ошибку вместо данных
+    };
+
+    function getType(isTechNews,isAnnouncement,isDigest ){
+        console.log(isTechNews);
+        if (Boolean(isTechNews))
+            return "Технические новости";
+        if (Boolean(isAnnouncement))
+            return "Анонсы и события";
+        if (Boolean(isDigest))
+            return "Сводки новостей";
+        return "Новости";
+    }
+console.log(userInfo);
     return (
-         <CustomContainer>
+        <CustomContainer>
+            <div>     
+                <ComponentHeaderText style = {{fontSize:"45px", 
+                                             fontWeight: "500",
+                                             lineHeight:"54px",
+                                             marginTop:"20px",
+                                             marginBottom:"60px",
+                                             textAlign:"left"}}>
+                    СПИСОК ДОКУМЕНТОВ
+                </ComponentHeaderText>
+            </div>
+            <div className = "cards">    
+                { userInfo.map(x =>         
+                    <ComponentSearchDoc                     
+                                    textDate = {new Date(x.ok.issueDate).toLocaleDateString()}
+                                    textSource = {x.ok.source.name}
+                                    textSourceUrl = {x.ok.url}
+                                    textHeader = {x.ok.title.text}
+                                    textType = {getType(x.ok.attributes.isTechNews,
+                                        x.ok.attributes.isAnnouncement,
+                                        x.ok.attributes.isDigest)}
+                                    text = {x.ok.content.markup}
+                                    textNumWord = {x.ok.attributes.wordCount+" слова"}
+                                    image = {image1}
+                    />
+                    )            
+                }  
+           </div>
+           <div style={{marginTop:"30px"}}>
+                <CustomButton  onClick={() => getData()}
+                               variant= 'blue'>
+                    Показать больше
+                </CustomButton>
+            </div>
+        </CustomContainer>
+    );
+};
+
+
+   {/*
+
+   <CustomContainer>
             <div>     
                 <ComponentHeaderText style = {{fontSize:"45px", 
                                              fontWeight: "500",
@@ -45,12 +115,16 @@ const SearchDoc = () => {
                 />                  
             </div>
             <div style={{marginTop:"30px"}}>
-                <CustomButton variant= 'blue'>
+                <CustomButton  onClick={() => getData()}
+                               variant= 'blue'>
                     Показать больше
                 </CustomButton>
             </div>
         </CustomContainer>  
-    );
-};
+   */
+
+   }      
+
+  
 
 export default SearchDoc;

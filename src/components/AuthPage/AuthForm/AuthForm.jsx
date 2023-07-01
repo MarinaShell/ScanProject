@@ -25,18 +25,18 @@ const AuthForm = () => {
 						<div className='line line-2'></div>
 					</div>
 				</div>
-				<form className='form_auth'>
+				<div className='form_auth'>
 					<p className='form_auth_text'>Логин или номер телефона:</p>
-					<p><input type='text' required /></p>
+					<p><input type='form_input' required /></p>
 					<p className='form_auth_text'>Пароль:</p>
-					<p><input type='password' required /></p>
-				</form>
-				<CustomButton variant='blue'>Войти</CustomButton><br />
+					<p><input type='form_input' required /></p>
+				</div>
+				<CustomButton variant='blue' disabled>Войти</CustomButton><br />
 				<a className='return_passw'>Восстановить пароль</a>
 				<p className='form_auth_text'>Войти через:</p>
 				<div className='logos'>
 					<button><img src={goog} /></button>
-					<button class="mr"><img src={face} /></button>
+					<button className="mr"><img src={face} /></button>
 					<button><img src={yand} /></button>
 				</div>
 			</div >

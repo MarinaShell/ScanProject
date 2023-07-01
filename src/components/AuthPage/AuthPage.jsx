@@ -8,7 +8,7 @@ function AuthPage() {
 	return (
 		<div className='div_main'>
 			<div className='div_left'>
-				<div className='font_ferry'><ComponentAuthMedia /></div >
+				<div className='div_text'><ComponentAuthMedia style={{ fontSize: "20px" }} /></div >
 				<div className='div_image'><ComponentAuthMediaImages /></div>
 			</div>
 			<div className='div_right'>

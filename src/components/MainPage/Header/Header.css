@@ -1,7 +1,6 @@
 .header_main {
 	display: flex;
 	max-width: 1440px;
-	border: 1px solid;
 	height: max-content;
 }
 
@@ -11,7 +10,6 @@
 	max-width: 743px;
 	text-align: left;
 	max-height: 490px;
-	border: 1px solid red;
 }
 
 .size60 {
@@ -39,7 +37,6 @@
 @media screen and (max-width: 1000px) {
 	.header_main {
 		flex-direction: column;
-		border: 1px solid;
 	}
 	.left-part {
 		/* padding: 25px; */

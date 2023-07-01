@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { CustomButton } from "../../CustomComponents/CustomButton/CustomButton";
 import ComponentHeaderText from "../../CustomComponents/ComponentHeaderText/ComponentHeaderText";
 import ComponentText from "../../CustomComponents/ComponentText/ComponentText";
@@ -6,11 +6,15 @@ import ComponentImage from "../../CustomComponents/ComponentImage/ComponentImage
 import main_up from "./main_up.svg";
 import "./Header.module.css";
 import { useTheme, useMediaQuery } from "@mui/material";
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("md"));
   console.log(matches);
+  const navigate = useNavigate();
+  const [authorized, setAuthotized] = useState(false)
+  
   return (
     <div style={{display: "flex", flexDirection: matches ? "column" : "row"}}>
       <div className="left-part">
@@ -39,7 +43,11 @@ const Header = () => {
           </div>
         </div>
         <div style={{textAlign: matches ? "center" : "left", marginTop: "70px"}}>
-          <CustomButton variant="blue">Запросить данные</CustomButton>
+          {authorized ? (
+            <>
+            <CustomButton variant="blue" onClick={() => { navigate('/search')}}>Запросить данные</CustomButton>
+            </>
+          ) : (<></>)}          
         </div>
       </div>
       <div className="image">
