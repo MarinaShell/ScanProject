@@ -22,6 +22,7 @@ const DataCarousel = () => {
     const itemsLength = histograms.data ? histograms.data[0].data.length : 0
     
     const breakpoints = [
+        { breakpoint: 1920, rows: 1, cols: itemsLength > 8 ? 8 : itemsLength },
         { breakpoint: 1440, rows: 1, cols: itemsLength > 8 ? 8 : itemsLength },
         { breakpoint: 1024, rows: 1, cols: itemsLength > 6 ? 6 : itemsLength },
         { breakpoint: 768, rows: 1, cols: 1 },
@@ -44,7 +45,7 @@ const DataCarousel = () => {
                             flexDirection: matches ? "row" : "column",
                         }}
                     >
-                        <ComponentText>
+                        <ComponentText >
                             {new Date(value.date).toLocaleDateString()}
                         </ComponentText>
                         <ComponentText
