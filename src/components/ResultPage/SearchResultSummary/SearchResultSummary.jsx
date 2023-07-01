@@ -25,10 +25,10 @@ const SearchResultSummary = () => {
     }, [window.innerWidth]);
 
     const toLeft = () => {
-        document.querySelector(".alice-carousel__prev-btn").click();
+        document.querySelector("span[type='prev']").click();
     };
     const toRight = () => {
-        document.querySelector(".alice-carousel__next-btn").click();
+        document.querySelector("span[type='next']").click();
     };
 
     return (
@@ -93,9 +93,9 @@ const SearchResultSummary = () => {
                             Риски
                         </ComponentText>
                     </div>
-                    {/* <div style={{ flexGrow: 1, position: "relative", width: "100%", display: "flex"}}> */}
+                    <div style={{ flexGrow: 1, position: "relative", display: "flex", alignItems: "center"}}>
                         <DataCarousel />
-                    {/* </div> */}
+                    </div>
                 </CustomCard>
                 <CustomButton
                     onClick={toRight}
