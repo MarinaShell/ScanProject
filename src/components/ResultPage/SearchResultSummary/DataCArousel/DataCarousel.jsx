@@ -29,7 +29,7 @@ const DataCarousel = () => {
     ];
 
     return histograms.data ? (
-        <Carousel hideArrow={true} cols={8} responsiveLayout={breakpoints} scrollSnap={true} mobileBreakpoint={354} >
+        <Carousel style={{width: "100% !important"}} hideArrow={true} cols={8} responsiveLayout={breakpoints} scrollSnap={true} mobileBreakpoint={354} >
             {histograms.data[0].data.map((value, idx) => (
                 <Carousel.Item key={idx}>
                     <div

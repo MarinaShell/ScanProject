@@ -65,6 +65,7 @@ const SearchResultSummary = () => {
                 >
                     <div
                         style={{
+                            flex: 0,
                             display: "flex",
                             flexDirection: matches ? "row" : "column",
                             backgroundColor: Colors.colorAqua,
@@ -93,7 +94,7 @@ const SearchResultSummary = () => {
                             Риски
                         </ComponentText>
                     </div>
-                    <div style={{ flexGrow: 1, position: "relative", display: "flex", alignItems: "center"}}>
+                    <div style={{ flexGrow: 1, position: "relative", display: "flex", alignItems: "center", justifyContent: "center"}}>
                         <DataCarousel />
                     </div>
                 </CustomCard>
