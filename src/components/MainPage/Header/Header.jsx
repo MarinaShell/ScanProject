@@ -13,7 +13,7 @@ const Header = () => {
   const matches = useMediaQuery(theme.breakpoints.down("md"));
   console.log(matches);
   const navigate = useNavigate();
-  const [authorized, setAuthotized] = useState(false)
+  const authorized = localStorage.getItem("Authenticated");
   
   return (
     <div style={{display: "flex", flexDirection: matches ? "column" : "row"}}>
