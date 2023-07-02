@@ -1,17 +1,8 @@
-/* @font-face {
-	font-family: "FERRY";
-	src: local("FERRY") url("../../fonts/FERRY/ferry.otf") format("truetype");
-	font-weight: bold;
-} */
-.font_ferry {
-	font-family: "FERRY";
-	text-align: left;
-}
+
 .div_main {
 	display: flex;
 	justify-content: space-between;
 	max-width: 1322px;
-	max-height: 585px;
 	margin: 0 auto;
 	margin-top: 30px;
 }
@@ -29,12 +20,7 @@
 .div_image {
 	margin-left: 110px;
 }
-.div_right {
-	align-self: end;
-	bottom: 0;
-}
-.div_left {
-}
+
 @media screen and (max-width: 1100px) {
 	.div_left {
 		text-align: center;

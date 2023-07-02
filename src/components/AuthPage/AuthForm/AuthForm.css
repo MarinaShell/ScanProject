@@ -1,6 +1,5 @@
-@font-face {
-	font-family: "Inter";
-	src: url("../../../fonts/inter/Inter-Regular.ttf");
+button.login_btn:hover, button.auth_btn:hover {
+	box-shadow: none;
 }
 
 .form {
@@ -38,6 +37,7 @@ button {
 	outline: none;
 	background-color: white;
 	cursor: pointer;
+	padding: 2px;
 	/* margin: 0 auto; повторяющий text-align: center; из стилей форм стиль для расположения элемента по центру */
 }
 
@@ -59,15 +59,15 @@ input {
 }
 
 .logos {
-	display: flex;
+	/* display: flex;
+	justify-content: flex-start; */
+	display: inline;
 	/* flex-direction: column; */
 
 	/* margin-left: 25px; - лишний стиль (при наличии отступов формы) */
 }
 /* стили для контейнера с кнопками соцсетей */
-.buttons {
-	display: flex;
-}
+
 .head {
 	font-family: "Inter";
 	margin: 0 auto;

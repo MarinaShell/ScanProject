@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useState } from "react";
+import { useEffect } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -24,11 +24,20 @@ import { useTheme, useMediaQuery } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { Authorized } from "./Authorized/Authorized";
 import { Unauthorized } from "./Unathorized/Unauthorized";
+import { useDispatch, useSelector } from "react-redux";
+import { UserInfo } from "../../store/Slicers/UserInfoSlicer";
 
 const navItems = ["Главная", "Тарифы", "FAQ"];
 const drawerWidth = "100%";
 
 const NavBar = (props) => {
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(UserInfo())
+    }, [dispatch])
+
+    const data = useSelector((state) => state.userInfo)
+    // console.log(data)
     const theme = useTheme();
     const matches_sm = useMediaQuery(theme.breakpoints.down("sm"));
 
@@ -39,9 +48,7 @@ const NavBar = (props) => {
     const handleDrawerToggle = () => {
         setMobileOpen((prevState) => !prevState);
     };
-
-    const [authorized, setAuthorized] = useState(false); // статус авторизации, можно имитировать авторизацию (false) на (true)
-
+    const authorized = false
     const drawer = (
         <Box>
             <div
@@ -156,9 +163,9 @@ const NavBar = (props) => {
                             </Button>
                         ))}
                     </Box>
-                    {authorized ? (
+                    {data.status === "OK" ? (
                         <>
-                            <InfoBlock />
+                            <InfoBlock data = {data}/>
                             <Authorized />
                         </>
                     ) : (

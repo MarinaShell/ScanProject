@@ -18,12 +18,12 @@ const SearchForm = () => {
 							<option value="2">Негативная</option>
 						</select>
 						<p className='title-input'>Количество документов в выдаче*</p>
-						<input className='field-input1' type="number" required="required" placeholder="от 1 до 1000" />
+						<input className='field-input1' type="number" required="required" placeholder="от 1 до 1000" maxLength='10' />
 
 						<div className='part_form3'>
 							<p className='title-input'>Диапазон поиска*</p>
 							<div className='part_form3_block-input'>
-								<input className='field-input2' name="date" type="text" onfocus="(this.type='date')" onblur="if(!this.value)this.type='text'" required="required" placeholder="Дата начала" />
+								<input className='field-input2' name="date" type="date" onfocus="(this.type='date')" onblur="if(!this.value)this.type='text'" required="required" placeholder="Дата начала" />
 								<input className='field-input2' name="date" type="text" onfocus="(this.type='date')" onblur="if(!this.value)this.type='text'" required="required" placeholder="Дата конца" />
 							</div>
 						</div>

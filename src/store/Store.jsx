@@ -1,6 +1,11 @@
-import { configureStore } from '@reduxjs/toolkit'
+import { configureStore } from '@reduxjs/toolkit';
+import AuthSlicer from './Slicers/AuthSlicer';
+import UserInfoSlicer from './Slicers/UserInfoSlicer';
 
 
 export default configureStore({
-    reducer: {}
+    reducer: {
+        login: AuthSlicer,
+        userInfo: UserInfoSlicer,
+    }
 })
