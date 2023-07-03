@@ -29,10 +29,15 @@ footer {
 	color: white;
 	font-size: 14px;
 }
-
+.content_footer {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+}
 @media screen and (max-width: 600px) {
 	footer {
-		/* height: 100px; */
+		padding-right: 10px;
+		padding-left: 20px;
 	}
 
 	.Logo {
