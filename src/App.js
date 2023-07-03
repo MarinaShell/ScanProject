@@ -20,18 +20,15 @@ function App() {
             <Routes>
                 <Route path="/" element={<MainPage />} />
                 <Route path="login" element={<AuthPage />} />
-               {/*
+               {
                <Route element={<ProtectedRoutes auth={Authenticated} />}>
                <Route path="search" element={<SearchPage />} />
                <Route path="result" element={<ResultPage />} />
 
                <Route path="*" element={<Navigate to="/" />} />
-            </Route> */
+            </Route> 
                } 
-                <Route path="search" element={<SearchPage />} />
-                <Route path="result" element={<ResultPage />} />
-                <Route path="*" element={<Navigate to="/" />} />
- 
+                
             </Routes>
 
             <Footer />
