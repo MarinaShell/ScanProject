@@ -38,7 +38,6 @@ export const UserLogin = createAsyncThunk(
 const accessToken = localStorage.getItem("accessToken")
     ? localStorage.getItem("accessToken")
     : null;
-const is_Auth = localStorage.getItem("Authenticated") ? localStorage.getItem("Authenticated") : false
 
 const initialState = {
     loading: false,
@@ -46,12 +45,23 @@ const initialState = {
     error: null,
     success: false,
     status: null,
-    is_Auth,
+    is_Auth: false
 };
 
 const AuthSlicer = createSlice({
     name: "auth",
     initialState,
+    reducers: {
+        
+        logout: (state) => {
+            localStorage.removeItem("accessToken")
+            localStorage.setItem("Authenticated", false)
+            state.loading = false
+            state.error = null
+            state.success = false
+            state.is_Auth = false
+        }
+    },
     extraReducers: (builder) => {
         builder.addCase(UserLogin.fulfilled, (state, action) => {
             state.accessToken = action.payload;
@@ -73,4 +83,5 @@ const AuthSlicer = createSlice({
     },
 });
 
+export const { logout } = AuthSlicer.actions
 export default AuthSlicer.reducer;

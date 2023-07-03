@@ -3,14 +3,16 @@ import ComponentText from "../../CustomComponents/ComponentText/ComponentText";
 import { Box, Avatar } from "@mui/material";
 import { Colors } from "../../../theme/Colors/Colors";
 import { useNavigate } from "react-router-dom";
+import { logout } from "../../../store/Slicers/AuthSlicer";
+import { useDispatch } from "react-redux";
+import { clearUserInfo } from "../../../store/Slicers/UserInfoSlicer";
 
 const Authorized = () => {
+    const dispatch = useDispatch();
     const navigate = useNavigate();
     const logOut = () => {
-        localStorage.removeItem("accessToken");
-        localStorage.removeItem("expire");
-        localStorage.removeItem("userLogin");
-        localStorage.setItem("Authenticated", false);
+        dispatch(clearUserInfo());
+        dispatch(logout());
         navigate("/login");
     };
     return (
@@ -32,7 +34,10 @@ const Authorized = () => {
                     {localStorage.getItem("userLogin")}
                 </ComponentText>
 
-                <button onClick={() => {logOut()}}
+                <button
+                    onClick={() => {
+                        logOut();
+                    }}
                     style={{
                         fontFamily: "Inter",
                         border: "none",

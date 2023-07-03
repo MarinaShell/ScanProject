@@ -27,17 +27,21 @@ import { Unauthorized } from "./Unathorized/Unauthorized";
 import { useDispatch, useSelector } from "react-redux";
 import { UserInfo } from "../../store/Slicers/UserInfoSlicer";
 
-const navItems = ["Главная", "Тарифы", "FAQ"];
+const navItems = [{text: "Главная", nav: "/"}, {text: "Тарифы", nav: ""}, {text: "FAQ", nav: ""}];
+console.log(typeof navItems)
 const drawerWidth = "100%";
 
 const NavBar = (props) => {
     const dispatch = useDispatch();
+    
+    const data = useSelector((state) => state.userInfo);
+console.log(data)
     useEffect(() => {
-        dispatch(UserInfo())
-    }, [dispatch])
+        if (localStorage.getItem("accessToken")) {
+            dispatch(UserInfo(localStorage.getItem("accessToken")))
+        }
+    }, [dispatch, localStorage.getItem("accessToken")])
 
-    const data = useSelector((state) => state.userInfo)
-    // console.log(data)
     const theme = useTheme();
     const matches_sm = useMediaQuery(theme.breakpoints.down("sm"));
 
@@ -48,7 +52,7 @@ const NavBar = (props) => {
     const handleDrawerToggle = () => {
         setMobileOpen((prevState) => !prevState);
     };
-    const authorized = false
+    
     const drawer = (
         <Box>
             <div
@@ -68,8 +72,8 @@ const NavBar = (props) => {
             </div>
             <Divider />
             <List>
-                {navItems.map((item) => (
-                    <ListItem key={item} disablePadding>
+                {navItems.map((item, index) => (
+                    <ListItem key={index} disablePadding>
                         <ListItemButton
                             sx={{ textAlign: "center" }}
                             onClick={() => {
@@ -78,7 +82,7 @@ const NavBar = (props) => {
                             }}
                         >
                             <ListItemText
-                                primary={<ComponentText>{item}</ComponentText>}
+                                primary={<ComponentText>{item.text}</ComponentText>}
                             />
                         </ListItemButton>
                     </ListItem>
@@ -148,9 +152,9 @@ const NavBar = (props) => {
                             display: { xs: "none", lg: "block" },
                         }}
                     >
-                        {navItems.map((item) => (
-                            <Button
-                                key={item}
+                        {navItems.map((item, index) => (
+                            <Button onClick={() => navigate(item.nav)}
+                                key={index}
                                 sx={{
                                     fontFamily: "Inter",
                                     fontWeight: 400,
@@ -159,11 +163,11 @@ const NavBar = (props) => {
                                     margin: "0 25px",
                                 }}
                             >
-                                {item}
+                                {item.text}
                             </Button>
                         ))}
                     </Box>
-                    {data.status === "OK" ? (
+                    {data.is_Auth ? (
                         <>
                             <InfoBlock data = {data}/>
                             <Authorized />

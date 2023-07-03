@@ -7,8 +7,11 @@ import AuthPage from "./components/AuthPage/AuthPage";
 import SearchPage from "./components/SearchPage/SearchPage";
 import { ResultPage } from "./components/ResultPage/ResultPage";
 import Footer from "./components/Footer/Footer";
+import ProtectedRoutes from "./components/ProtectedRoutes/ProtectedRoutes";
+import { useSelector } from "react-redux";
 
 const Authenticated = localStorage.getItem("Authenticated");
+
 
 function App() {
     return (
@@ -18,12 +21,12 @@ function App() {
             <Routes>
                 <Route path="/" element={<MainPage />} />
                 <Route path="login" element={<AuthPage />} />
-                {/* <Route element={<ProtectedRoutes/>} auth={Authenticated} > */}
-                <Route path="search" element={<SearchPage />} />
-                <Route path="result" element={<ResultPage />} />
+                <Route element={<ProtectedRoutes auth={Authenticated} />}>
+                    <Route path="search" element={<SearchPage />} />
+                    <Route path="result" element={<ResultPage />} />
 
-                <Route path="*" element={<Navigate to="/" />} />
-                {/* </Route> */}
+                    <Route path="*" element={<Navigate to="/" />} />
+                </Route>
             </Routes>
 
             <Footer />

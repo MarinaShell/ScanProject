@@ -6,8 +6,10 @@ import ComponentImage from "../../CustomComponents/ComponentImage/ComponentImage
 import main_up from "./main_up.svg";
 import "./Header.module.css";
 import { useTheme, useMediaQuery } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate()
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("md"));
   return (
@@ -38,7 +40,7 @@ const Header = () => {
           </div>
         </div>
         <div style={{textAlign: matches ? "center" : "left", marginTop: "70px"}}>
-          <CustomButton variant="blue">Запросить данные</CustomButton>
+          <CustomButton variant="blue" onClick={() => {navigate("/search")}}> Запросить данные</CustomButton>
         </div>
       </div>
       <div className="image">
