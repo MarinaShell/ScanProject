@@ -25,7 +25,6 @@ export const UserLogin = createAsyncThunk(
 
             return data;
         } catch (error) {
-            // console.log(error)
             if (error.response && error.response.data.message) {
                 return rejectWithValue(error.response.data.message);
             } else {
@@ -52,7 +51,7 @@ const AuthSlicer = createSlice({
     name: "auth",
     initialState,
     reducers: {
-        
+
         logout: (state) => {
             localStorage.removeItem("accessToken")
             localStorage.setItem("Authenticated", false)

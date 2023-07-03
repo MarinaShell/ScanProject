@@ -60,12 +60,9 @@ const ComponentOurRates = (props) => {
                     </div>
                     <div
                         style={{
-                            flexShrink: 1,
-                            padding: "15px",
-                            alignItems: "center",
-                            position: matches ? "absolute" : "static",
-                            right: "-20px",
-                            top: "0",
+                            position: "absolute",
+                            right: "10px",
+                            top: "5px",
                         }}
                     >
                         <ComponentImage

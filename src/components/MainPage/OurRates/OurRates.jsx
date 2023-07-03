@@ -11,7 +11,7 @@ import { CustomCard } from "../../CustomComponents/CustomCard/CustomCard";
 
 const OurRates = () => {
     const theme = useTheme();
-    const matches = useMediaQuery(theme.breakpoints.down("md"));
+    const matches = useMediaQuery(theme.breakpoints.down("lg"));
 
     return (
         <>
@@ -36,12 +36,11 @@ const OurRates = () => {
                     border: 0,
                     margin: "0 0 20px",
                     display: "flex",
-                    flexWrap: 'wrap',
+                    // flexWrap: 'wrap',
                     justifyContent: "space-around",
                     alignItems: "center",
                     flexDirection: matches ? "column" : "row",
                     padding: matches ? "0" : "20px",
-                    // gap: "10px"
                 }}
             >
                 <ComponentOurRates

@@ -10,26 +10,24 @@ import { CustomCard } from "../../CustomComponents/CustomCard/CustomCard";
 import ComponentImage from "../../CustomComponents/ComponentImage/ComponentImage";
 import { useDispatch, useSelector } from "react-redux";
 import { UserLogin } from "../../../store/Slicers/AuthSlicer";
-import { UserInfo } from "../../../store/Slicers/UserInfoSlicer";
 import { useTheme, useMediaQuery } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 const AuthForm = () => {
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.down("md"));
-	
+
     const [submitEnabled, setSubmitEnabled] = useState(true);
     const dispatch = useDispatch();
-	const navigate = useNavigate();
+    const navigate = useNavigate();
 
-	const data = useSelector((state) => state.login);
-	
-	useEffect(() => {
-		if (data.is_Auth) {
+    const data = useSelector((state) => state.login);
 
-			navigate('/');
-		}
-	}, [navigate, data.is_Auth])
+    useEffect(() => {
+        if (data.is_Auth) {
+            navigate("/");
+        }
+    }, [navigate, data.is_Auth]);
 
     const submit = () => {
         const loginInput = document.getElementById("login_input").value;
@@ -38,11 +36,11 @@ const AuthForm = () => {
     };
 
     const checkInputs = () => {
-		const loginInput = document.getElementById("login_input").value;
+        const loginInput = document.getElementById("login_input").value;
         const passwordInput = document.getElementById("password_input").value;
         loginInput.length > 3 && passwordInput
-		? setSubmitEnabled(false)
-		: setSubmitEnabled(true);
+            ? setSubmitEnabled(false)
+            : setSubmitEnabled(true);
     };
 
     return (
@@ -165,7 +163,17 @@ const AuthForm = () => {
                     }}
                     required
                 />
-				<p style={{padding: 0, margin: 0, textAlign: "left", color: "red", visibility: data.error ? "visible" : "hidden"}} >{data.error}</p>
+                <p
+                    style={{
+                        padding: 0,
+                        margin: 0,
+                        textAlign: "left",
+                        color: "red",
+                        visibility: data.error ? "visible" : "hidden",
+                    }}
+                >
+                    {data.error}
+                </p>
 
                 <CustomButton
                     onClick={() => {

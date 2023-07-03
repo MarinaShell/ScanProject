@@ -8,7 +8,6 @@ import SearchPage from "./components/SearchPage/SearchPage";
 import { ResultPage } from "./components/ResultPage/ResultPage";
 import Footer from "./components/Footer/Footer";
 import ProtectedRoutes from "./components/ProtectedRoutes/ProtectedRoutes";
-import { useSelector } from "react-redux";
 
 const Authenticated = localStorage.getItem("Authenticated");
 

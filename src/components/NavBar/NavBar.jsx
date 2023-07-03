@@ -26,21 +26,27 @@ import { Authorized } from "./Authorized/Authorized";
 import { Unauthorized } from "./Unathorized/Unauthorized";
 import { useDispatch, useSelector } from "react-redux";
 import { UserInfo } from "../../store/Slicers/UserInfoSlicer";
+import { clearUserInfo } from "../../store/Slicers/UserInfoSlicer";
+import { logout } from "../../store/Slicers/AuthSlicer";
 
-const navItems = [{text: "Главная", nav: "/"}, {text: "Тарифы", nav: ""}, {text: "FAQ", nav: ""}];
-console.log(typeof navItems)
+const navItems = [
+    { text: "Главная", nav: "/" },
+    { text: "Тарифы", nav: "" },
+    { text: "FAQ", nav: "" },
+];
+console.log(typeof navItems);
 const drawerWidth = "100%";
 
 const NavBar = (props) => {
     const dispatch = useDispatch();
-    
+
     const data = useSelector((state) => state.userInfo);
-console.log(data)
+
     useEffect(() => {
         if (localStorage.getItem("accessToken")) {
-            dispatch(UserInfo(localStorage.getItem("accessToken")))
+            dispatch(UserInfo(localStorage.getItem("accessToken")));
         }
-    }, [dispatch, localStorage.getItem("accessToken")])
+    }, [dispatch, localStorage.getItem("accessToken")]);
 
     const theme = useTheme();
     const matches_sm = useMediaQuery(theme.breakpoints.down("sm"));
@@ -52,7 +58,7 @@ console.log(data)
     const handleDrawerToggle = () => {
         setMobileOpen((prevState) => !prevState);
     };
-    
+
     const drawer = (
         <Box>
             <div
@@ -82,7 +88,9 @@ console.log(data)
                             }}
                         >
                             <ListItemText
-                                primary={<ComponentText>{item.text}</ComponentText>}
+                                primary={
+                                    <ComponentText>{item.text}</ComponentText>
+                                }
                             />
                         </ListItemButton>
                     </ListItem>
@@ -93,6 +101,7 @@ console.log(data)
                     style={{
                         marginBottom: "20px",
                         color: "rgba(255,255,255,0.5)",
+                        visibility: data.is_Auth ? "hidden" : "visible",
                     }}
                     onClick={() => {
                         navigate("/login");
@@ -108,12 +117,20 @@ console.log(data)
                         backgroundColor: "rgba(124, 227, 225, 1)",
                         color: Colors.colorBlack,
                     }}
-                    onClick={() => {
-                        navigate("/login");
-                        handleDrawerToggle();
-                    }}
+                    onClick={
+                        data.is_Auth
+                            ? () => {
+                                  dispatch(clearUserInfo());
+                                  dispatch(logout());
+                                  handleDrawerToggle();
+                              }
+                            : () => {
+                                  navigate("/login");
+                                  handleDrawerToggle();
+                              }
+                    }
                 >
-                    Войти
+                    {data.is_Auth ? "Выйти" : "Войти"}
                 </CustomButton>
             </div>
         </Box>
@@ -153,7 +170,8 @@ console.log(data)
                         }}
                     >
                         {navItems.map((item, index) => (
-                            <Button onClick={() => navigate(item.nav)}
+                            <Button
+                                onClick={() => navigate(item.nav)}
                                 key={index}
                                 sx={{
                                     fontFamily: "Inter",
@@ -169,7 +187,7 @@ console.log(data)
                     </Box>
                     {data.is_Auth ? (
                         <>
-                            <InfoBlock data = {data}/>
+                            <InfoBlock data={data} />
                             <Authorized />
                         </>
                     ) : (
