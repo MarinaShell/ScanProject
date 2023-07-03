@@ -13,8 +13,9 @@ const Header = () => {
   const matches = useMediaQuery(theme.breakpoints.down("md"));
   console.log(matches);
   const navigate = useNavigate();
-  const [authorized, setAuthotized] = useState(false)
-  
+  let authorized = localStorage.getItem("Authenticated");
+  console.log(authorized);
+
   return (
     <div style={{display: "flex", flexDirection: matches ? "column" : "row"}}>
       <div className="left-part">

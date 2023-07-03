@@ -1,7 +1,3 @@
-button.login_btn:hover, button.auth_btn:hover {
-	box-shadow: none;
-}
-
 @font-face {
 	font-family: "Inter";
 	src: url("../../../fonts/inter/Inter-Regular.ttf");
@@ -47,7 +43,6 @@ button {
 	outline: none;
 	background-color: white;
 	cursor: pointer;
-	padding: 2px;
 	/* margin: 0 auto; повторяющий text-align: center; из стилей форм стиль для расположения элемента по центру */
 }
 
@@ -70,9 +65,7 @@ input {
 .form_input {
 }
 .logos {
-/* display: flex;
-	justify-content: flex-start; */
-	display: inline;
+	display: flex;
 	/* flex-direction: column; */
 
 	/* margin-left: 25px; - лишний стиль (при наличии отступов формы) */

@@ -3,24 +3,13 @@ import ComponentText from "../../CustomComponents/ComponentText/ComponentText";
 import axios from "axios";
 import { Box } from "@mui/material";
 import { useMediaQuery, useTheme } from "@mui/material";
-import { useEffect, useState } from "react";
 import CircularProgress from "@mui/material/CircularProgress";
 
-const InfoBlock = () => {
+const InfoBlock = ({data}) => {
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.down("sm"));
 
-    const [userInfo, setUserInfo] = useState([]); // Состояние инфоблока
-
-    useEffect(() => {
-        axios
-            .get("/Mocks/response-account-info.json") // Запрос
-            .then((result) => setUserInfo(result.data)) // получаем данные
-            .catch((error) => console.log(error)); // выводим в консоль если получили ошибку вместо данных
-    }, []);
-    // ^
-    // Зависимость
-
+    // console.log(data)
     return (
         <Box
             sx={{
@@ -33,7 +22,7 @@ const InfoBlock = () => {
                 color: "rgba(0, 0, 0, 0.5)",
             }}
         >
-            {!userInfo.eventFiltersInfo ? (
+            {data.loading ? (
                 <div style={{width: "150px", alignSelf: "center"}}>
                 <CircularProgress />
                 </div>
@@ -60,7 +49,7 @@ const InfoBlock = () => {
                                 display: matches ? "block" : "inline-block",
                             }}
                         >
-                            {userInfo.eventFiltersInfo.usedCompanyCount}
+                            {data.userInfo.eventFiltersInfo.usedCompanyCount}
                         </ComponentText>
                     </Box>
 
@@ -86,7 +75,7 @@ const InfoBlock = () => {
                                 display: matches ? "block" : "inline-block",
                             }}
                         >
-                            {userInfo.eventFiltersInfo.companyLimit}
+                            {data.userInfo.eventFiltersInfo.companyLimit}
                         </ComponentText>
                     </Box>
                 </>
