@@ -35,7 +35,7 @@ const AuthForm = () => {
         const passwordInput = document.getElementById("password_input").value;
         dispatch(UserLogin({ login: loginInput, password: passwordInput }));
     };
-
+    
     const checkInputs = () => {
         const loginInput = document.getElementById("login_input").value;
         const passwordInput = document.getElementById("password_input").value;

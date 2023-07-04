@@ -1,8 +1,20 @@
 import React from 'react';
 import './SearchForm.css';
 import { CustomButton } from '../../CustomComponents/CustomButton/CustomButton'
+import { HistogramsSearchBody } from './HistogramsSearchBody';
 
 const SearchForm = () => {
+
+	const sendData = () => {
+		const inn = document.querySelector("#inn").value;
+		const tonality = document.querySelector("#tonality").value;
+		const count = document.querySelector("#count").value;
+		const startDate = document.querySelector("#startDate").value;
+		const endDate = document.querySelector("#endDate").value;
+
+		HistogramsSearchBody(inn, tonality, count, startDate, endDate);
+	};
+
 	return (
 		<div>
 			<div className='form'>
@@ -10,21 +22,21 @@ const SearchForm = () => {
 
 					<div className='part_form1'>
 						<p className='title-input'>ИНН компании*</p>
-						<input className='field-input1' type="number" required="required" placeholder="10 цифр" />
+						<input className='field-input1' type="number" id='inn' required="required" placeholder="10 цифр" />
 						<p className='title-input'>Тональность</p>
-						<select className='tonality '>
+						<select className='tonality' id='tonality'>
 							<option value="">Любая</option>
 							<option value="1">Позитивная</option>
 							<option value="2">Негативная</option>
 						</select>
 						<p className='title-input'>Количество документов в выдаче*</p>
-						<input className='field-input1' type="number" required="required" placeholder="от 1 до 1000" maxLength='10' />
+						<input className='field-input1' type="number" id='count' required="required" placeholder="от 1 до 1000" maxLength='10' />
 
 						<div className='part_form3'>
 							<p className='title-input'>Диапазон поиска*</p>
 							<div className='part_form3_block-input'>
-								<input className='field-input2' name="date" type="date" onfocus="(this.type='date')" onblur="if(!this.value)this.type='text'" required="required" placeholder="Дата начала" />
-								<input className='field-input2' name="date" type="text" onfocus="(this.type='date')" onblur="if(!this.value)this.type='text'" required="required" placeholder="Дата конца" />
+								<input className='field-input2' name="date" type="date" id='startDate' onfocus="(this.type='date')" onblur="if(!this.value)this.type='text'" required="required" placeholder="Дата начала" />
+								<input className='field-input2' name="date" type="date" id='endDate' onfocus="(this.type='date')" onblur="if(!this.value)this.type='text'" required="required" placeholder="Дата конца" />
 							</div>
 						</div>
 					</div>
