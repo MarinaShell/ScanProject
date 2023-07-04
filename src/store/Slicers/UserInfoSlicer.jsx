@@ -16,7 +16,7 @@ export const UserInfo = createAsyncThunk(
                 },
             };
             const { data } = await axios.get(ApiUserInfo, header);
-console.log(data)
+            
             return data;
         } catch (error) {
             if (error.response && error.response.data.message) {
