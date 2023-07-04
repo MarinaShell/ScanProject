@@ -6,52 +6,117 @@ import { CustomButton } from "../../CustomComponents/CustomButton/CustomButton";
 import { Colors } from "../../../theme/Colors/Colors";
 import image1 from "./image1.svg";
 import image2 from "./image2.svg";
-import "./SearchDoc.css";
+import { useEffect, useState } from 'react';
+import { useTheme, useMediaQuery } from '@mui/material';
+import axios from "axios";
+import XMLToReact from "xml-to-react";
+var userInfoMap = [];
 
 const SearchDoc = () => {
+	const [userInfo, setUserInfo] = useState([]); // Состояние инфоблока
+	const theme = useTheme();
+	const matches = useMediaQuery(theme.breakpoints.down("md"));
+
+	useEffect(() => {
+		axios
+			.get("/Mocks/response-documents.json") // Запрос
+			.then((result) => {
+				console.log(setUserInfo(result.data));
+				userInfoMap.push(userInfo);
+				console.log(userInfoMap);
+			}) // получаем данные
+			.catch((error) => console.log(error)); // выводим в консоль если получили ошибку вместо данных
+	}, []);
+
+	function getData() {
+		axios
+			.get("/Mocks/response-documents.json") // Запрос
+			.then((result) => {
+				console.log(setUserInfo(result.data));
+				userInfoMap.push(userInfo);
+				console.log("add userInfo");
+				console.log(userInfoMap);
+			}) // получаем данные
+			.catch((error) => console.log(error)); // выводим в консоль если получили ошибку вместо данных
+	};
+
+	function getType(isTechNews, isAnnouncement, isDigest) {
+		{/*console.log(isTechNews);*/ }
+		if (Boolean(isTechNews))
+			return "Технические новости";
+		if (Boolean(isAnnouncement))
+			return "Анонсы и события";
+		if (Boolean(isDigest))
+			return "Сводки новостей";
+		return "Новости";
+	}
+
+	function getText(text_xml) {
+		{/*console.log(text_xml);
+        const xmlToReact = new XMLToReact({
+            $TextNode:(value) =>({type:'ent', props:{value}},
+            {includeRawXmlAsProps:false}
+            )
+        });
+        console.log(xmlToReact.convert({text_xml}));*/}
+		return text_xml;
+	}
+
 	return (
 		<CustomContainer>
 			<div>
-				<ComponentHeaderText
-					style={{
-						fontSize: "45px",
-						fontWeight: "500",
-						lineHeight: "54px",
-						marginTop: "20px",
-						marginBottom: "60px",
-						textAlign: "left",
-					}}
-				>
+				<ComponentHeaderText style={{
+					fontSize: matches ? "28px" : "45px",
+					fontWeight: "500",
+					lineHeight: matches ? "33px" : "72px",
+					marginTop: "20px",
+					marginBottom: "60px",
+					textAlign: "left",
+				}}>
 					СПИСОК ДОКУМЕНТОВ
 				</ComponentHeaderText>
 			</div>
-			<div className="cards">
-				<ComponentSearchDoc
-					textDate="13.09.2021"
-					textSource="Комсомольская правда KP.RU"
-					textHeader="Скиллфэктори - лучшая онлайн-школа для будущих айтишников"
-					textType="Технические новости"
-					text="SkillFactory — школа для всех, кто хочет изменить свою карьеру и жизнь. С 2016 года обучение прошли 20 000+ человек из 40 стран с 4 континентов, самому взрослому студенту сейчас 86 лет. Выпускники работают в Сбере, Cisco, Bayer, Nvidia, МТС, Ростелекоме, Mail.ru, Яндексе, Ozon и других топовых компаниях.
-                    Принципы SkillFactory: акцент на практике, забота о студентах и ориентир на трудоустройство. 80% обучения — выполнение упражнений и реальных проектов. Каждого студента поддерживают менторы, 2 саппорт-линии и комьюнити курса. А карьерный центр помогает составить резюме, подготовиться к собеседованиям и познакомиться с IT-рекрутерами."
-					textNumWord="2 543 слова"
-					image={image1}
-				/>
-				<ComponentSearchDoc
-					textDate="15.10.2021"
-					textSource="VC.RU"
-					textHeader="Работа в Data Science в 2022 году: тренды, навыки и обзор специализаций"
-					textType="Технические новости"
-					text="Кто такой Data Scientist и чем он занимается?
-                    Data Scientist — это специалист, который работает с большими массивами данных, чтобы с их помощью решить задачи бизнеса. Простой пример использования больших данных и искусственного интеллекта — умные ленты в социальных сетях. На основе ваших просмотров и лайков алгоритм выдает рекомендации с контентом, который может быть вам интересен. Эту модель создал и обучил дата-сайентист, и скорее всего, не один.
-                    В небольших компаниях и стартапах дата-сайентист делает все: собирает и очищает данные, создает математическую модель для их анализа, тестирует ее и презентует готовое решение бизнесу."
-					textNumWord="3 233 слова"
-					image={image2}
-				/>
+			<div className="cards" style={{
+				display: "flex",
+				alignItems: "baseline",
+				flexWrap: "wrap",
+				fontSize: matches ? "18px" : "20px",
+			}}>
+
+				{
+					userInfo.map(x =>
+						<div style={{
+							height: "694px",
+							width: matches ? "335px" : "635px",
+							marginRight: "-35px",
+							textOverflow: "ellipsis",
+							overflow: "hidden",
+
+						}}>
+							<ComponentSearchDoc
+								textDate={new Date(x.ok.issueDate).toLocaleDateString()}
+								textSource={x.ok.source.name}
+								textSourceUrl={x.ok.url}
+								textHeader={x.ok.title.text}
+								textType={
+									getType(x.ok.attributes.isTechNews,
+										x.ok.attributes.isAnnouncement,
+										x.ok.attributes.isDigest)}
+								text={getText(x.ok.content.markup)}
+								textNumWord={x.ok.attributes.wordCount + " слова"}
+								image={image1}
+							/>
+						</div>
+					)
+				}
 			</div>
 			<div style={{ marginTop: "30px" }}>
-				<CustomButton variant="blue">Показать больше</CustomButton>
+				<CustomButton onClick={() => getData()}
+					variant='blue'>
+					Показать больше
+				</CustomButton>
 			</div>
-		</CustomContainer>
+		</CustomContainer >
 	);
 };
 
