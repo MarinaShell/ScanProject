@@ -16,8 +16,8 @@ function App() {
 
             <Routes>
                 <Route element={<ProtectedRoutes />}>
-                    <Route path="/search" element={<SearchPage />} />
-                    <Route path="/result" element={<ResultPage />} />
+                    <Route path="/search/" element={<SearchPage />} />
+                    <Route path="/result/" element={<ResultPage />} />
                 </Route>
                 <Route path="/" element={<MainPage />} />
                 <Route path="/login" element={<AuthPage />} />

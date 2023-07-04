@@ -130,9 +130,6 @@ const NavBar = (props) => {
     const container =
         window !== undefined ? () => window().document.body : undefined;
 
-    if (logged.loading) {
-        return <CircularProgress />
-    }
     return (
         <>
             <AppBar

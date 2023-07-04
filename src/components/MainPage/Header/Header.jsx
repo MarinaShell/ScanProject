@@ -40,7 +40,7 @@ const Header = () => {
           </div>
         </div>
         <div style={{textAlign: matches ? "center" : "left", marginTop: "70px"}}>
-          <CustomButton variant="blue" onClick={() => {navigate("/search")}}> Запросить данные</CustomButton>
+          <CustomButton variant="blue" onClick={() => {navigate("/search/")}}> Запросить данные</CustomButton>
         </div>
       </div>
       <div className="image">
