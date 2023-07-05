@@ -11,7 +11,7 @@ const ComponentDate = () => {
 		if (validator.isDate(value)) {
 			setErrorMessage('Корректная дата:)')
 		} else {
-			setErrorMessage('Введите корректную дату!')
+			setErrorMessage('Введите дату!')
 		}
 	}
 
