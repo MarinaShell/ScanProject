@@ -1,0 +1,15 @@
+.App {
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	flex: 1 1 auto;
+}
+.body {
+	flex: 1 1 auto;
+}
+.header {
+}
+
+.footer {
+	padding-top: 60px;
+}
