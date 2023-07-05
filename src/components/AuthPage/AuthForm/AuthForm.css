@@ -70,9 +70,7 @@ input {
 .form_input {
 }
 .logos {
-/* display: flex;
-	justify-content: flex-start; */
-	display: inline;
+	display: flex;
 	/* flex-direction: column; */
 
 	/* margin-left: 25px; - лишний стиль (при наличии отступов формы) */

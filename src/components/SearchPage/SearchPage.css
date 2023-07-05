@@ -10,7 +10,11 @@
 .search-form-right {
 	width: 474px;
 }
-
+@media screen and (max-width: 1370px) {
+	.search-page {
+		margin-left: 20px;
+	}
+}
 @media screen and (max-width: 1000px) {
 	.search-form-right {
 		display: none;
@@ -18,7 +22,7 @@
 }
 @media screen and (max-width: 900px) {
 	.search-page {
-		margin-top: 400px;
+		margin-right: 20px;
 	}
 	.fsz-header {
 		font-size: 28px !important; /* сервис по поиску публикаций о компании по его ИНН */
@@ -29,16 +33,7 @@
 		font-size: 18px !important;
 	}
 }
-@media screen and (max-width: 780px) {
-	.search-page {
-		margin-top: 300px;
-	}
-}
-@media screen and (max-width: 680px) {
-	.search-page {
-		margin-top: 200px;
-	}
-}
+
 .search-page-header {
 	/* Найдите необходимые данные в пару кликов. */
 

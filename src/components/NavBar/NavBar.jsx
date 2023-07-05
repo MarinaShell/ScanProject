@@ -1,5 +1,4 @@
 import * as React from "react";
-import { useEffect } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -25,29 +24,21 @@ import { useNavigate } from "react-router-dom";
 import { Authorized } from "./Authorized/Authorized";
 import { Unauthorized } from "./Unauthorized/Unauthorized";
 import { useDispatch, useSelector } from "react-redux";
-import { UserInfo } from "../../store/Slicers/UserInfoSlicer";
 import { clearUserInfo } from "../../store/Slicers/UserInfoSlicer";
 import { logout } from "../../store/Slicers/AuthSlicer";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const navItems = [
     { text: "Главная", nav: "/" },
     { text: "Тарифы", nav: "" },
     { text: "FAQ", nav: "" },
 ];
-console.log(typeof navItems);
+
 const drawerWidth = "100%";
 
 const NavBar = (props) => {
     const dispatch = useDispatch();
-
-    const data = useSelector((state) => state.userInfo);
-
-    useEffect(() => {
-        if (localStorage.getItem("accessToken")) {
-            dispatch(UserInfo(localStorage.getItem("accessToken")));
-        }
-    }, [dispatch, localStorage.getItem("accessToken")]);
-
+    const logged = useSelector((state) => state.login);
     const theme = useTheme();
     const matches_sm = useMediaQuery(theme.breakpoints.down("sm"));
 
@@ -101,7 +92,7 @@ const NavBar = (props) => {
                     style={{
                         marginBottom: "20px",
                         color: "rgba(255,255,255,0.5)",
-                        visibility: data.is_Auth ? "hidden" : "visible",
+                        visibility: logged.is_Auth ? "hidden" : "visible",
                     }}
                     onClick={() => {
                         navigate("/login");
@@ -118,7 +109,7 @@ const NavBar = (props) => {
                         color: Colors.colorBlack,
                     }}
                     onClick={
-                        data.is_Auth
+                        logged.is_Auth
                             ? () => {
                                   dispatch(clearUserInfo());
                                   dispatch(logout());
@@ -130,7 +121,7 @@ const NavBar = (props) => {
                               }
                     }
                 >
-                    {data.is_Auth ? "Выйти" : "Войти"}
+                    {logged.is_Auth ? "Выйти" : "Войти"}
                 </CustomButton>
             </div>
         </Box>
@@ -185,9 +176,9 @@ const NavBar = (props) => {
                             </Button>
                         ))}
                     </Box>
-                    {data.is_Auth ? (
+                    {logged.is_Auth || localStorage.getItem("accessToken")? (
                         <>
-                            <InfoBlock data={data} />
+                            <InfoBlock />
                             <Authorized />
                         </>
                     ) : (

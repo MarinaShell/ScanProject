@@ -1,10 +1,10 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { ApiUserInfo } from "../../API/Api";
+import { Apidocuments } from "../../API/Api";
 
-export const UserInfo = createAsyncThunk(
-    "user/userInfo",
-    async ( accessToken , { rejectWithValue }) => {
+export const Documents = createAsyncThunk(
+    "documents/documents",
+    async ( {accessToken, body} , { rejectWithValue }) => {
         
         try {
             const header = {
@@ -15,8 +15,8 @@ export const UserInfo = createAsyncThunk(
                         "Bearer " + accessToken,
                 },
             };
-            const { data } = await axios.get(ApiUserInfo, header);
-
+            const { data } = await axios.post(Apidocuments, body, header);
+            
             return data;
         } catch (error) {
             if (error.response && error.response.data.message) {
@@ -33,45 +33,40 @@ const initialState = {
     error: null,
     success: false,
     status: null,
-    userInfo: null,
-    is_Auth: false,
+    documents: null,
 };
 
-const UserInfoSlicer = createSlice({
-    name: "userInfo",
+const DocumentsSlicer = createSlice({
+    name: "documents",
     initialState,
     reducers: {
-        clearUserInfo: (state) => {
+        clearDocuments: (state) => {
             state.loading = false
             state.error = null
             state.success = false
             state.status = null
-            state.userInfo = null
-            state.is_Auth = false
+            state.documents = null
         }
     },
     extraReducers: (builder) => {
-        builder.addCase(UserInfo.fulfilled, (state, action) => {
+        builder.addCase(Documents.fulfilled, (state, action) => {
             state.status = "OK";
             state.loading = false;
             state.success = true;
-            state.userInfo = action.payload;
-            state.is_Auth = true;
+            state.documents = action.payload;
 
         });
 
-        builder.addCase(UserInfo.pending, (state) => {
+        builder.addCase(Documents.pending, (state) => {
             state.loading = true;
-            state.is_Auth = false;
             state.error = null;
         });
 
-        builder.addCase(UserInfo.rejected, (state, action) => {
+        builder.addCase(Documents.rejected, (state, action) => {
             state.error = action.payload;
             state.status = "BAD";
-            state.is_Auth = false;
         });
     },
 });
-export const { clearUserInfo } = UserInfoSlicer.actions
-export default UserInfoSlicer.reducer;
+export const { clearDocuments } = DocumentsSlicer.actions
+export default DocumentsSlicer.reducer;

@@ -5,10 +5,18 @@ import { CustomContainer } from "../CustomComponents/CustomContainer/CustomConta
 import AuthForm from "./AuthForm/AuthForm";
 import "./AuthPage.css";
 import { useTheme, useMediaQuery } from "@mui/material";
+import { useSelector } from "react-redux";
+import { Navigate } from "react-router-dom";
 
 function AuthPage() {
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.down("md"));
+
+    const is_Auth = useSelector((state) => state.userInfo.is_Auth);
+
+    if (is_Auth) {
+        return <Navigate to={"/"} />;
+    }
 
     return matches ? (
         <CustomContainer style={{ display: "flex", flexDirection: "column" }}>
@@ -27,7 +35,7 @@ function AuthPage() {
     ) : (
         <div className="div_main">
             <div className="div_left">
-                <div className="font_ferry">
+                <div className="div_text">
                     <ComponentAuthMedia />
                 </div>
                 <div className="div_image">

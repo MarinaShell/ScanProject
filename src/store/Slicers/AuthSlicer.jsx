@@ -54,6 +54,8 @@ const AuthSlicer = createSlice({
 
         logout: (state) => {
             localStorage.removeItem("accessToken")
+            localStorage.removeItem("userLogin")
+            localStorage.removeItem("expire")
             localStorage.setItem("Authenticated", false)
             state.loading = false
             state.error = null
@@ -77,6 +79,7 @@ const AuthSlicer = createSlice({
 
         builder.addCase(UserLogin.rejected, (state, action) => {
             state.error = action.payload;
+            state.loading = false;
             state.status = "BAD";
         });
     },

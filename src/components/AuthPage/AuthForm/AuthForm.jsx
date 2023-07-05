@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { UserLogin } from "../../../store/Slicers/AuthSlicer";
 import { useTheme, useMediaQuery } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const AuthForm = () => {
     const theme = useTheme();
@@ -34,7 +35,7 @@ const AuthForm = () => {
         const passwordInput = document.getElementById("password_input").value;
         dispatch(UserLogin({ login: loginInput, password: passwordInput }));
     };
-
+    
     const checkInputs = () => {
         const loginInput = document.getElementById("login_input").value;
         const passwordInput = document.getElementById("password_input").value;
@@ -183,7 +184,7 @@ const AuthForm = () => {
                     style={{ marginTop: "10px" }}
                     disabled={submitEnabled}
                 >
-                    Войти
+                    {data.loading ? <CircularProgress sx={{color: "#ffffff"}}/> : "Войти"}
                 </CustomButton>
                 <br />
                 <a href="#">Восстановить пароль</a>

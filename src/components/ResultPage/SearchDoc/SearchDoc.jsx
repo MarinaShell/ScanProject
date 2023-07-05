@@ -1,103 +1,76 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { CustomContainer } from "../../CustomComponents/CustomContainer/CustomContainer";
 import ComponentSearchDoc from "./ComponentSearchDoc/ComponentSearchDoc";
 import ComponentHeaderText from "../../CustomComponents/ComponentHeaderText/ComponentHeaderText";
 import { CustomButton } from "../../CustomComponents/CustomButton/CustomButton";
-import { Colors } from "../../../theme/Colors/Colors";
 import image1 from "./image1.svg";
-import image2 from "./image2.svg";
 import "./SearchDoc.css";
-import { useEffect, useState } from 'react'
-import axios from "axios";
-import XMLToReact from "xml-to-react";
-var userInfoMap = [];
+import { useDispatch, useSelector } from "react-redux";
+import { CircularProgress } from "@mui/material";
+import { Documents } from "../../../store/Slicers/DocumentsSlicer";
 
 const SearchDoc = () => {
-    const [userInfo, setUserInfo] = useState([]); // Состояние инфоблока
+    const accessToken = localStorage.getItem("accessToken");
+    const dispatch = useDispatch();
+    const encodedIDs = useSelector((state) => state.objectsearch);
 
     useEffect(() => {
-        axios
-            .get("/Mocks/response-documents.json") // Запрос
-            .then((result) => {
-                console.log(setUserInfo(result.data));
-                userInfoMap.push(userInfo);
-                console.log(userInfoMap);
-            }) // получаем данные
-            .catch((error) => console.log(error)); // выводим в консоль если получили ошибку вместо данных
-    }, []);
+        const body = {
+            ids: encodedIDs.objectSearch.items.map((item) => item.encodedId),
+        };
 
-    function getData(){
-        axios
-            .get("/Mocks/response-documents.json") // Запрос
-            .then((result) => {
-                console.log(setUserInfo(result.data));
-                userInfoMap.push(userInfo);
-                console.log("add userInfo");
-                console.log(userInfoMap);
-            }) // получаем данные
-            .catch((error) => console.log(error)); // выводим в консоль если получили ошибку вместо данных
-    };
+        dispatch(Documents({accessToken: accessToken, body: body}));
+    }, [dispatch, accessToken]);
 
-    function getType(isTechNews,isAnnouncement,isDigest ){
-        {/*console.log(isTechNews);*/ } 
-        if (Boolean(isTechNews))
-            return "Технические новости";
-        if (Boolean(isAnnouncement))
-            return "Анонсы и события";
-        if (Boolean(isDigest))
-            return "Сводки новостей";
-        return "Новости";
+    const docs = useSelector((state) => state.documents);
+
+    if (docs.loading && docs.status) {
     }
-
-    function getText(text_xml){
-         {/*console.log(text_xml);
-        const xmlToReact = new XMLToReact({
-            $TextNode:(value) =>({type:'ent', props:{value}},
-            {includeRawXmlAsProps:false}
-            )
-        });
-        console.log(xmlToReact.convert({text_xml}));*/}
-        return text_xml;
-    }
-   
     return (
         <CustomContainer>
-            <div>     
-                <ComponentHeaderText style = {{fontSize:"45px", 
-                                             fontWeight: "500",
-                                             lineHeight:"54px",
-                                             marginTop:"20px",
-                                             marginBottom:"60px",
-                                             textAlign:"left"}}>
+            <div>
+                <ComponentHeaderText
+                    style={{
+                        fontSize: "45px",
+                        fontWeight: "500",
+                        lineHeight: "54px",
+                        marginTop: "20px",
+                        marginBottom: "60px",
+                        textAlign: "left",
+                    }}
+                >
                     СПИСОК ДОКУМЕНТОВ
                 </ComponentHeaderText>
             </div>
-            <div className = "cards">    
-                { 
-                    userInfo.map(x =>         
-                    <ComponentSearchDoc                     
-                                    textDate = {new Date(x.ok.issueDate).toLocaleDateString()}
-                                    textSource = {x.ok.source.name}
-                                    textSourceUrl = {x.ok.url}
-                                    textHeader = {x.ok.title.text}
-                                    textType = {getType(x.ok.attributes.isTechNews,
-                                        x.ok.attributes.isAnnouncement,
-                                        x.ok.attributes.isDigest)}
-                                    text = {getText(x.ok.content.markup)}
-                                    textNumWord = {x.ok.attributes.wordCount+" слова"}
-                                    image = {image1}
+            {!docs.loading && docs.documents !== null ? (
+              docs.documents.map((item) => (
+
+                <div className="cards" key={item.ok.id}>
+                    <ComponentSearchDoc
+                        textDate={item.ok.issueDate}
+                        textSource={item.ok.source.name}
+                        textHeader={item.ok.title.text}
+                        textType={() => {
+                          if (item.ok.attributes.isTechNews) return "Технические новости"
+                          if (item.ok.attributes.isAnnouncement) return "анонсы и события"
+                          if (item.ok.attributes.isDigest) return "сводки новостей"
+                        }}
+                        text={item.ok.content.markup}
+                        textNumWord={`${item.ok.attributes.wordCount} слов`}
+                        image={image1}
+                        url={item.ok.url}
                     />
-                    )            
-                }  
-           </div>
-           <div style={{marginTop:"30px"}}>
-                <CustomButton  onClick={() => getData()}
-                               variant= 'blue'>
-                    Показать больше
-                </CustomButton>
+                   
+                </div>
+              ))
+            ) : (
+                <CircularProgress />
+            )}
+            <div style={{ marginTop: "30px" }}>
+                <CustomButton variant="blue">Показать больше</CustomButton>
             </div>
         </CustomContainer>
     );
 };
 
- export default SearchDoc;
+export default SearchDoc;

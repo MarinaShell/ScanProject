@@ -9,26 +9,19 @@ import { ResultPage } from "./components/ResultPage/ResultPage";
 import Footer from "./components/Footer/Footer";
 import ProtectedRoutes from "./components/ProtectedRoutes/ProtectedRoutes";
 
-const Authenticated = localStorage.getItem("Authenticated");
-
-
 function App() {
     return (
         <div className="App">
             <NavBar />
 
             <Routes>
+                <Route element={<ProtectedRoutes />}>
+                    <Route path="/search/" element={<SearchPage />} />
+                    <Route path="/result/" element={<ResultPage />} />
+                </Route>
                 <Route path="/" element={<MainPage />} />
-                <Route path="login" element={<AuthPage />} />
-               {
-               <Route element={<ProtectedRoutes auth={Authenticated} />}>
-               <Route path="search" element={<SearchPage />} />
-               <Route path="result" element={<ResultPage />} />
-
-               <Route path="*" element={<Navigate to="/" />} />
-            </Route> 
-               } 
-                
+                <Route path="/login" element={<AuthPage />} />
+                <Route path="*" element={<Navigate to="/" />} />
             </Routes>
 
             <Footer />
