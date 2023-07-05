@@ -19,10 +19,10 @@ const SearchForm = () => {
         const count = document.querySelector("#count").value;
         const startDate = document.querySelector("#startDate").value;
         const endDate = document.querySelector("#endDate").value;
-        // console.log(HistogramsSearchBody(inn, tonality, count, startDate, endDate))
+    
         return HistogramsSearchBody(inn, tonality, count, startDate, endDate)
     };
-    // console.log(body())
+    
     
     return (
         <div>
