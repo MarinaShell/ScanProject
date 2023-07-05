@@ -20,7 +20,7 @@ const SearchDoc = () => {
         };
 
         dispatch(Documents({accessToken: accessToken, body: body}));
-    }, [dispatch, accessToken, encodedIDs.objectSearch.items]);
+    }, [dispatch, accessToken]);
 
     const docs = useSelector((state) => state.documents);
 
