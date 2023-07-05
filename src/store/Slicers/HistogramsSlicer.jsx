@@ -65,5 +65,7 @@ const HistogramsSlicer = createSlice({
         });
     },
 });
+
+
 export const { clearHistograms } = HistogramsSlicer.actions;
 export default HistogramsSlicer.reducer;
