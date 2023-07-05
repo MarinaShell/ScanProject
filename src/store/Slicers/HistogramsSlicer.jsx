@@ -9,12 +9,12 @@ export const Histograms = createAsyncThunk(
             const header = {
                 headers: {
                     "Content-type": "application/json",
-                    Accept: "application/json",
-                    Authorization: "Bearer " + accessToken,
+                    "Accept": "application/json",
+                    "Authorization": "Bearer " + accessToken,
                 },
             };
-            const { data } = await axios.get(Apihistograms, { body }, header);
-
+            const { data } = await axios.post(Apihistograms, body, header);
+            console.log(body)
             return data;
         } catch (error) {
             if (error.response && error.response.data.message) {

@@ -9,20 +9,23 @@ import { Colors } from "../../../theme/Colors/Colors";
 import { DataCarousel } from "./DataCArousel/DataCarousel";
 import { CustomButton } from "../../CustomComponents/CustomButton/CustomButton";
 import { useEffect, useState } from "react";
-import axios from "axios";
+import { useSelector } from "react-redux";
+
 
 const SearchResultSummary = () => {
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.down("md"));
 
     const [objectsTotal, setObjectsTotal] = useState(0);
+    const totalDocs = useSelector((state) => state.histograms)
+    console.log(totalDocs)
+    // useEffect(() => {
+    //     axios
+    //         .get("/Mocks/response-objectsearch.json")
+    //         .then((data) => setObjectsTotal(data.data))
+    //         .catch((error) => console.log(error));
+    // }, []);
 
-    useEffect(() => {
-        axios
-            .get("/Mocks/response-objectsearch.json")
-            .then((data) => setObjectsTotal(data.data))
-            .catch((error) => console.log(error));
-    }, []);
 
     const toLeft = () => {
         document.querySelector("span[type='prev']").click();

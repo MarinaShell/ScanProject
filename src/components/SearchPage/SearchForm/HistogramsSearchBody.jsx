@@ -1,10 +1,4 @@
-import React from "react";
-import { useDispatch } from "react-redux";
-import { Histograms } from "../../../store/Slicers/HistogramsSlicer";
-
-const HistogramsSearchBody = ({ inn, tonality, count, startDate, endDate }) => {
-    const dispatch = useDispatch();
-    const accessToken = localStorage.getItem("accessToken");
+const HistogramsSearchBody = ( inn, tonality, count, startDate, endDate ) => {
     const body = {
         issueDateInterval: {
             startDate: startDate,
@@ -61,7 +55,7 @@ const HistogramsSearchBody = ({ inn, tonality, count, startDate, endDate }) => {
         histogramTypes: ["totalDocuments", "riskFactors"],
     };
 
-    dispatch(Histograms(accessToken, body));
+    return JSON.stringify(body);
 };
 
 export { HistogramsSearchBody };
