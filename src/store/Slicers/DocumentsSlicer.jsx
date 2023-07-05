@@ -15,7 +15,7 @@ export const Documents = createAsyncThunk(
                         "Bearer " + accessToken,
                 },
             };
-            const { data } = await axios.get(Apidocuments, {body}, header);
+            const { data } = await axios.post(Apidocuments, body, header);
             
             return data;
         } catch (error) {

@@ -1,73 +1,90 @@
 import * as React from "react";
 import ComponentText from "../../../CustomComponents/ComponentText/ComponentText";
 import { useTheme, useMediaQuery } from "@mui/material";
-import { useState, useEffect } from "react";
 import CircularProgress from "@mui/material/CircularProgress";
-import axios from "axios";
 import Carousel from "better-react-carousel";
-
+import { useSelector } from "react-redux";
 
 const DataCarousel = () => {
-    const [histograms, setHistograms] = useState([]);
-
-    useEffect(() => {
-        axios
-            .get("/Mocks/response-objectsearch-histograms.json")
-            .then((result) => setHistograms(result.data))
-            .catch((error) => console.log(error));
-    }, []);
-
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.down("md"));
 
-    const itemsLength = histograms.data ? histograms.data[0].data.length : 0;
+    const histograms = useSelector((state) => state.histograms);
 
     const breakpoints = [
-        { breakpoint: 1920, rows: 1, cols: itemsLength > 8 ? 8 : itemsLength },
-        { breakpoint: 1440, rows: 1, cols: itemsLength > 8 ? 8 : itemsLength },
-        { breakpoint: 1024, rows: 1, cols: itemsLength > 6 ? 6 : itemsLength },
+        { breakpoint: 1920, rows: 1, cols: 8 },
+        { breakpoint: 1440, rows: 1, cols: 6 },
+        { breakpoint: 1300, rows: 1, cols: 4 },
+        { breakpoint: 1200, rows: 1, cols: 3 },
+        { breakpoint: 1000, rows: 1, cols: 2 },
         { breakpoint: 900, rows: 1, cols: 1 },
         { breakpoint: 355, rows: 1, cols: 1 },
     ];
 
-    return histograms.data ? (
+    if (histograms.success && !histograms.histograms.data.length > 0) {
+        return <h1>Документов нет</h1>;
+    }
+
+    return !histograms.loading ? (
         <Carousel
             hideArrow={true}
-            cols={8}
             responsiveLayout={breakpoints}
             scrollSnap={true}
+            gap={0}
             mobileBreakpoint={354}
-
+            loop
         >
-            {histograms.data[0].data.map((value, idx) => (
+            {histograms.histograms.data[0].data.map((value, idx) => (
                 <Carousel.Item key={idx}>
-                    <div
-                        style={{
-                            marginRight: matches ? 0 : "20px",
-                            paddingRight: matches ? 0 : "20px",
-                            borderRight: matches ? "none" : "1px solid grey",
-                            display: "flex",
-                            alignItems: "center",
-                            columnGap: matches ? "40px" : 0,
-                            height: matches ? "65px" : "auto",
-                            flexDirection: matches ? "row" : "column",
-                        }}
-                    >
-                        <ComponentText style={{ flex: 1 }}>
-                            {new Date(value.date).toLocaleDateString()}
-                        </ComponentText>
-                        <ComponentText
+                    {matches ? (
+                        <div
                             style={{
-                                margin: matches ? "0" : "26px 0",
-                                flex: 1,
+                                marginRight: 0,
+                                paddingRight: 0,
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "space-around",
+                                columnGap: "40px",
+                                rowGap: "10px",
+                                height: "65px",
+                                flexDirection: "row",
                             }}
                         >
-                            {value.value}
-                        </ComponentText>
-                        <ComponentText style={{ flex: 1 }}>
-                            {histograms.data[1].data[idx].value}
-                        </ComponentText>
-                    </div>
+                            <ComponentText>
+                                {new Date(value.date).toLocaleDateString()}
+                            </ComponentText>
+                            <ComponentText
+                                style={{
+                                    margin: "0",
+                                }}
+                            >
+                                {value.value}
+                            </ComponentText>
+                            <ComponentText>
+                                {histograms.histograms.data[1].data[idx].value}
+                            </ComponentText>
+                        </div>
+                    ) : (
+                        <div
+                            style={{
+                                borderRight: "1px solid grey",
+                            }}
+                        >
+                            <ComponentText>
+                                {new Date(value.date).toLocaleDateString()}
+                            </ComponentText>
+                            <ComponentText
+                                style={{
+                                    margin: "26px 0",
+                                }}
+                            >
+                                {value.value}
+                            </ComponentText>
+                            <ComponentText>
+                                {histograms.histograms.data[1].data[idx].value}
+                            </ComponentText>
+                        </div>
+                    )}
                 </Carousel.Item>
             ))}
         </Carousel>

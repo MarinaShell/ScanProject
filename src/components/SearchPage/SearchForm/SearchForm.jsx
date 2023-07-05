@@ -5,6 +5,7 @@ import { HistogramsSearchBody } from "./HistogramsSearchBody";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Histograms } from "../../../store/Slicers/HistogramsSlicer";
+import { ObjectSearch } from "../../../store/Slicers/ObjectSearchSlicer";
 
 const SearchForm = () => {
     const dispatch = useDispatch();
@@ -62,8 +63,8 @@ const SearchForm = () => {
                                     name="date"
                                     type="date"
                                     id="startDate"
-                                    onfocus="(this.type='date')"
-                                    onblur="if(!this.value)this.type='text'"
+                                    // onFocus="(this.type='date')"
+                                    // onBlur="if(!this.value)this.type='text'"
                                     required="required"
                                     placeholder="Дата начала"
                                 />
@@ -72,8 +73,8 @@ const SearchForm = () => {
                                     name="date"
                                     type="date"
                                     id="endDate"
-                                    onfocus="(this.type='date')"
-                                    onblur="if(!this.value)this.type='text'"
+                                    // onFocus="(this.type='date')"
+                                    // onBlur="if(!this.value)this.type='text'"
                                     required="required"
                                     placeholder="Дата конца"
                                 />
@@ -132,6 +133,7 @@ const SearchForm = () => {
                                 variant="blue"
                                 onClick={() => {
                                     dispatch(Histograms({accessToken: accessToken, body: body()}));
+                                    dispatch(ObjectSearch({accessToken: accessToken, body: body()}));
                                     navigate("/result");
                                 }}
                             >

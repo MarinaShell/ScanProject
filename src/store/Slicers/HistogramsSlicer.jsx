@@ -14,7 +14,7 @@ export const Histograms = createAsyncThunk(
                 },
             };
             const { data } = await axios.post(Apihistograms, body, header);
-            console.log(body)
+            
             return data;
         } catch (error) {
             if (error.response && error.response.data.message) {

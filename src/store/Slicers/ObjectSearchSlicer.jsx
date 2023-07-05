@@ -9,11 +9,11 @@ export const ObjectSearch = createAsyncThunk(
             const header = {
                 headers: {
                     "Content-type": "application/json",
-                    Accept: "application/json",
-                    Authorization: "Bearer " + accessToken,
+                    "Accept": "application/json",
+                    "Authorization": "Bearer " + accessToken,
                 },
             };
-            const { data } = await axios.get(Apiobjectsearch, { body }, header);
+            const { data } = await axios.post(Apiobjectsearch, body, header);
 
             return data;
         } catch (error) {
