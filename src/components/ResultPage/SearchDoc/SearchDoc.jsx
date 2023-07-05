@@ -15,12 +15,15 @@ const SearchDoc = () => {
     const encodedIDs = useSelector((state) => state.objectsearch);
 
     useEffect(() => {
-        const body = {
-            ids: encodedIDs.objectSearch.items.map((item) => item.encodedId),
-        };
-
-        dispatch(Documents({accessToken: accessToken, body: body}));
-    }, [dispatch, accessToken]);
+        if (encodedIDs.success && encodedIDs.objectSearch.items.length > 0) {
+            const body = {
+                ids: encodedIDs.objectSearch.items.map(
+                    (item) => item.encodedId
+                ),
+            };
+            dispatch(Documents({ accessToken: accessToken, body: body }));
+        }
+    }, [dispatch, accessToken, encodedIDs]);
 
     const docs = useSelector((state) => state.documents);
 
@@ -43,26 +46,27 @@ const SearchDoc = () => {
                 </ComponentHeaderText>
             </div>
             {!docs.loading && docs.documents !== null ? (
-              docs.documents.map((item) => (
-
-                <div className="cards" key={item.ok.id}>
-                    <ComponentSearchDoc
-                        textDate={item.ok.issueDate}
-                        textSource={item.ok.source.name}
-                        textHeader={item.ok.title.text}
-                        textType={() => {
-                          if (item.ok.attributes.isTechNews) return "Технические новости"
-                          if (item.ok.attributes.isAnnouncement) return "анонсы и события"
-                          if (item.ok.attributes.isDigest) return "сводки новостей"
-                        }}
-                        text={item.ok.content.markup}
-                        textNumWord={`${item.ok.attributes.wordCount} слов`}
-                        image={image1}
-                        url={item.ok.url}
-                    />
-                   
-                </div>
-              ))
+                docs.documents.map((item) => (
+                    <div className="cards" key={item.ok.id}>
+                        <ComponentSearchDoc
+                            textDate={item.ok.issueDate}
+                            textSource={item.ok.source.name}
+                            textHeader={item.ok.title.text}
+                            textType={() => {
+                                if (item.ok.attributes.isTechNews)
+                                    return "Технические новости";
+                                if (item.ok.attributes.isAnnouncement)
+                                    return "анонсы и события";
+                                if (item.ok.attributes.isDigest)
+                                    return "сводки новостей";
+                            }}
+                            text={item.ok.content.markup}
+                            textNumWord={`${item.ok.attributes.wordCount} слов`}
+                            image={image1}
+                            url={item.ok.url}
+                        />
+                    </div>
+                ))
             ) : (
                 <CircularProgress />
             )}

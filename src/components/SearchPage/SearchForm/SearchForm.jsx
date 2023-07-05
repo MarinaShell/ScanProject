@@ -24,8 +24,11 @@ const SearchForm = () => {
         const count = document.querySelector("#count").value;
         const startDate = document.querySelector("#startDate").value;
         const endDate = document.querySelector("#endDate").value;
-
-		
+		console.log(inn);
+		console.log(tonality);
+		console.log(count);
+		console.log(startDate);
+		console.log(endDate);
         // console.log(HistogramsSearchBody(inn, tonality, count, startDate, endDate))
         return HistogramsSearchBody(inn, tonality, count, startDate, endDate)
     };
@@ -72,8 +75,8 @@ const SearchForm = () => {
 						<p className='title-input title-input_search'>Диапазон поиска*</p>
 						<div className='part_search_block-input'>
 
-							<ComponentDate />
-							<ComponentDate />
+							<input type = "date" id ="startDate"/>
+							<input type = "date" id ="endDate"/>
 
 						</div>
 					</div>

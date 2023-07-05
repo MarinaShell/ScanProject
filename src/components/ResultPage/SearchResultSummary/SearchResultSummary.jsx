@@ -17,6 +17,8 @@ const SearchResultSummary = () => {
 
     const totalDocs = useSelector((state) => state.histograms);
 
+    console.log(totalDocs);
+    
     if (!totalDocs.loading && totalDocs.success && totalDocs.histograms.data.length > 0) {
         totalDocs.histograms.data[0].data.map(item => totalCount += Number(item.value));
         console.log("OK");
