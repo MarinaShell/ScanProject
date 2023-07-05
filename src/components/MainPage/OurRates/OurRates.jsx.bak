@@ -11,7 +11,7 @@ import { CustomCard } from "../../CustomComponents/CustomCard/CustomCard";
 
 const OurRates = () => {
     const theme = useTheme();
-    const matches = useMediaQuery(theme.breakpoints.down("lg"));
+    const matches = useMediaQuery(theme.breakpoints.down("md"));
 
     return (
         <>
