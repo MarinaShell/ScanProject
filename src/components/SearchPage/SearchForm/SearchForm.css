@@ -95,7 +95,7 @@ form {
 		flex-direction: column;
 	}
 }
-
+.field-input,
 .field-input1::placeholder,
 .field-input-doc::placeholder,
 .field-input2::placeholder {
