@@ -27,7 +27,7 @@ form {
 		margin: 0 auto;
 	}
 }
-@media screen and (max-width: 840px) {
+@media screen and (max-width: 860px) {
 	form {
 		flex-direction: column;
 		margin: 0 auto;
