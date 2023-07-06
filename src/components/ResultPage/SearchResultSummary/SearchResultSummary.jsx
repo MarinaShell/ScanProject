@@ -8,19 +8,36 @@ import { CustomCard } from "../../CustomComponents/CustomCard/CustomCard";
 import { Colors } from "../../../theme/Colors/Colors";
 import { DataCarousel } from "./DataCArousel/DataCarousel";
 import { CustomButton } from "../../CustomComponents/CustomButton/CustomButton";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { ObjectSearch } from "../../../store/Slicers/ObjectSearchSlicer";
 
 const SearchResultSummary = () => {
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.down("md"));
+
+    const dispatch = useDispatch();
+    const accessToken = localStorage.getItem("accessToken");
+
     let totalCount = 0;
 
     const totalDocs = useSelector((state) => state.histograms);
+    const body = useSelector((state => state.histograms.requestbody));
 
-    if (!totalDocs.loading && totalDocs.success && totalDocs.histograms.data.length > 0) {
-        totalDocs.histograms.data[0].data.map(item => totalCount += Number(item.value));
+    if (
+        !totalDocs.loading &&
+        totalDocs.success &&
+        totalDocs.histograms.data.length > 0
+    ) {
+        totalDocs.histograms.data[0].data.map(
+            (item) => (totalCount += Number(item.value))
+        );
+        dispatch(
+            ObjectSearch({
+                accessToken: accessToken,
+                body: body,
+            })
+        );
     }
-
     const toLeft = () => {
         document.querySelector("span[type='prev']").click();
     };

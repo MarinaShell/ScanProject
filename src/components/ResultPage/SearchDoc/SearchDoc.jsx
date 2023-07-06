@@ -7,12 +7,14 @@ import image1 from "./image1.svg";
 import "./SearchDoc.css";
 import { useDispatch, useSelector } from "react-redux";
 import { CircularProgress } from "@mui/material";
-import { Documents } from "../../../store/Slicers/DocumentsSlicer";
+import { Documents, loadMore } from "../../../store/Slicers/DocumentsSlicer";
+
 
 const SearchDoc = () => {
     const accessToken = localStorage.getItem("accessToken");
     const dispatch = useDispatch();
     const encodedIDs = useSelector((state) => state.objectsearch);
+    const limitDocs = Number(useSelector((state) => state.documents.limitDocs)) - 10;
 
     useEffect(() => {
         if (encodedIDs.success && encodedIDs.objectSearch.items.length > 0) {
@@ -26,9 +28,7 @@ const SearchDoc = () => {
     }, [dispatch, accessToken, encodedIDs]);
 
     const docs = useSelector((state) => state.documents);
-
-    if (docs.loading && docs.status) {
-    }
+    const docsCount = docs.documents ? docs.documents.length : 0;
     return (
         <CustomContainer>
             <div>
@@ -46,7 +46,7 @@ const SearchDoc = () => {
                 </ComponentHeaderText>
             </div>
             {!docs.loading && docs.documents !== null ? (
-                docs.documents.map((item) => (
+                docs.documents.slice(0, docsCount <= 10 ? docsCount : docsCount - limitDocs).map((item) => (
                     <div className="cards" key={item.ok.id}>
                         <ComponentSearchDoc
                             textDate={item.ok.issueDate}
@@ -71,7 +71,7 @@ const SearchDoc = () => {
                 <CircularProgress />
             )}
             <div style={{ marginTop: "30px" }}>
-                <CustomButton variant="blue">Показать больше</CustomButton>
+                <CustomButton variant="blue" onClick={() => {dispatch(loadMore(limitDocs < 10 ? 0 : limitDocs))}}>Показать больше</CustomButton>
             </div>
         </CustomContainer>
     );

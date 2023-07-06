@@ -1,29 +1,71 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./SearchForm.css";
 import { CustomButton } from "../../CustomComponents/CustomButton/CustomButton";
 import { HistogramsSearchBody } from "./HistogramsSearchBody";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Histograms } from "../../../store/Slicers/HistogramsSlicer";
 import { ObjectSearch } from "../../../store/Slicers/ObjectSearchSlicer";
+import { requestBody } from "../../../store/Slicers/HistogramsSlicer";
+import { loadMore } from "../../../store/Slicers/DocumentsSlicer";
 
 const SearchForm = () => {
+    const [error, setError] = useState("");
     const dispatch = useDispatch();
     const accessToken = localStorage.getItem("accessToken");
 
     const navigate = useNavigate();
+    const histograms = useSelector((state) => state.histograms);
 
-    const body = () => {
+    
+    useEffect(() => {
+        
+        if (histograms.success && histograms.histograms.data) {
+            if (histograms.histograms.data.length === 0) {
+                setError("ИНН компании не найден");
+            } else if (histograms.histograms.data.length > 0) {
+                setError("");
+                navigate("/result");
+            }
+        }
+    }, [histograms]);
+
+    const checkFormAndRequest = () => {
         const inn = document.querySelector("#inn").value;
         const tonality = document.querySelector("#tonality").value;
         const count = document.querySelector("#count").value;
         const startDate = document.querySelector("#startDate").value;
         const endDate = document.querySelector("#endDate").value;
-    
-        return HistogramsSearchBody(inn, tonality, count, startDate, endDate)
+        const body = () => {
+            dispatch(requestBody(HistogramsSearchBody(inn, tonality, count, startDate, endDate)));
+            dispatch(loadMore(count));
+            return HistogramsSearchBody(inn, tonality, count, startDate, endDate);
+        };
+
+        
+        if (
+            Date.parse(startDate) > Date.parse(endDate) ||
+            Date.parse(endDate) > Date.now()
+        ) {
+            setError("Некорректный диапазон поиска");
+        } else if (
+            inn === "" ||
+            tonality === "" ||
+            count === "" ||
+            startDate === "" ||
+            endDate === ""
+        ) {
+            setError("Заполните все поля");
+        } else if (!histograms.succes) {
+            dispatch(
+                Histograms({
+                    accessToken: accessToken,
+                    body: body(),
+                })
+            );
+        }
     };
-    
-    
+
     return (
         <div>
             <div className="form">
@@ -128,19 +170,30 @@ const SearchForm = () => {
                             </div>
                         </div>
 
-                        <div className="btn">
+                        <div className="btn" style={{ position: "relative" }}>
                             <CustomButton
                                 variant="blue"
+                                id="submit"
                                 onClick={() => {
-                                    dispatch(Histograms({accessToken: accessToken, body: body()}));
-                                    dispatch(ObjectSearch({accessToken: accessToken, body: body()}));
-                                    navigate("/result");
+                                    checkFormAndRequest();
                                 }}
                             >
                                 Поиск
                             </CustomButton>
                             <br />
                             <p>* Обязательные к заполнению поля</p>
+                            <span
+                                id="error"
+                                style={{
+                                    position: "absolute",
+                                    left: 0,
+                                    bottom: 0,
+                                    fontSize: "14px",
+                                    color: "red",
+                                }}
+                            >
+                                {error}
+                            </span>
                         </div>
                     </div>
                 </form>
