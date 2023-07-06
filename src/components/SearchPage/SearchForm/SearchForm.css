@@ -296,7 +296,7 @@ label span {
 	}
 }
 .field-input {
-	border: none !important;
+	border: none ;
 	max-width: 176px !important;
 	text-align: center;
 }

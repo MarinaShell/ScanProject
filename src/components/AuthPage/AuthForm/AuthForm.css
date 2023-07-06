@@ -2,11 +2,6 @@ button.login_btn:hover, button.auth_btn:hover {
 	box-shadow: none;
 }
 
-@font-face {
-	font-family: "Inter";
-	src: url("../../../fonts/inter/Inter-Regular.ttf");
-}
-
 .form {
 	/* позиционирование указано для правильного расположения замочка */
 	position: relative;
@@ -28,18 +23,13 @@ button.login_btn:hover, button.auth_btn:hover {
 	/* внутренние отступы для формы по макету */
 	padding: 26px;
 }
-.form_auth {
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-}
+
 .form_auth_text {
 	/* раположение названий форм по макету возле левого края*/
 	text-align: left;
 	font-family: "Inter";
 	font-size: 16px;
 	color: #949494;
-	margin: 0 !important;
 }
 
 button {
@@ -67,18 +57,17 @@ input {
 	border-radius: 5px;
 	border-width: 1px;
 }
-.form_input {
-}
+
 .logos {
-	display: flex;
+	/* display: flex;
+	justify-content: flex-start; */
+	display: inline;
 	/* flex-direction: column; */
 
 	/* margin-left: 25px; - лишний стиль (при наличии отступов формы) */
 }
 /* стили для контейнера с кнопками соцсетей */
-.buttons {
-	display: flex;
-}
+
 .head {
 	font-family: "Inter";
 	margin: 0 auto;

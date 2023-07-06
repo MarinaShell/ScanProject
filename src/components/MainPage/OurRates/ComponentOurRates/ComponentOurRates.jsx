@@ -15,7 +15,7 @@ const ComponentOurRates = (props) => {
         <CustomCard
             style={{
                 padding: "0 0 20px",
-                border: "2px solid" + props.color,
+                border: props.border + props.color,
                 flex: 1,
                 maxWidth: "415px",
                 minWidth: "335px",
@@ -71,6 +71,28 @@ const ComponentOurRates = (props) => {
                         ></ComponentImage>
                     </div>
                 </div>
+                <div className = "current_tarif">
+                    <ComponentText
+                        style={{
+                            fontSize: "14px",
+                            lineHeight: "17px",
+                            color:Colors.colorWhite,
+                            paddingTop:"10px",
+                            textAlign:"right",
+                            paddingRight:"10px",
+                            
+                        }}
+                    >
+                        <span style={{
+                        	padding: "1px 10px",
+                            background: props.current?"#3BA5E0":"#FFFFFF",
+                            width: "134px",
+                            borderRadius:"10px",
+                        }}
+                        >{props.current?"Текущий тариф":null}</span>
+                        
+                    </ComponentText>
+                </div>
                 <div style={{flexshrink: 1, display: "flex", flexDirection: "column" }}>
                     <div
                         style={{
@@ -79,6 +101,7 @@ const ComponentOurRates = (props) => {
                             columnGap: "20px",
                         }}
                     >
+ 
                         <div>
                             <ComponentText
                                 style={{
@@ -174,8 +197,8 @@ const ComponentOurRates = (props) => {
                             </li>
                         </ul>
                     </div>
-                    <CustomButton variant={props.buttonStyle} style={{margin: "0 25px"}}>
-                        {props.button}
+                    <CustomButton variant={props.current?"grey":"blue"} style={{margin: "0 25px"}}>
+                        {props.current ?"Перейти в личный кабинет":"Подробнее"}
                     </CustomButton>
                 </div>
             </div>

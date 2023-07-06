@@ -13,6 +13,11 @@ const OurRates = () => {
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.down("lg"));
 
+    function getRandomInt(max) {
+        return Math.floor(Math.random() * max);
+      }
+    const numCard = getRandomInt(5);  
+    console.log(numCard);
     return (
         <>
             <div>
@@ -50,7 +55,6 @@ const OurRates = () => {
                     price="799 Р"
                     priceOld="1200 Р"
                     priceIn="или 150Р/мес. при рассрочке 24 мес."
-                    button="Перейти в личный кабинет"
                     color={Colors.colorYellow}
                     colorText={Colors.colorBlack}
                     buttonStyle="grey"
@@ -58,12 +62,14 @@ const OurRates = () => {
                     list2="Безопасная сделка"
                     list3="Поддержка 24/7"
                     source={lamp}
+                    border = {numCard ==1 ? "solid 2px":"none"}
                     style={{
                         border: "2px",
                         borderStyle: "solid",
                         boxShadow: "none",
                         borderColor: Colors.colorYellow,
                     }}
+                    current = {numCard == 1 }
                 />
                 <ComponentOurRates
                     header="Pro"
@@ -73,9 +79,10 @@ const OurRates = () => {
                     priceIn="или 279Р/мес. при рассрочке 24 мес."
                     color={Colors.colorLightBlue}
                     colorText={Colors.colorBlack}
-                    button="Подробнее"
                     buttonStyle="blue"
                     source={aim}
+                    border = {numCard ==2 ? "solid 2px":"none"}
+                    current = {numCard == 2 }
                     list1="Все пункты тарифа Beginner"
                     list2="Экспорт истории"
                     list3="Рекомендации по приоритетам"
@@ -88,9 +95,10 @@ const OurRates = () => {
                     priceIn="&nbsp;"
                     color={Colors.colorBlack}
                     colorText={Colors.colorWhite}
-                    button="Подробнее"
                     buttonStyle="blue"
                     source={notebook}
+                    border = {numCard ==3 ? "solid 2px":"none"}
+                    current = {numCard == 3 }
                     list1="Все пункты тарифа Pro"
                     list2="Безлимитное количество запросов"
                     list3="Приоритетная поддержка"
