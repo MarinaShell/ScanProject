@@ -1,32 +1,58 @@
-import "./App.css";
+import React, { useEffect } from "react";
+import ComponentAuthMedia from "./ComponentAuthMedia/ComponentAuthMedia";
+import ComponentAuthMediaImages from "./ComponentAuthMediaImages/ComponentAuthMediaImages";
+import { CustomContainer } from "../CustomComponents/CustomContainer/CustomContainer";
+import AuthForm from "./AuthForm/AuthForm";
+import "./AuthPage.css";
+import { useTheme, useMediaQuery } from "@mui/material";
+import { useSelector } from "react-redux";
+import { Navigate } from "react-router-dom";
 
-import { NavBar } from "./components/NavBar/NavBar";
-import { Navigate, Route, Routes } from "react-router-dom";
-import { MainPage } from "./components/MainPage/MainPage";
-import AuthPage from "./components/AuthPage/AuthPage";
-import SearchPage from "./components/SearchPage/SearchPage";
-import { ResultPage } from "./components/ResultPage/ResultPage";
-import Footer from "./components/Footer/Footer";
-import ProtectedRoutes from "./components/ProtectedRoutes/ProtectedRoutes";
+function AuthPage() {
+	const theme = useTheme();
+	const matches = useMediaQuery(theme.breakpoints.down("md"));
 
-function App() {
-    return (
-        <div className="App">
-            <NavBar />
+	const is_Auth = useSelector((state) => state.userInfo.is_Auth);
 
-            <Routes>
-                <Route element={<ProtectedRoutes />}>
-                    <Route path="/search/" element={<SearchPage />} />
-                    <Route path="/result/" element={<ResultPage />} />
-                </Route>
-                <Route path="/" element={<MainPage />} />
-                <Route path="/login" element={<AuthPage />} />
-                <Route path="*" element={<Navigate to="/" />} />
-            </Routes>
+	if (is_Auth) {
+		return <Navigate to={"/"} />;
+	}
 
-            <Footer />
-        </div>
-    );
+
+	return matches ? (
+		<CustomContainer style={{ display: "flex", flexDirection: "column" }}>
+			<ComponentAuthMedia />
+			<div className="div-form"
+				style={{
+					margin: "0 auto",
+					marginBottom: "50px",
+					width: "350px",
+				}}
+			>
+				<AuthForm />
+			</div>
+			<ComponentAuthMediaImages />
+		</CustomContainer >
+	) : (
+		<div className="div_main">
+			<div className="div_left" style={{
+				marginRight: "20px",
+			}}>
+				<div className="font_ferry">
+					<ComponentAuthMedia style={{
+						marginTop: "100px",
+						marginLeft: "20px",
+					}} />
+				</div>
+				<div className="div_image">
+					<ComponentAuthMediaImages />
+				</div>
+			</div>
+			<div className="div_right">
+				<AuthForm />
+			</div>
+		</div >
+	);
 }
 
-export default App;
+export default AuthPage;
