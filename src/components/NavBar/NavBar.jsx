@@ -22,7 +22,7 @@ import { InfoBlock } from "./InfoBlock/InfoBlock";
 import { useTheme, useMediaQuery } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { Authorized } from "./Authorized/Authorized";
-import { Unauthorized } from "./Unathorized/Unauthorized";
+import { Unauthorized } from "./Unauthorized/Unauthorized";
 import { useDispatch, useSelector } from "react-redux";
 import { clearUserInfo } from "../../store/Slicers/UserInfoSlicer";
 import { logout } from "../../store/Slicers/AuthSlicer";
