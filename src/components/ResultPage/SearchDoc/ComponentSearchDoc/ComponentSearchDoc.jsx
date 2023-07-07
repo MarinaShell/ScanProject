@@ -37,6 +37,7 @@ const ComponentSearchDoc = (props) => {
                         }}
                     >
                         {props.textSource}
+                        
                     </ComponentText>
                 </div>
             </div>

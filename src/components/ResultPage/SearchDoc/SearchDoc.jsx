@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { CustomContainer } from "../../CustomComponents/CustomContainer/CustomContainer";
 import ComponentSearchDoc from "./ComponentSearchDoc/ComponentSearchDoc";
 import ComponentHeaderText from "../../CustomComponents/ComponentHeaderText/ComponentHeaderText";
 import { CustomButton } from "../../CustomComponents/CustomButton/CustomButton";
@@ -32,6 +31,25 @@ const SearchDoc = () => {
 
     const docs = useSelector((state) => state.documents);
     const docsCount = docs.documents ? docs.documents.length : 0;
+
+    // const parsingXML = (txt) => {
+
+    //     const textParser = new DOMParser();
+    //     const doc = textParser.parseFromString(txt, "text/xml");
+    //     console.log(doc.querySelector("scandoc"))
+    //     let content = "";
+    //     doc.querySelector("scandoc").childNodes.forEach(
+    //         (node, index) => {
+    //             // console.log(node)
+    //             if (index > 3) {
+    //             if ((node.innerHTML).match(/[а-я ]/gi)) {
+    //                 content += node.innerHTML.match(/[а-я ]/gi).join("");
+    //             }
+    //         }}
+    //     );
+    //     return content;
+    // };
+
     return (
         <>
             <div>
@@ -49,14 +67,27 @@ const SearchDoc = () => {
                 </ComponentHeaderText>
             </div>
             {!docs.loading && docs.documents !== null ? (
-                <div style={{display: "flex", flexWrap:"wrap", columnGap: "60px", rowGap: "30px"}}>
+                <div
+                    style={{
+                        display: "flex",
+                        flexWrap: "wrap",
+                        columnGap: "60px",
+                        rowGap: "30px",
+                    }}
+                >
                     {docs.documents
                         .slice(
                             0,
                             docsCount <= 10 ? docsCount : docsCount - limitDocs
                         )
                         .map((item) => (
-                            <CustomCard key={item.ok.id} style={{flex: matches ? "100%" : "40%", height: "fit-content"}}>
+                            <CustomCard
+                                key={item.ok.id}
+                                style={{
+                                    flex: matches ? "100%" : "40%",
+                                    height: "fit-content",
+                                }}
+                            >
                                 <ComponentSearchDoc
                                     textDate={item.ok.issueDate}
                                     textSource={item.ok.source.name}
