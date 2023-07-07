@@ -187,7 +187,7 @@ const AuthForm = () => {
                     {data.loading ? <CircularProgress sx={{color: "#ffffff"}}/> : "Войти"}
                 </CustomButton>
                 <br />
-                <a href="#">Восстановить пароль</a>
+                <a href="/login">Восстановить пароль</a>
                 <ComponentText
                     style={{
                         textAlign: "left",
@@ -200,13 +200,13 @@ const AuthForm = () => {
                 </ComponentText>
                 <div className="logos">
                     <button style={{ paddingLeft: 0 }}>
-                        <img src={goog} />
+                        <img src={goog} alt="google"/>
                     </button>
                     <button className="mr">
-                        <img src={face} />
+                        <img src={face} alt="facebook" />
                     </button>
                     <button>
-                        <img src={yand} />
+                        <img src={yand} alt="yandex" />
                     </button>
                 </div>
             </form>

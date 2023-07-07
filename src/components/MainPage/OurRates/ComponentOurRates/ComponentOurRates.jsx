@@ -5,7 +5,6 @@ import { CustomButton } from "../../../CustomComponents/CustomButton/CustomButto
 import { Colors } from "../../../../theme/Colors/Colors";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
-import CardHeader from "@mui/material/CardHeader";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import galka from "../../../../media/galka.svg";

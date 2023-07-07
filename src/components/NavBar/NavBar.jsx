@@ -26,7 +26,6 @@ import { Unauthorized } from "./Unauthorized/Unauthorized";
 import { useDispatch, useSelector } from "react-redux";
 import { clearUserInfo } from "../../store/Slicers/UserInfoSlicer";
 import { logout } from "../../store/Slicers/AuthSlicer";
-import CircularProgress from "@mui/material/CircularProgress";
 
 const navItems = [
     { text: "Главная", nav: "/" },

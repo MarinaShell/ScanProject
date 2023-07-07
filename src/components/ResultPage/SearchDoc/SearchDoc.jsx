@@ -32,7 +32,7 @@ const SearchDoc = () => {
 
     const docs = useSelector((state) => state.documents);
     const docsCount = docs.documents ? docs.documents.length : 0;
-
+    
     return (
         <>
             <div>

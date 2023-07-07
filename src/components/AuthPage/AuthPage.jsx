@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import ComponentAuthMedia from "./ComponentAuthMedia/ComponentAuthMedia";
 import ComponentAuthMediaImages from "./ComponentAuthMediaImages/ComponentAuthMediaImages";
 import { CustomContainer } from "../CustomComponents/CustomContainer/CustomContainer";
