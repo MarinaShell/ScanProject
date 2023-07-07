@@ -34,7 +34,7 @@ function AuthPage() {
         </CustomContainer>
     ) : (
         <div className="div_main">
-            <div className="div_left">
+            <div className="div_left" style={{marginRight: matches ? 0 : "60px"}}>
                 <div className="font_ferry">
                     <ComponentAuthMedia />
                 </div>

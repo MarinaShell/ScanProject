@@ -92,7 +92,7 @@ const NavBar = (props) => {
                     style={{
                         marginBottom: "20px",
                         color: "rgba(255,255,255,0.5)",
-                        visibility: logged.is_Auth ? "hidden" : "visible",
+                        // visibility: logged.is_Auth ? "hidden" : "visible",
                     }}
                     onClick={() => {
                         navigate("/login");

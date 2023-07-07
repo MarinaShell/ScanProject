@@ -1,7 +1,6 @@
 import React from "react";
 import ComponentOurRates from "./ComponentOurRates/ComponentOurRates";
 import ComponentHeaderText from "../../CustomComponents/ComponentHeaderText/ComponentHeaderText";
-import "./OurRates.css";
 import { Colors } from "../../../theme/Colors/Colors";
 import lamp from "../../../media/lamp.svg";
 import aim from "../../../media/aim.svg";
@@ -36,6 +35,7 @@ const OurRates = () => {
                     border: 0,
                     margin: "0 0 20px",
                     display: "flex",
+                    columnGap: "20px",
                     // flexWrap: 'wrap',
                     justifyContent: "space-around",
                     alignItems: "center",
@@ -46,9 +46,9 @@ const OurRates = () => {
                 <ComponentOurRates
                     header="Beginner"
                     text="Для небольшого исследования"
-                    price="799 Р"
-                    priceOld="1200 Р"
-                    priceIn="или 150Р/мес. при рассрочке 24 мес."
+                    price="799 ₽"
+                    priceOld="1200 ₽"
+                    priceIn="или 150₽/мес. при рассрочке 24 мес."
                     button="Перейти в личный кабинет"
                     color={Colors.colorYellow}
                     colorText={Colors.colorBlack}
@@ -67,9 +67,9 @@ const OurRates = () => {
                 <ComponentOurRates
                     header="Pro"
                     text="Для HR и фрилансеров"
-                    price="1299 Р"
-                    priceOld="2600 Р"
-                    priceIn="или 279Р/мес. при рассрочке 24 мес."
+                    price="1299 ₽"
+                    priceOld="2600 ₽"
+                    priceIn="или 279₽/мес. при рассрочке 24 мес."
                     color={Colors.colorLightBlue}
                     colorText={Colors.colorBlack}
                     button="Подробнее"
@@ -82,8 +82,8 @@ const OurRates = () => {
                 <ComponentOurRates
                     header="Business"
                     text="Для корпоративных клиентов"
-                    price="2379 Р"
-                    priceOld="3700"
+                    price="2379 ₽"
+                    priceOld="3700 ₽"
                     priceIn="&nbsp;"
                     color={Colors.colorBlack}
                     colorText={Colors.colorWhite}

@@ -4,14 +4,17 @@ import ComponentHeaderText from "../../CustomComponents/ComponentHeaderText/Comp
 import ComponentText from "../../CustomComponents/ComponentText/ComponentText";
 import ComponentImage from "../../CustomComponents/ComponentImage/ComponentImage";
 import main_up from "./main_up.svg";
-import "./Header.module.css";
+// import "./Header.module.css";
 import { useTheme, useMediaQuery } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const navigate = useNavigate()
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("md"));
+  const is_Auth = useSelector((state) => state.userInfo.is_Auth);
+
   return (
     <div style={{display: "flex", flexDirection: matches ? "column" : "row"}}>
       <div className="left-part">
@@ -39,7 +42,7 @@ const Header = () => {
             </ComponentText>
           </div>
         </div>
-        <div style={{textAlign: matches ? "center" : "left", marginTop: "70px"}}>
+        <div style={{textAlign: matches ? "center" : "left", marginTop: "70px", display: is_Auth ? "block" : "none"}}>
           <CustomButton variant="blue" onClick={() => {navigate("/search/")}}> Запросить данные</CustomButton>
         </div>
       </div>

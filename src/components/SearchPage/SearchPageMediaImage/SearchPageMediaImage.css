@@ -1,16 +1,17 @@
 .my-guy {
 	position: absolute;
-	left: 0;
-	bottom: 0;
+	right: 40px;
+	
 	width: 397px;
 	height: 476px;
 	background: cover;
 	align-self: end;
+	margin: 0 auto;
 }
 .my-document {
 	position: absolute;
-	left: -90px;
-	top: 0;
+	left: 90px;
+	bottom: 40px;
 	width: 102px;
 	height: 117px;
 }
@@ -23,6 +24,5 @@
 }
 .container-images {
 	position: relative;
-	height: 760px;
 	align-items: end;
 }
