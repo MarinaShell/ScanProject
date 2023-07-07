@@ -5,6 +5,7 @@
 	max-width: 1322px;
 	margin: 0 auto;
 	margin-top: 70px;
+	margin-bottom: 70px;
 }
 @media screen and (max-width: 1370px) {
 	.div_main {
