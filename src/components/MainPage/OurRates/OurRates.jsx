@@ -9,14 +9,16 @@ import notebook from "../../../media/notebook.svg";
 import { useTheme, useMediaQuery } from "@mui/material";
 import { CustomCard } from "../../CustomComponents/CustomCard/CustomCard";
 
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+  }
+var numCard = getRandomInt(5);  
+
 const OurRates = () => {
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.down("lg"));
 
-    function getRandomInt(max) {
-        return Math.floor(Math.random() * max);
-      }
-    const numCard = getRandomInt(5);  
+ 
     console.log(numCard);
     return (
         <>
@@ -52,9 +54,9 @@ const OurRates = () => {
                 <ComponentOurRates
                     header="Beginner"
                     text="Для небольшого исследования"
-                    price="799 Р"
-                    priceOld="1200 Р"
-                    priceIn="или 150Р/мес. при рассрочке 24 мес."
+                    price="799 ₽"
+                    priceOld="1200 ₽"
+                    priceIn="или 150₽/мес. при рассрочке 24 мес."
                     color={Colors.colorYellow}
                     colorText={Colors.colorBlack}
                     buttonStyle="grey"
@@ -74,9 +76,9 @@ const OurRates = () => {
                 <ComponentOurRates
                     header="Pro"
                     text="Для HR и фрилансеров"
-                    price="1299 Р"
-                    priceOld="2600 Р"
-                    priceIn="или 279Р/мес. при рассрочке 24 мес."
+                    price="1299 ₽"
+                    priceOld="2600 ₽"
+                    priceIn="или 279₽/мес. при рассрочке 24 мес."
                     color={Colors.colorLightBlue}
                     colorText={Colors.colorBlack}
                     buttonStyle="blue"
@@ -90,8 +92,8 @@ const OurRates = () => {
                 <ComponentOurRates
                     header="Business"
                     text="Для корпоративных клиентов"
-                    price="2379 Р"
-                    priceOld="3700"
+                    price="2379 ₽"
+                    priceOld="3700 ₽"
                     priceIn="&nbsp;"
                     color={Colors.colorBlack}
                     colorText={Colors.colorWhite}

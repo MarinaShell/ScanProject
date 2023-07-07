@@ -1,5 +1,6 @@
 .search-page {
 	display: flex;
+	flex-direction: row;
 	min-height: 761px;
 	max-width: 1440px;
 	margin: 0 auto;
@@ -16,13 +17,15 @@
 	}
 }
 @media screen and (max-width: 1000px) {
-	.search-form-right {
-		display: none;
+	.search-page {
+		margin-left: 20px;
 	}
 }
 @media screen and (max-width: 900px) {
 	.search-page {
 		margin-right: 20px;
+		display: flex;
+		flex-direction: column;
 	}
 	.fsz-header {
 		font-size: 28px !important; /* сервис по поиску публикаций о компании по его ИНН */
@@ -51,6 +54,11 @@
 	.search-page-header {
 		width: 70%;
 	}
+	.search-page {
+		margin-right: 20px;
+		display: flex;
+		flex-direction: column;
+	}
 }
 .search-page-text {
 	text-align: left;
@@ -60,6 +68,11 @@
 	.search-page-text {
 		width: 70%;
 	}
+	.search-page {
+		margin-right: 20px;
+		display: flex;
+		flex-direction: column;
+	}
 }
 .search-page-media-image {
 	width: 100%;
@@ -68,6 +81,8 @@
 @media screen and (max-width: 460px) {
 	.search-page {
 		max-width: 375px;
+		display: flex;
+	    flex-direction: column;
 		/* margin: 0 auto; */
 	}
 }

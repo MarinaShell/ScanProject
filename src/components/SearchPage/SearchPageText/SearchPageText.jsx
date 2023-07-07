@@ -1,12 +1,16 @@
-import React from 'react'
-import ComponentText from '../../CustomComponents/ComponentText/ComponentText';
+import React from "react";
+import ComponentText from "../../CustomComponents/ComponentText/ComponentText";
 
 function SearchPageText() {
-	return (
-		<div><ComponentText className="fsz-text" style={{ fontSize: "20px" }}>Задайте параметры поиска.
-			<br />Чем больше заполните, тем точнее поиск.
-		</ComponentText></div >
-	)
+    return (
+        <ComponentText
+            style={{ fontSize: "20px", textAlign: "left", marginTop: "20px", lineHeight: "25px" }}
+        >
+            Задайте параметры поиска.
+            <br />
+            Чем больше заполните, тем точнее поиск.
+        </ComponentText>
+    );
 }
 
-export default SearchPageText
+export default SearchPageText;

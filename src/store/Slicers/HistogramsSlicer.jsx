@@ -32,6 +32,7 @@ const initialState = {
     success: false,
     status: null,
     histograms: null,
+    requestbody: {}
 };
 
 const HistogramsSlicer = createSlice({
@@ -45,6 +46,9 @@ const HistogramsSlicer = createSlice({
             state.status = null;
             state.histograms = null;
         },
+        requestBody: (state, action) => {
+            state.requestbody = action.payload
+        }
     },
     extraReducers: (builder) => {
         builder.addCase(Histograms.fulfilled, (state, action) => {
@@ -65,6 +69,5 @@ const HistogramsSlicer = createSlice({
         });
     },
 });
-
-export const { clearHistograms } = HistogramsSlicer.actions;
+export const { clearHistograms, requestBody } = HistogramsSlicer.actions;
 export default HistogramsSlicer.reducer;

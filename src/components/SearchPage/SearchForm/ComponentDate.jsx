@@ -16,11 +16,11 @@ const ComponentDate = () => {
 	}
 
 	return (
-		<div className='field-input2' style={{
+		<div style={{
 
 		}}>
 			<pre>
-				<input className="field-input" type="text" placeholder="гггг/мм/дд"
+				<input className="field-input2" type="text" placeholder="гггг/мм/дд"
 					onChange={(e) => validateDate(e.target.value)}></input> <br />
 				<span style={{
 					fontWeight: 'bold',

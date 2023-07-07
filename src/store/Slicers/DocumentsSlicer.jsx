@@ -34,6 +34,7 @@ const initialState = {
     success: false,
     status: null,
     documents: null,
+    limitDocs: 0
 };
 
 const DocumentsSlicer = createSlice({
@@ -46,6 +47,10 @@ const DocumentsSlicer = createSlice({
             state.success = false
             state.status = null
             state.documents = null
+        },
+        loadMore: (state, action) => {
+            state.limitDocs = action.payload;
+           
         }
     },
     extraReducers: (builder) => {
@@ -68,5 +73,5 @@ const DocumentsSlicer = createSlice({
         });
     },
 });
-export const { clearDocuments } = DocumentsSlicer.actions
+export const { clearDocuments, loadMore } = DocumentsSlicer.actions
 export default DocumentsSlicer.reducer;

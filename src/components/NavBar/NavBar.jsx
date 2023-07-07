@@ -27,6 +27,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { clearUserInfo } from "../../store/Slicers/UserInfoSlicer";
 import { logout } from "../../store/Slicers/AuthSlicer";
 import CircularProgress from "@mui/material/CircularProgress";
+import { clearDocuments } from "../../store/Slicers/DocumentsSlicer";
+import { clearHistograms } from "../../store/Slicers/HistogramsSlicer";
+
 
 const navItems = [
     { text: "Главная", nav: "/" },
@@ -76,6 +79,8 @@ const NavBar = (props) => {
                             onClick={() => {
                                 navigate("/");
                                 handleDrawerToggle();
+                                dispatch(clearDocuments());
+                                dispatch(clearHistograms());
                             }}
                         >
                             <ListItemText
@@ -92,7 +97,7 @@ const NavBar = (props) => {
                     style={{
                         marginBottom: "20px",
                         color: "rgba(255,255,255,0.5)",
-                        visibility: logged.is_Auth ? "hidden" : "visible",
+                        // visibility: logged.is_Auth ? "hidden" : "visible",
                     }}
                     onClick={() => {
                         navigate("/login");
