@@ -226,6 +226,7 @@ const SearchForm = () => {
 										bottom: 0,
 										fontSize: "18px",
 										color: "red",
+										marginBottom: "-25px",
 									}}
 								>
 									{error}
