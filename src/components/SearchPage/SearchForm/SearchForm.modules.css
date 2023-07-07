@@ -1,0 +1,63 @@
+form input {
+    text-align: center;
+}
+form input::placeholder {
+    text-align: center;
+}
+
+form label {
+    display: block;
+    text-align: left;
+}
+
+.checkbox_span {
+    font-family: Inter;
+    font-size: 18px;
+    padding-left: 15px;
+}
+
+.checkbox_block {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.customCard::before {
+    content: "";
+    position: absolute;
+    background-image: url('../../../media/Document.svg');;
+    background-size: 91px 91px;
+    top: -140px;
+    right: 350px;
+    width: 91px;
+    height: 91px;
+}
+
+@media screen and (max-width: 480px) {
+    .customCard::before {
+        content: "";
+        position: absolute;
+        display: block;
+        background-size: 50px 50px;
+        background-image: url('../../../media/Document.svg');;
+        top: -40px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        
+    }   
+}
+
+@media screen and (max-width: 1200px) {
+    .customCard::before {
+        content: "";
+        position: absolute;
+        display: block;
+        background-size: 50px 50px;
+        background-image: url('../../../media/Document.svg');;
+        top: -40px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        
+    }   
+}

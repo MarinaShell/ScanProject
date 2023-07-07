@@ -1,0 +1,28 @@
+.my-guy {
+	position: absolute;
+	right: 40px;
+	
+	width: 397px;
+	height: 476px;
+	background: cover;
+	align-self: end;
+	margin: 0 auto;
+}
+.my-document {
+	position: absolute;
+	left: 90px;
+	bottom: 40px;
+	width: 102px;
+	height: 117px;
+}
+.my-folders {
+	position: absolute;
+	left: 190px;
+	top: 0;
+	width: 140px;
+	height: 68px;
+}
+.container-images {
+	position: relative;
+	align-items: end;
+}
