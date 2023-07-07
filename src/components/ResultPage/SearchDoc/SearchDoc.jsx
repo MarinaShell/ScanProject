@@ -19,6 +19,7 @@ const SearchDoc = () => {
         Number(useSelector((state) => state.documents.limitDocs)) - 10;
 
     useEffect(() => {
+        
         if (encodedIDs.success && encodedIDs.objectSearch.items.length > 0) {
             const body = {
                 ids: encodedIDs.objectSearch.items.map(
@@ -27,28 +28,10 @@ const SearchDoc = () => {
             };
             dispatch(Documents({ accessToken: accessToken, body: body }));
         }
-    }, [dispatch, accessToken, encodedIDs]);
+    }, [dispatch, encodedIDs?.success, encodedIDs?.objectSearch, accessToken]);
 
     const docs = useSelector((state) => state.documents);
     const docsCount = docs.documents ? docs.documents.length : 0;
-
-    // const parsingXML = (txt) => {
-
-    //     const textParser = new DOMParser();
-    //     const doc = textParser.parseFromString(txt, "text/xml");
-    //     console.log(doc.querySelector("scandoc"))
-    //     let content = "";
-    //     doc.querySelector("scandoc").childNodes.forEach(
-    //         (node, index) => {
-    //             // console.log(node)
-    //             if (index > 3) {
-    //             if ((node.innerHTML).match(/[а-я ]/gi)) {
-    //                 content += node.innerHTML.match(/[а-я ]/gi).join("");
-    //             }
-    //         }}
-    //     );
-    //     return content;
-    // };
 
     return (
         <>

@@ -6,6 +6,20 @@ import { Colors } from "../../../../theme/Colors/Colors";
 import "./ComponentSearchDoc.css";
 
 const ComponentSearchDoc = (props) => {
+    const parsingXML = (txt) => {
+        const textParser = new DOMParser();
+        const doc = textParser.parseFromString(txt, "text/xml");
+        // console.log(doc.querySelector("scandoc"));
+        let content = "";
+        doc.querySelector("scandoc").childNodes.forEach((node, index) => {
+            // console.log(node)
+            
+                if ((node.innerHTM).match(/[а-я ]/gi)) {
+                    content += (node.innerHTML).match(/[а-я ]/gi).join("");
+                }
+        });
+        return content;
+    };
     return (
         <div>
             <div className="flex">
@@ -81,7 +95,7 @@ const ComponentSearchDoc = (props) => {
                         color: props.colorText,
                     }}
                 >
-                    {props.text}
+                    {parsingXML(props.text)}
                 </ComponentText>
             </div>
             <div className="left">

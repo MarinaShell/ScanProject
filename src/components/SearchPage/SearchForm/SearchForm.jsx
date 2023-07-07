@@ -30,7 +30,7 @@ const SearchForm = () => {
                 navigate("/result");
             }
         }
-    }, [histograms]);
+    }, [histograms?.histograms?.data, histograms?.success, navigate]);
 
     const checkFormAndRequest = () => {
         const inn = document.querySelector("#inn").value;

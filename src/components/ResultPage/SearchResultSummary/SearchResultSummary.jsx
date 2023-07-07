@@ -21,7 +21,7 @@ const SearchResultSummary = () => {
     let totalCount = 0;
 
     const totalDocs = useSelector((state) => state.histograms);
-    const body = useSelector((state => state.histograms.requestbody));
+    const body = useSelector((state) => state.histograms.requestbody);
 
     if (
         !totalDocs.loading &&
@@ -38,6 +38,7 @@ const SearchResultSummary = () => {
             })
         );
     }
+
     const toLeft = () => {
         document.querySelector("span[type='prev']").click();
     };
