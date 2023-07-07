@@ -16,7 +16,7 @@ const Header = () => {
   const is_Auth = useSelector((state) => state.userInfo.is_Auth);
 
   return (
-    <div style={{display: "flex", flexDirection: matches ? "column" : "row"}}>
+    <div style={{display: "flex", flexDirection: matches ? "column" : "row", marginBottom: "50px",}}>
       <div className="left-part">
         <div className="left-text">
           <div>
