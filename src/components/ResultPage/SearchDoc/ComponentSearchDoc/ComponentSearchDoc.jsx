@@ -3,9 +3,13 @@ import ComponentText from "../../../CustomComponents/ComponentText/ComponentText
 import { CustomButton } from "../../../CustomComponents/CustomButton/CustomButton";
 import { Colors } from "../../../../theme/Colors/Colors";
 import "./ComponentSearchDoc.css";
+import { useMediaQuery, useTheme } from "@mui/material";
 
 const ComponentSearchDoc = (props) => {
     const formattedDate = new Date();
+    const theme = useTheme();
+    const matches = useMediaQuery(theme.breakpoints.down("md"));
+
     const parsingXML = (txt) => {
         // console.log(txt)
         const textParser = new DOMParser();
@@ -22,19 +26,25 @@ const ComponentSearchDoc = (props) => {
         });
         return content.replace(/(<([^>]+)>)/gi, "");
     };
-
+    const textType = () => {
+        if (props.isTechNews) return "Технические новости";
+        if (props.isAnnouncement) return "анонсы и события";
+        if (props.isDigest) return "сводки новостей";
+        return "Без категории"
+    };
+    
     return (
         <div>
             <div className="flex">
                 <div>
                     <ComponentText
                         style={{
-                            fontSize: "16px",
+                            fontSize: matches ? "14px" : "16px",
                             fontWeight: "500",
                             lineHeight: "20px",
                             marginTop: "5px",
                             textAlign: "left",
-                            color: Colors.colorGray,
+                            color: "#949494",
                         }}
                     >
                         {formattedDate.toDateString(props.textDate)}
@@ -43,13 +53,13 @@ const ComponentSearchDoc = (props) => {
                 <div>
                     <ComponentText
                         style={{
-                            fontSize: "16px",
+                            fontSize: matches ? "14px" : "16px",
                             fontWeight: "500",
                             lineHeight: "20px",
                             marginTop: "5px",
                             textAlign: "left",
                             textDecoration: "underline",
-                            color: Colors.colorGray,
+                            color: "#949494",
                         }}
                     >
                         {props.textSource}
@@ -81,7 +91,7 @@ const ComponentSearchDoc = (props) => {
                         textAlign: "left",
                     }}
                 >
-                    <span className="span_div">{props.textType}</span>
+                    <span className="span_div">{textType()}</span>
                 </ComponentText>
             </div>
 
@@ -118,7 +128,8 @@ const ComponentSearchDoc = (props) => {
                     variant="lightblue"
                     style={{
                         display: props.url.length > 0 ? "block" : "none",
-                        margin: "0 auto",
+                        fontSize: matches ? "14px" : "16px",
+                        minwidth: matches ? "150px" : "240px"
                     }}
                     onClick={() =>
                         window.open(
@@ -139,7 +150,7 @@ const ComponentSearchDoc = (props) => {
                         lineHeight: "20px",
                         marginTop: "20px",
                         textAlign: "right",
-                        color: Colors.colorGray,
+                        color: "#949494",
                     }}
                 >
                     {props.textNumWord}

@@ -38,11 +38,11 @@ const SearchDoc = () => {
             <div>
                 <ComponentHeaderText
                     style={{
-                        fontSize: "45px",
-                        fontWeight: "500",
-                        lineHeight: "54px",
+                        fontSize: matches ? "28px" : "30px",
+                        fontWeight: 900,
+                        lineHeight: "36px",
                         marginTop: "20px",
-                        marginBottom: "60px",
+                        marginBottom: matches ? "20px" : "60px",
                         textAlign: "left",
                     }}
                 >
@@ -75,14 +75,7 @@ const SearchDoc = () => {
                                     textDate={item.ok.issueDate}
                                     textSource={item.ok.source.name}
                                     textHeader={item.ok.title.text}
-                                    textType={() => {
-                                        if (item.ok.attributes.isTechNews)
-                                            return "Технические новости";
-                                        if (item.ok.attributes.isAnnouncement)
-                                            return "анонсы и события";
-                                        if (item.ok.attributes.isDigest)
-                                            return "сводки новостей";
-                                    }}
+                                    textType={item.ok.attributes}
                                     text={item.ok.content.markup}
                                     textNumWord={`${item.ok.attributes.wordCount} слов`}
                                     image={defaultImage}
@@ -96,7 +89,7 @@ const SearchDoc = () => {
             )}
             <div style={{ marginTop: "30px" }}>
                 <CustomButton
-                    style={{display: limitDocs === -10 ? "none" : "block"}}
+                    style={{display: limitDocs === -10 ? "none" : "block", margin: "0 auto"}}
                     variant="blue"
                     onClick={() => {
                         dispatch(loadMore(limitDocs < 10 ? 0 : limitDocs));

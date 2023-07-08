@@ -46,9 +46,10 @@ const Header = () => {
                                 textAlign: "left",
                                 fontSize: matches ? "18px" : "20px",
                                 lineHeight: matches ? "21px" : "24px",
+                                marginTop: "10px"
                             }}
                         >
-                            Комплексный анализ публикаций, получение данных{" "}
+                            Комплексный анализ публикаций, получение данных
                             <br />в формате PDF на электронную почту.
                         </ComponentText>
                     </div>

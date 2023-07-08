@@ -1,5 +1,4 @@
 import "./App.css";
-
 import { NavBar } from "./components/NavBar/NavBar";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { MainPage } from "./components/MainPage/MainPage";
@@ -8,7 +7,7 @@ import SearchPage from "./components/SearchPage/SearchPage";
 import { ResultPage } from "./components/ResultPage/ResultPage";
 import Footer from "./components/Footer/Footer";
 import ProtectedRoutes from "./components/ProtectedRoutes/ProtectedRoutes";
-import Test from "./Test";
+// import Test from "./Test";
 function App() {
     return (
         <div className="App">
@@ -22,7 +21,7 @@ function App() {
                 <Route path="/" element={<MainPage />} />
                 <Route path="/login" element={<AuthPage />} />
                 <Route path="*" element={<Navigate to="/" />} />
-                <Route path="/test" element={<Test />} />
+                {/* <Route path="/test" element={<Test />} /> */}
             </Routes>
 
             <Footer />
