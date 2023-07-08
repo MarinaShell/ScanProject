@@ -36,7 +36,7 @@ const SearchForm = () => {
     const checkFormAndRequest = () => {
         const inn = document.querySelector("#inn").value;
         const tonality = document.querySelector("#tonality").value;
-        const count = document.querySelector("#count").value;
+        const count = Number(document.querySelector("#count").value);
         const startDate = document.querySelector("#startDate").value;
         const endDate = document.querySelector("#endDate").value;
         const body = () => {

@@ -96,7 +96,7 @@ const ComponentSearchDoc = (props) => {
                     backgroundColor: "#c7c7c7",
                 }}
             >
-                <img src={props.image} width="10%" />
+                <img src={props.image} width="10%" alt="docImage" />
             </div>
 
             <div>

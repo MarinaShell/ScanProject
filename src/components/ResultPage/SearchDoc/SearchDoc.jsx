@@ -96,13 +96,13 @@ const SearchDoc = () => {
             )}
             <div style={{ marginTop: "30px" }}>
                 <CustomButton
-                    style={{display: limitDocs === 0 ? "none" : "block"}}
+                    style={{display: limitDocs === -10 ? "none" : "block"}}
                     variant="blue"
                     onClick={() => {
                         dispatch(loadMore(limitDocs < 10 ? 0 : limitDocs));
                     }}
                 >
-                    Показать больше
+                    Показать больше{limitDocs}
                 </CustomButton>
             </div>
         </>
