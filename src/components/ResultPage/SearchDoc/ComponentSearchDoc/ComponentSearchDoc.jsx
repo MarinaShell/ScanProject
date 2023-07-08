@@ -1,7 +1,6 @@
 import React from "react";
 import ComponentText from "../../../CustomComponents/ComponentText/ComponentText";
 import { CustomButton } from "../../../CustomComponents/CustomButton/CustomButton";
-import { Colors } from "../../../../theme/Colors/Colors";
 import "./ComponentSearchDoc.css";
 import { useMediaQuery, useTheme } from "@mui/material";
 
