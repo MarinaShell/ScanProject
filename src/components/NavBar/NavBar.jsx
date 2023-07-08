@@ -37,7 +37,7 @@ const drawerWidth = "100%";
 
 const NavBar = (props) => {
     const dispatch = useDispatch();
-    const logged = useSelector((state) => state.login);
+    const logged = useSelector((state) => state.userInfo);
     const theme = useTheme();
     const matches_sm = useMediaQuery(theme.breakpoints.down("sm"));
 
@@ -87,41 +87,51 @@ const NavBar = (props) => {
                 ))}
             </List>
             <div style={{ textAlign: "center", marginTop: "70px" }}>
-                <ComponentText
-                    style={{
-                        marginBottom: "20px",
-                        color: "rgba(255,255,255,0.5)",
-                        // visibility: logged.is_Auth ? "hidden" : "visible",
-                    }}
-                    onClick={() => {
-                        navigate("/login");
-                        handleDrawerToggle();
-                    }}
-                >
-                    Зарегистрироваться
-                </ComponentText>
+                {logged.is_Auth ? (
+                    <CustomButton
+                        variant="blue"
+                        style={{
+                            backgroundColor: "rgba(124, 227, 225, 1)",
+                            color: Colors.colorBlack,
+                        }}
+                        onClick={() => {
+                            dispatch(clearUserInfo());
+                            dispatch(logout());
+                            handleDrawerToggle();
+                        }}
+                    >
+                        Выйти
+                    </CustomButton>
+                ) : (
+                    <>
+                        <ComponentText
+                            style={{
+                                marginBottom: "20px",
+                                color: "rgba(255,255,255,0.5)",
+                            }}
+                            onClick={() => {
+                                navigate("/login");
+                                handleDrawerToggle();
+                            }}
+                        >
+                            Зарегистрироваться
+                        </ComponentText>
 
-                <CustomButton
-                    variant="blue"
-                    style={{
-                        backgroundColor: "rgba(124, 227, 225, 1)",
-                        color: Colors.colorBlack,
-                    }}
-                    onClick={
-                        logged.is_Auth
-                            ? () => {
-                                  dispatch(clearUserInfo());
-                                  dispatch(logout());
-                                  handleDrawerToggle();
-                              }
-                            : () => {
-                                  navigate("/login");
-                                  handleDrawerToggle();
-                              }
-                    }
-                >
-                    {logged.is_Auth ? "Выйти" : "Войти"}
-                </CustomButton>
+                        <CustomButton
+                            variant="blue"
+                            style={{
+                                backgroundColor: "rgba(124, 227, 225, 1)",
+                                color: Colors.colorBlack,
+                            }}
+                            onClick={() => {
+                                navigate("/login");
+                                handleDrawerToggle();
+                            }}
+                        >
+                            Войти
+                        </CustomButton>
+                    </>
+                )}
             </div>
         </Box>
     );
@@ -175,7 +185,7 @@ const NavBar = (props) => {
                             </Button>
                         ))}
                     </Box>
-                    {logged.is_Auth || localStorage.getItem("accessToken")? (
+                    {logged.is_Auth || localStorage.getItem("accessToken") ? (
                         <>
                             <InfoBlock />
                             <Authorized />

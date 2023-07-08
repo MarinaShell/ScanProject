@@ -102,7 +102,7 @@ const SearchDoc = () => {
                         dispatch(loadMore(limitDocs < 10 ? 0 : limitDocs));
                     }}
                 >
-                    Показать больше{limitDocs}
+                    Показать больше
                 </CustomButton>
             </div>
         </>
