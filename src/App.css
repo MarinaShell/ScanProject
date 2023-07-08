@@ -2,14 +2,21 @@
 	text-align: center;
 	display: flex;
 	flex-direction: column;
-	flex: 1 1 auto;
+	/* flex: 1 1 auto; */
+	height: 100%;
 }
 .body {
-	flex: 1 1 auto;
+	/* flex: 1 1 auto; */
+	min-height: 100%;
+	position: relative;
 }
 .header {
 }
 
 .footer {
-	padding-top: 60px;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	padding-top: 20px;
 }

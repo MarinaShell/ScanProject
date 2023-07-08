@@ -15,23 +15,24 @@ const ComponentOurRates = (props) => {
         <CustomCard
             style={{
                 padding: "0 0 20px",
-                border: "2px solid" + props.color,
+                border: props.border + props.color,
                 flex: 1,
-                maxWidth: "500px",
-                minHeight: "540px",
+                maxWidth: "415px",
+                minWidth: "335px",
+                minHeight: "512px",
                 marginBottom: "20px",
             }}
         >
             <div style={{display: "flex", flexDirection: "column"}}>
                 <div
                     style={{
-                        flexGrow: 2,
+                        flexShrink: 2,
                         backgroundColor: props.color,
                         display: "flex",
                         position: "relative",
                     }}
                 >
-                    <div style={{ padding: "30px 24px", flexGrow: 2 }}>
+                    <div style={{ padding: "30px 24px", flexShrink: 2 }}>
                         <ComponentText
                             style={{
                                 padding: 0,
@@ -59,12 +60,9 @@ const ComponentOurRates = (props) => {
                     </div>
                     <div
                         style={{
-                            flexGrow: 1,
-                            padding: "15px",
-                            alignItems: "center",
-                            position: matches ? "absolute" : "static",
-                            right: "-20px",
-                            top: "0",
+                           position: "absolute",
+                            right: "10px",
+                            top: "5px",
                         }}
                     >
                         <ComponentImage
@@ -73,7 +71,29 @@ const ComponentOurRates = (props) => {
                         ></ComponentImage>
                     </div>
                 </div>
-                <div style={{flex: 1, display: "flex", flexDirection: "column" }}>
+                <div className = "current_tarif">
+                    <ComponentText
+                        style={{
+                            fontSize: "14px",
+                            lineHeight: "17px",
+                            color:Colors.colorWhite,
+                            paddingTop:"10px",
+                            textAlign:"right",
+                            paddingRight:"10px",
+                            
+                        }}
+                    >
+                        <span style={{
+                        	padding: "1px 10px",
+                            background: props.current?"#3BA5E0":"#FFFFFF",
+                            width: "134px",
+                            borderRadius:"10px",
+                        }}
+                        >{props.current?"Текущий тариф":null}</span>
+                        
+                    </ComponentText>
+                </div>
+                <div style={{flexshrink: 1, display: "flex", flexDirection: "column" }}>
                     <div
                         style={{
                             display: "flex",
@@ -81,6 +101,7 @@ const ComponentOurRates = (props) => {
                             columnGap: "20px",
                         }}
                     >
+ 
                         <div>
                             <ComponentText
                                 style={{
@@ -176,8 +197,8 @@ const ComponentOurRates = (props) => {
                             </li>
                         </ul>
                     </div>
-                    <CustomButton variant={props.buttonStyle} style={{margin: "0 25px"}}>
-                        {props.button}
+                    <CustomButton variant={props.current?"grey":"blue"} style={{margin: "0 25px"}}>
+                        {props.current ?"Перейти в личный кабинет":"Подробнее"}
                     </CustomButton>
                 </div>
             </div>

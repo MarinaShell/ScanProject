@@ -9,17 +9,10 @@ import notebook from "../../../media/notebook.svg";
 import { useTheme, useMediaQuery } from "@mui/material";
 import { CustomCard } from "../../CustomComponents/CustomCard/CustomCard";
 
-function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
-  }
-var numCard = getRandomInt(5);  
-
 const OurRates = () => {
     const theme = useTheme();
-    const matches = useMediaQuery(theme.breakpoints.down("lg"));
+    const matches = useMediaQuery(theme.breakpoints.down("md"));
 
- 
-    console.log(numCard);
     return (
         <>
             <div>
@@ -54,9 +47,10 @@ const OurRates = () => {
                 <ComponentOurRates
                     header="Beginner"
                     text="Для небольшого исследования"
-                    price="799 ₽"
-                    priceOld="1200 ₽"
-                    priceIn="или 150₽/мес. при рассрочке 24 мес."
+                    price="799 Р"
+                    priceOld="1200 Р"
+                    priceIn="или 150Р/мес. при рассрочке 24 мес."
+                    button="Перейти в личный кабинет"
                     color={Colors.colorYellow}
                     colorText={Colors.colorBlack}
                     buttonStyle="grey"
@@ -64,27 +58,24 @@ const OurRates = () => {
                     list2="Безопасная сделка"
                     list3="Поддержка 24/7"
                     source={lamp}
-                    border = {numCard ==1 ? "solid 2px":"none"}
                     style={{
                         border: "2px",
                         borderStyle: "solid",
                         boxShadow: "none",
                         borderColor: Colors.colorYellow,
                     }}
-                    current = {numCard == 1 }
                 />
                 <ComponentOurRates
                     header="Pro"
                     text="Для HR и фрилансеров"
-                    price="1299 ₽"
-                    priceOld="2600 ₽"
-                    priceIn="или 279₽/мес. при рассрочке 24 мес."
+                    price="1299 Р"
+                    priceOld="2600 Р"
+                    priceIn="или 279Р/мес. при рассрочке 24 мес."
                     color={Colors.colorLightBlue}
                     colorText={Colors.colorBlack}
+                    button="Подробнее"
                     buttonStyle="blue"
                     source={aim}
-                    border = {numCard ==2 ? "solid 2px":"none"}
-                    current = {numCard == 2 }
                     list1="Все пункты тарифа Beginner"
                     list2="Экспорт истории"
                     list3="Рекомендации по приоритетам"
@@ -92,15 +83,14 @@ const OurRates = () => {
                 <ComponentOurRates
                     header="Business"
                     text="Для корпоративных клиентов"
-                    price="2379 ₽"
-                    priceOld="3700 ₽"
+                    price="2379 Р"
+                    priceOld="3700"
                     priceIn="&nbsp;"
                     color={Colors.colorBlack}
                     colorText={Colors.colorWhite}
+                    button="Подробнее"
                     buttonStyle="blue"
                     source={notebook}
-                    border = {numCard ==3 ? "solid 2px":"none"}
-                    current = {numCard == 3 }
                     list1="Все пункты тарифа Pro"
                     list2="Безлимитное количество запросов"
                     list3="Приоритетная поддержка"

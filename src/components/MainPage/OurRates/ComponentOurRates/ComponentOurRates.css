@@ -34,3 +34,14 @@ ul {
 .li_div{
     margin-left: 5px;
 }
+
+.current_tarif{
+    text-align: left;
+}
+
+.span_tarif {
+	padding: 10px 10px;
+	background:#3BA5E0;
+    width: 134px;
+    border-radius:"10px";
+}

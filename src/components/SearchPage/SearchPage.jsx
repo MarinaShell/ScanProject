@@ -5,7 +5,6 @@ import SearchPageHeader from "./SearchPageHeader/SearchPageHeader";
 import SearchPageText from "./SearchPageText/SearchPageText";
 import "./SearchPage.css"
 
-
 function SearchPage() {
 	return (
 		<div className='search-page'>
@@ -15,10 +14,10 @@ function SearchPage() {
 				<div className='search-form'><SearchForm /></div>
 			</div>
 			<div className='search-form-right'>
-				<div className='search-page-media-image'><SearchPageMediaImage /></div>
+				<div ><SearchPageMediaImage /></div>
 			</div>
 		</div >
 	)
 }
 
-export default SearchPage
+export default SearchPage;

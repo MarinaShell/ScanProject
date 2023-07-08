@@ -1,18 +1,20 @@
-import React from 'react'
-import ComponentImage from '../../../CustomComponents/ComponentImage/ComponentImage';
-import ComponentText from '../../../CustomComponents/ComponentText/ComponentText';
-import { CustomButton } from '../../../CustomComponents/CustomButton/CustomButton'
-import { CustomCard } from '../../../CustomComponents/CustomCard/CustomCard'
-import { Colors } from '../../../../theme/Colors/Colors';
-import './ComponentSearchDoc.css'
+import React from "react";
+import ComponentImage from "../../../CustomComponents/ComponentImage/ComponentImage";
+import ComponentText from "../../../CustomComponents/ComponentText/ComponentText";
+import { CustomButton } from "../../../CustomComponents/CustomButton/CustomButton";
+import { CustomCard } from "../../../CustomComponents/CustomCard/CustomCard";
+import { Colors } from "../../../../theme/Colors/Colors";
+import "./ComponentSearchDoc.css";
 
 const ComponentSearchDoc = (props) => {
+	function returnText(text)
+	{
+		if (text.indexOf('?xml'))
+			return "Текст невозможно загрузить";
+		return text;							
+	}
 	return (
-		<CustomCard style={{
-			MaxWidth: "50%",
-			MaxHeight: "100%",
-			marginTop:"30px"
-		}}>
+		<>
 			<div>
 				<div className="flex">
 					<div>
@@ -66,7 +68,7 @@ const ComponentSearchDoc = (props) => {
 						<span className="span_div">{props.textType}</span>
 					</ComponentText>
 				</div>
-				<ComponentImage source={props.image} width="100%">
+				<ComponentImage source={props.image} width="30%">
 
 				</ComponentImage>
 				<div>
@@ -78,14 +80,14 @@ const ComponentSearchDoc = (props) => {
 						textAlign: "left",
 						color: props.colorText
 					}}>
-						{props.text}
+						{returnText(props.text)}
 					</ComponentText>
 				</div>
 				<div className="left">
 					<CustomButton variant='lightblue'>
 						<a className = "a_div" 
 						target = "blank"
-						href = {props.textSourceUrl}>Читать в источнике</a>
+						href = {props.url}>Читать в источнике</a>
 					</CustomButton>
 				</div>
 				<div>
@@ -102,7 +104,7 @@ const ComponentSearchDoc = (props) => {
 				</div>
 			</div>
 
-		</CustomCard>
+		</>
 	)
 }
 

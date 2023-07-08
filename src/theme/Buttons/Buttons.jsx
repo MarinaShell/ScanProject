@@ -51,7 +51,7 @@ const theme = createTheme({
                         minWidth: "250px",
                         padding: "17px 20px",
                         fontWeight: 400,
-                        fontSize: "14px",
+                        fontSize: "20px",
                         lineHeight: "21px",
                         textTransform: "none",
                         // letterSpacing: "1px",

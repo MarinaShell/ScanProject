@@ -1,6 +1,6 @@
-import React from 'react'
-import ComponentHeaderText from '../../CustomComponents/ComponentHeaderText/ComponentHeaderText';
-import { useTheme, useMediaQuery } from '@mui/material';
+import React from "react";
+import ComponentHeaderText from "../../CustomComponents/ComponentHeaderText/ComponentHeaderText";
+import { useTheme, useMediaQuery } from "@mui/material";
 function ComponentAuthMedia() {
 	const theme = useTheme();
 	const matches = useMediaQuery(theme.breakpoints.down("md"));
@@ -24,4 +24,4 @@ function ComponentAuthMedia() {
 	)
 }
 
-export default ComponentAuthMedia
+export default ComponentAuthMedia;

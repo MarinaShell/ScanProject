@@ -8,22 +8,36 @@ import { CustomCard } from "../../CustomComponents/CustomCard/CustomCard";
 import { Colors } from "../../../theme/Colors/Colors";
 import { DataCarousel } from "./DataCArousel/DataCarousel";
 import { CustomButton } from "../../CustomComponents/CustomButton/CustomButton";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { ObjectSearch } from "../../../store/Slicers/ObjectSearchSlicer";
 
 const SearchResultSummary = () => {
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.down("md"));
 
-    const [objectsTotal, setObjectsTotal] = useState(0);
+    const dispatch = useDispatch();
+    const accessToken = localStorage.getItem("accessToken");
 
-    useEffect(() => {
-        axios
-            .get("/Mocks/response-objectsearch.json")
-            .then((data) => setObjectsTotal(data.data))
-            .catch((error) => console.log(error));
-    }, []);
+    let totalCount = 0;
 
+    const totalDocs = useSelector((state) => state.histograms);
+    const body = useSelector((state => state.histograms.requestbody));
+
+    if (
+        !totalDocs.loading &&
+        totalDocs.success &&
+        totalDocs.histograms.data.length > 0
+    ) {
+        totalDocs.histograms.data[0].data.map(
+            (item) => (totalCount += Number(item.value))
+        );
+        dispatch(
+            ObjectSearch({
+                accessToken: accessToken,
+                body: body,
+            })
+        );
+    }
     const toLeft = () => {
         document.querySelector("span[type='prev']").click();
     };
@@ -39,7 +53,7 @@ const SearchResultSummary = () => {
                 общая сводка
             </ComponentHeaderText>
             <ComponentText style={{ textAlign: "left", marginTop: "17px" }}>
-                Найдено {objectsTotal.items ? objectsTotal.items.length : 0} вариантов
+                Найдено {totalCount} вариантов
             </ComponentText>
             <div style={{ display: "flex" }}>
                 <CustomButton
@@ -94,7 +108,13 @@ const SearchResultSummary = () => {
                             Риски
                         </ComponentText>
                     </div>
-                    <div style={{ flexGrow: 1, alignItems: "middle", marginTop: matches ? 0 : "20px"}}>
+                    <div
+                        style={{
+                            flexGrow: 1,
+                            alignItems: "middle",
+                            marginTop: matches ? 0 : "20px",
+                        }}
+                    >
                         <DataCarousel />
                     </div>
                 </CustomCard>

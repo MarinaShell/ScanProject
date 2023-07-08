@@ -1,15 +1,25 @@
 import * as React from "react";
 import ComponentText from "../../CustomComponents/ComponentText/ComponentText";
-import axios from "axios";
 import { Box } from "@mui/material";
 import { useMediaQuery, useTheme } from "@mui/material";
 import CircularProgress from "@mui/material/CircularProgress";
+import { UserInfo } from "../../../store/Slicers/UserInfoSlicer";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 
-const InfoBlock = ({data}) => {
+const InfoBlock = () => {
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.down("sm"));
+    const dispatch = useDispatch();
+    const data = useSelector((state) => state.userInfo);
 
-    // console.log(data)
+    useEffect(() => {
+        if (!data.is_Auth) {
+            dispatch(UserInfo(localStorage.getItem("accessToken")));
+        }
+    }, [dispatch, data]);
+
+    
     return (
         <Box
             sx={{
@@ -22,9 +32,9 @@ const InfoBlock = ({data}) => {
                 color: "rgba(0, 0, 0, 0.5)",
             }}
         >
-            {data.loading ? (
-                <div style={{width: "150px", alignSelf: "center"}}>
-                <CircularProgress />
+            {data.loading || data.is_Auth === false ? (
+                <div style={{ width: "150px", alignSelf: "center" }}>
+                    <CircularProgress />
                 </div>
             ) : (
                 <>
