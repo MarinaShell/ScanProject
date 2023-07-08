@@ -11,6 +11,7 @@ import { loadMore } from "../../../store/Slicers/DocumentsSlicer";
 import SearchPageMediaImage from "../SearchPageMediaImage/SearchPageMediaImage";
 import { useMediaQuery, useTheme } from "@mui/material";
 
+
 const SearchForm = () => {
     const [error, setError] = useState("");
     const dispatch = useDispatch();
@@ -22,15 +23,15 @@ const SearchForm = () => {
     const histograms = useSelector((state) => state.histograms);
 
     useEffect(() => {
-        if (histograms.success && histograms.histograms.data) {
+        if (histograms.success && histograms.histograms?.data) {
             if (histograms.histograms.data.length === 0) {
                 setError("ИНН компании не найден");
-            } else if (histograms.histograms.data.length > 0) {
+            } else if (histograms.histograms?.data?.length > 0) {
                 setError("");
                 navigate("/result");
             }
         }
-    }, [histograms?.histograms?.data, histograms?.success, navigate]);
+    }, [dispatch, histograms?.histograms?.data, histograms?.success, navigate]);
 
     const checkFormAndRequest = () => {
         const inn = document.querySelector("#inn").value;

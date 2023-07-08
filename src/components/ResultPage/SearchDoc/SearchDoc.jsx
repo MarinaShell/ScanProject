@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import ComponentSearchDoc from "./ComponentSearchDoc/ComponentSearchDoc";
 import ComponentHeaderText from "../../CustomComponents/ComponentHeaderText/ComponentHeaderText";
 import { CustomButton } from "../../CustomComponents/CustomButton/CustomButton";
-import image1 from "./image1.svg";
+import defaultImage from "../../../media/default-image.svg";
 import "./SearchDoc.css";
 import { useDispatch, useSelector } from "react-redux";
 import { CircularProgress, useMediaQuery, useTheme } from "@mui/material";
@@ -85,7 +85,7 @@ const SearchDoc = () => {
                                     }}
                                     text={item.ok.content.markup}
                                     textNumWord={`${item.ok.attributes.wordCount} слов`}
-                                    image={image1}
+                                    image={defaultImage}
                                     url={item.ok.url}
                                 />
                             </CustomCard>
@@ -96,6 +96,7 @@ const SearchDoc = () => {
             )}
             <div style={{ marginTop: "30px" }}>
                 <CustomButton
+                    style={{display: limitDocs === 0 ? "none" : "block"}}
                     variant="blue"
                     onClick={() => {
                         dispatch(loadMore(limitDocs < 10 ? 0 : limitDocs));

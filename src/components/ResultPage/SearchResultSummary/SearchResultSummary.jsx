@@ -26,9 +26,9 @@ const SearchResultSummary = () => {
     if (
         !totalDocs.loading &&
         totalDocs.success &&
-        totalDocs.histograms.data.length > 0
+        totalDocs.histograms?.data?.length > 0
     ) {
-        totalDocs.histograms.data[0].data.map(
+        totalDocs.histograms?.data[0]?.data.map(
             (item) => (totalCount += Number(item.value))
         );
         dispatch(

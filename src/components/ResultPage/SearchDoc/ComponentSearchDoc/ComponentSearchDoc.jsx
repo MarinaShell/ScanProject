@@ -1,27 +1,26 @@
 import React from "react";
-import ComponentImage from "../../../CustomComponents/ComponentImage/ComponentImage";
 import ComponentText from "../../../CustomComponents/ComponentText/ComponentText";
 import { CustomButton } from "../../../CustomComponents/CustomButton/CustomButton";
 import { Colors } from "../../../../theme/Colors/Colors";
 import "./ComponentSearchDoc.css";
-import { useNavigate } from "react-router-dom";
 
 const ComponentSearchDoc = (props) => {
-    const navigate = useNavigate
+    const formattedDate = new Date();
     const parsingXML = (txt) => {
         // console.log(txt)
         const textParser = new DOMParser();
         const doc = textParser.parseFromString(txt, "text/xml");
         // console.log(doc.querySelector("scandoc"));
         let content = "";
-        doc.querySelector("scandoc").childNodes.forEach((node, index) => {
-            content += node.textContent
-            
-                // if (node.innerHTML.match(/[а-я ]/gi)) {
-                //     content += node.innerHTML.match(/[а-я ]/gi).join("");
-                // }
+        doc.querySelector("scandoc").childNodes.forEach((node) => {
+            // console.log(node.childNodes)
+            content += node.textContent;
+
+            // if (node.innerHTML.match(/[а-я ]/gi)) {
+            //     content += node.innerHTML.match(/[а-я ]/gi).join("");
+            // }
         });
-        return content;
+        return content.replace(/(<([^>]+)>)/gi, "");
     };
 
     return (
@@ -38,7 +37,7 @@ const ComponentSearchDoc = (props) => {
                             color: Colors.colorGray,
                         }}
                     >
-                        {props.textDate}
+                        {formattedDate.toDateString(props.textDate)}
                     </ComponentText>
                 </div>
                 <div>
@@ -48,14 +47,12 @@ const ComponentSearchDoc = (props) => {
                             fontWeight: "500",
                             lineHeight: "20px",
                             marginTop: "5px",
-                            marginLeft: "15px",
                             textAlign: "left",
                             textDecoration: "underline",
                             color: Colors.colorGray,
                         }}
                     >
                         {props.textSource}
-                        
                     </ComponentText>
                 </div>
             </div>
@@ -87,7 +84,21 @@ const ComponentSearchDoc = (props) => {
                     <span className="span_div">{props.textType}</span>
                 </ComponentText>
             </div>
-            <ComponentImage source={props.image} width="100%"></ComponentImage>
+
+            <div
+                style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    width: "100%",
+                    height: "150px",
+                    borderRadius: "5px",
+                    backgroundColor: "#c7c7c7",
+                }}
+            >
+                <img src={props.image} width="10%" />
+            </div>
+
             <div>
                 <ComponentText
                     style={{
@@ -103,7 +114,20 @@ const ComponentSearchDoc = (props) => {
                 </ComponentText>
             </div>
             <div className="left">
-                <CustomButton variant="lightblue" onClick={navigate(props.url)}>
+                <CustomButton
+                    variant="lightblue"
+                    style={{
+                        display: props.url.length > 0 ? "block" : "none",
+                        margin: "0 auto",
+                    }}
+                    onClick={() =>
+                        window.open(
+                            props.url,
+                            "_blank",
+                            "rel=noopener noreferrer"
+                        )
+                    }
+                >
                     Читать в источнике
                 </CustomButton>
             </div>

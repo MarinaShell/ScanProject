@@ -21,7 +21,7 @@ const DataCarousel = () => {
         { breakpoint: 355, rows: 1, cols: 1 },
     ];
 
-    if (histograms.success && !histograms.histograms.data.length > 0) {
+    if (histograms.success && !histograms.histograms.data?.length > 0) {
         return <h1>Документов нет</h1>;
     }
 
@@ -34,7 +34,7 @@ const DataCarousel = () => {
             mobileBreakpoint={354}
             loop
         >
-            {histograms.histograms.data[0].data.map((value, idx) => (
+            {histograms.histograms.data[0]?.data.map((value, idx) => (
                 <Carousel.Item key={idx}>
                     {matches ? (
                         <div
