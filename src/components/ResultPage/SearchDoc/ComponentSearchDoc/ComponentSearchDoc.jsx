@@ -68,7 +68,7 @@ const ComponentSearchDoc = (props) => {
 						<span className="span_div">{props.textType}</span>
 					</ComponentText>
 				</div>
-				<ComponentImage source={props.image} width="100%">
+				<ComponentImage source={props.image} width="30%">
 
 				</ComponentImage>
 				<div>
